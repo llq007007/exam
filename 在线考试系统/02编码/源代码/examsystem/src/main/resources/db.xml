@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd ">
+
+    <!--配置druid数据源-->
+    <bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName">
+            <value>com.mysql.jdbc.Driver</value>
+        </property>
+        <property name="username">
+            <value>root</value>
+        </property>
+        <property name="password">
+            <value></value>
+        </property>
+        <property name="url">
+            <value>jdbc:mysql://localhost:3306/exam?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <property name="initialSize">
+            <value>5</value>
+        </property>
+        <property name="maxActive">
+            <value>50</value>
+        </property>
+        <property name="minIdle">
+            <value>10</value>
+        </property>
+    </bean>
+    <!--配置sqlSessionFaction-->
+    <bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--依赖注入数据源-->
+        <property name="dataSource">
+            <ref bean="dataSource"></ref>
+        </property>
+        <!--配置SQL mapper xml文件-->
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:com/qst/examsystem/mapper/*.xml</value>
+            </list>
+        </property>
+        <!--配置使用别名注解实体类所在的包-->
+        <property name="typeAliasesPackage">
+            <value>com.qst.examsystem.entity</value>
+        </property>
+    </bean>
+    <!--配置SQL Session-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+
+    <!--配置Mapper接口SQL注解映射器,根据mapper接口所在的包，创建mapper接口的子类对象-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--mapper接口所在的包-->
+        <property name="basePackage">
+            <value>com.qst.examsystem.mapper</value>
+        </property>
+        <property name="sqlSessionFactoryBeanName">
+            <value>sqlSessionFactory</value>
+        </property>
+    </bean>
+
+    <!--配置spring事务管理器-->
+    <bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource">
+            <ref bean="dataSource"></ref>
+        </property>
+    </bean>
+    <!--启用注解方式的事务管理-->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+    <!--启用spring注解,配置dao，service扫描包-->
+    <context:component-scan base-package="com.qst.examsystem.dao"/>
+    <context:component-scan base-package="com.qst.examsystem.service"/>
+
+</beans>
