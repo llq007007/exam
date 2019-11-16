@@ -1,21 +1,22 @@
 package com.qst.examsystem.test;
 
 import com.qst.examsystem.entity.Tt;
-
 import com.qst.examsystem.service.ITtService;
 import org.junit.Test;
 import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 
 public class TtTest {
-
+    /**
+     * 添加套题测试类
+     */
     @Test
-    public void testRegister(){
+    public void testaddTt(){
         AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
         ITtService ttService=(ITtService)context.getBean("TtService");
         Tt tt=new Tt();
@@ -33,4 +34,19 @@ public class TtTest {
         System.out.println(rows);
     }
 
+    /**
+     * 查询所有套题
+     */
+    @Test
+    public  void  testqueryTt(){
+        AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
+        ITtService ttService=(ITtService)context.getBean("TtService");
+        List<Tt> ttList=ttService.queryTt();
+        if (ttList != null){
+            for(Tt tt:ttList){
+                System.out.println(tt);
+            }
+        }
+        context.close();
+    }
 }
