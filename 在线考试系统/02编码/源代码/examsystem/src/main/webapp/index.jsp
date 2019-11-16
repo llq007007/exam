@@ -1,21 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<!DOCTYPE html>
 <html>
-
 <head>
+    <link rel="stylesheet" href="/css/skin/css/style.css" type="text/css" />
     <meta charset="UTF-8">
-    <title>欢迎使用HRMS系统-系统登录</title>
+    <title>欢迎使用在线考试系统-系统登录</title>
     <style>
         body {
             background-color: #1c77ac;
-            background-image: url(css/skin/images/light.png);
+            background-image: url(/css/skin/images/light.png);
             background-repeat: no-repeat;
             background-position: center top;
             overflow: hidden;
         }
     </style>
-    <link rel="stylesheet" href="css/skin/css/style.css" type="text/css" />
+
 
 </head>
 
