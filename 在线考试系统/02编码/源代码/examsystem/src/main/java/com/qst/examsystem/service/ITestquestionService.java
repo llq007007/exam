@@ -1,10 +1,13 @@
-package com.qst.examsystem.dao;
+package com.qst.examsystem.service;
 
 import com.qst.examsystem.entity.Testquestion;
 
-public interface ITestquestionDao {
+/**
+ * 试题业务层接口
+ */
+public interface ITestquestionService {
     /**
-     * 添加题目
+     * 添加试题
      * @param testquestion
      * @return
      */
@@ -15,5 +18,4 @@ public interface ITestquestionDao {
      * @return
      */
     Testquestion queryQuestion();
-
 }

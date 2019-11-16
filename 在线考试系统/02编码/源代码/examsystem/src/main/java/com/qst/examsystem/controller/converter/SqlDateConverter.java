@@ -29,7 +29,7 @@ public class SqlDateConverter implements Converter<String, Date> {
             date = new Date(sdf.parse(source).getTime());
         } catch (ParseException e) {
             e.printStackTrace();
-            //throw new RuntimeException(source);
+            throw new RuntimeException(source);
         }
         return date;
     }

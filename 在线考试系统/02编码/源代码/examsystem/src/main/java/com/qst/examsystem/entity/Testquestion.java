@@ -1,10 +1,13 @@
 package com.qst.examsystem.entity;
 
+import org.apache.ibatis.type.Alias;
+
 import java.sql.Date;
 
 /**
  * 试题实体类
  */
+@Alias("testquestion")
 public class Testquestion {
     /**
      * 试题id
@@ -13,7 +16,7 @@ public class Testquestion {
     /**
      * 课程id
      */
-    private Integer kcid;
+    private Integer cid;
     /**
      *题型
      */
@@ -60,7 +63,7 @@ public class Testquestion {
     /**
      * 有参构造
      * @param stid
-     * @param kcid
+     * @param cid
      * @param type
      * @param contain
      * @param answer
@@ -71,9 +74,9 @@ public class Testquestion {
      * @param staddperson
      * @param stupdateperson
      */
-    public Testquestion(Integer stid, Integer kcid, String type, String contain, String answer, Integer degree, Integer tid, Date staddtime, Date stupdatetime, String staddperson, String stupdateperson) {
+    public Testquestion(Integer stid, Integer cid, String type, String contain, String answer, Integer degree, Integer tid, Date staddtime, Date stupdatetime, String staddperson, String stupdateperson) {
         this.stid = stid;
-        this.kcid = kcid;
+        this.cid = cid;
         this.type = type;
         this.contain = contain;
         this.answer = answer;
@@ -94,11 +97,11 @@ public class Testquestion {
     }
 
     public Integer getKcid() {
-        return kcid;
+        return cid;
     }
 
     public void setKcid(Integer kcid) {
-        this.kcid = kcid;
+        this.cid = kcid;
     }
 
     public String getType() {
@@ -177,7 +180,7 @@ public class Testquestion {
     public String toString() {
         return "Testquestion{" +
                 "stid=" + stid +
-                ", kcid=" + kcid +
+                ", kcid=" + cid +
                 ", type='" + type + '\'' +
                 ", contain='" + contain + '\'' +
                 ", answer='" + answer + '\'' +

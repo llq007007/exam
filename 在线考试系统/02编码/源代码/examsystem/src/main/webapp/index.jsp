@@ -16,7 +16,6 @@
         }
     </style>
 
-
 </head>
 
 <body>
@@ -39,12 +38,12 @@
     </ul>
 </div>
 <div class="loginbody">
-    <form action="main.html" method="post">
+    <form action="/main.jsp" method="post">
         <div class="loginbox">
             <ul>
                 <li><input id="name" name="name" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" /></li>
                 <li><input id="password" name="password" type="password" class="loginpwd" onclick="JavaScript:this.value=''" /></li>
-                <li><input type="submit" class="loginbtn" value="登录" /></li>
+                <li><input type="submit" class="loginbtn" value="登录" /><input type="button" class="loginbtn" onclick="zhuce()" value="注册" style="margin-left: 30px"/></li>
             </ul>
         </div>
     </form>
