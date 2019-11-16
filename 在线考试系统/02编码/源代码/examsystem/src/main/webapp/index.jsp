@@ -2,6 +2,7 @@
 
 <html>
 <head>
+    <script src="/js/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/skin/css/style.css" type="text/css" />
     <meta charset="UTF-8">
     <title>欢迎使用在线考试系统-系统登录</title>
