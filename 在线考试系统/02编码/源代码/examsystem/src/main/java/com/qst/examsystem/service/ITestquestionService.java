@@ -1,15 +1,16 @@
-package com.qst.examsystem.mapper;
+package com.qst.examsystem.service;
 
 import com.qst.examsystem.entity.Testquestion;
 
 import java.util.List;
 
 /**
- * 试题mapper接口
+ *试题业务层接口
  */
-public interface TestquestionMapper {
+public interface ITestquestionService {
     /**
-     * 添加试题
+     *添加试题
+     * @param testquestion
      * @return
      */
     int addQuestion(Testquestion testquestion);
@@ -22,6 +23,7 @@ public interface TestquestionMapper {
 
     /**
      * 更新试题
+     * @param testquestion
      * @return
      */
     int updateQuestion(Testquestion testquestion);
