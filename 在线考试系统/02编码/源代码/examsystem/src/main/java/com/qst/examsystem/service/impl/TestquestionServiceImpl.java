@@ -34,4 +34,14 @@ public class TestquestionServiceImpl implements ITestquestionService {
     public List<Testquestion> queryQuestion() {
         return testquestionDao.queryQuestion();
     }
+
+    /**
+     * 更新试题
+     * @param testquestion
+     * @return
+     */
+    @Override
+    public int updateQuestion(Testquestion testquestion) {
+        return testquestionDao.updateQuestion(testquestion);
+    }
 }

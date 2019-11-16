@@ -28,4 +28,12 @@ public class questionTest {
         List<Testquestion> list=testquestionService.queryQuestion();
         System.out.println(list);
     }
+    @Test
+    public void testupdate(){
+        AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
+        ITestquestionService testquestionService=(ITestquestionService)context.getBean("testquestionService");
+        Testquestion testquestion=new Testquestion(5,1,"选择",null,null,null,1,null,null,null,null);
+        int r=testquestionService.updateQuestion(testquestion);
+        System.out.println(r);
+    }
 }

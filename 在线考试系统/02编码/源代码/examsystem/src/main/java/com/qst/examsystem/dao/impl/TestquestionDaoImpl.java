@@ -26,7 +26,7 @@ public class TestquestionDaoImpl implements ITestquestionDao {
      */
     @Override
     public int addQuestion(Testquestion testquestion) {
-        return testquestionMapper.addQuestion();
+        return testquestionMapper.addQuestion(testquestion);
     }
 
     /**
@@ -36,5 +36,15 @@ public class TestquestionDaoImpl implements ITestquestionDao {
     @Override
     public List<Testquestion> queryQuestion() {
         return testquestionMapper.queryQuestion();
+    }
+
+    /**
+     * 更新试题
+     * @param testquestion
+     * @return
+     */
+    @Override
+    public int updateQuestion(Testquestion testquestion) {
+        return testquestionMapper.updateQuestion(testquestion);
     }
 }

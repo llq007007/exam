@@ -18,4 +18,10 @@ public interface ITestquestionDao {
      */
     List<Testquestion> queryQuestion();
 
+    /**
+     * 更新试题
+     * @param testquestion
+     * @return
+     */
+    int updateQuestion(Testquestion testquestion);
 }
