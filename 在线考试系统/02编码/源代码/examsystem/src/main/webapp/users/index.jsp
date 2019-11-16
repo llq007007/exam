@@ -25,6 +25,10 @@
     function zhuce() {
         window.location.href='/users/user-register.jsp';
     }
+    真帅
+//
+//
+//
 </script>
 </body>
 </html>
