@@ -14,7 +14,7 @@ import java.util.Set;
  * 分页算法工具
  * 
  */
-public class PageUtils implements Serializable {
+public class PageUtils<A> implements Serializable {
 	private static final long serialVersionUID = 7848895200933137866L;
 	private static final int MOD = 2;
 	/** 每一页显示的记录条数 */

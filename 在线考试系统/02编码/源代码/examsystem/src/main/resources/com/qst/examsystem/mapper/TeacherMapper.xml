@@ -3,4 +3,56 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.examsystem.mapper.TeacherMapper">
+   <!-- （tid，姓名 tname，工号 tno，密码 tpw，添加时间 taddtime，修改时间 tupdatetime，添加人 taddperson，修改人 tupdateperson）-->
+    <select id="findTeacherByCond" parameterType="teacher"
+            resultType="teacher">
+        select tname, tno, tpw, taddtime, tupdatetime, taddperson, tupdateperson from teachers
+    </select>
+
+    <select id="findTeacherCount"  resultType="int"  parameterType="teacher">
+        select count(*) from teachers
+    </select>
+
+    <insert	id="addTeacher" parameterType="teacher" >
+		insert into teachers(tname, tno, tpw, taddtime, tupdatetime, taddperson, tupdateperson)
+			values(#{tname},#{tno},#{tpw},#{taddtime},#{tupdatetime},#{taddperson},#{tupdateperson})
+	</insert>
+
+    <update id="findTeacherModify"  parameterType="teacher">
+        update teachers
+        <set>
+            <if test="tname !=null and tname!=''">
+                tname=#{tname},
+            </if>
+            <if test="tno !=null and tno !=''">
+                tno=#{tno},
+            </if>
+            <if test="tpw !=null and tpw !=''">
+                tpw=#{tpw},
+            </if>
+            <if test="taddtime !=null and taddtime !=''">
+                taddtime=#{taddtime},
+            </if>
+            <if test="tupdatetime !=null and tupdatetime !=''">
+                tupdatetime=#{tupdatetime},
+            </if>
+            <if test="taddperson !=null and taddperson !=''">
+                taddperson=#{taddperson},
+            </if>
+            <if test="tupdateperson !=null and tupdateperson !=''">
+                tupdateperson=#{tupdateperson},
+            </if>
+
+        </set>
+        where tid=#{tid}
+    </update>
+
+    <select id="findTeacherById" parameterType="String"
+            resultType="teacher">
+		select tname, tno, tpw, taddtime, tupdatetime, taddperson, tupdateperson  from teachers where tid =#{tid}
+	</select>
+
+    <delete id="deleteTeacher" parameterType="Integer">
+		delete from teachers where tid=#{tid}
+	</delete>
 </mapper>
