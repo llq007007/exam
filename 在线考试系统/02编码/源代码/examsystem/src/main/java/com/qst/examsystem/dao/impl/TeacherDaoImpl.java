@@ -2,24 +2,53 @@ package com.qst.examsystem.dao.impl;
 
 import com.qst.examsystem.dao.ITeacherDao;
 import com.qst.examsystem.entity.Teacher;
+import com.qst.examsystem.mapper.TeacherMapper;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+/**
+ * 教师数据访问
+ */
 @Repository("teacherDao")
 public class TeacherDaoImpl implements ITeacherDao {
     @Autowired
     @Qualifier("sqlSession")
     SqlSession sqlSession;
+    private TeacherMapper teacherMapper;
+
 
     @Override
-    public int insertTeacher(Teacher teacher) {
-        return 0;
+    public Integer addTeacher(Teacher teacher) {
+        return teacherMapper.addTeacher(teacher);
     }
 
     @Override
-    public int updatePassword(String password) {
-        return 0;
+    public Integer updataTeacher(Teacher teacher) {
+        return teacherMapper.updataTeacher(teacher);
+    }
+
+    @Override
+    public String deleteTeacher(String tid) {
+        return teacherMapper.deleteTeacher(tid);
+    }
+
+    @Override
+    public Teacher findTeacherById(String tid) {
+        return teacherMapper.findTeacherById(tid);
+    }
+
+    @Override
+    public List<Teacher> findTeacherByCond(RowBounds rowBounds, Teacher teacher) {
+        return teacherMapper.findTeacherByCond(rowBounds,teacher);
+    }
+
+    @Override
+    public Integer findTeacherCount(Teacher teacher) {
+        return teacherMapper.findTeacherCount(teacher);
     }
 }
