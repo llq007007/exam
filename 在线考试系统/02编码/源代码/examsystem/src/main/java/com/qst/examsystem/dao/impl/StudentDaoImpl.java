@@ -45,7 +45,7 @@ public class StudentDaoImpl implements IStudentDao {
      * @return
      */
     @Override
-    public String deleteStudent(Integer sid) {
+    public Integer deleteStudent(Integer sid) {
         return studentMapper.deleteStudent(sid);
     }
 

@@ -46,7 +46,7 @@ public class TeacherDaoImpl implements ITeacherDao {
      * @return
      */
     @Override
-    public String deleteTeacher(Integer tid) {
+    public Integer deleteTeacher(Integer tid) {
         return teacherMapper.deleteTeacher(tid);
     }
 

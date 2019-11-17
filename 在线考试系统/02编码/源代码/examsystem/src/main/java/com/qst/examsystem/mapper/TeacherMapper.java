@@ -28,7 +28,7 @@ public interface TeacherMapper {
      * @param tid
      * @return
      */
-    String deleteTeacher(Integer tid);
+    Integer deleteTeacher(Integer tid);
 
     /**
      * 查询根据id

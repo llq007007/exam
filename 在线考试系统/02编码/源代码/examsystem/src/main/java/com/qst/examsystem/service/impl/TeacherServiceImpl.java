@@ -43,7 +43,7 @@ public class TeacherServiceImpl implements ITeacherService {
      * @return
      */
     @Override
-    public String deleteTeacher(Integer tid) {
+    public Integer deleteTeacher(Integer tid) {
         return teacherDao.deleteTeacher(tid);
     }
 

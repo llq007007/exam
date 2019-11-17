@@ -30,12 +30,8 @@
             <if test="jkpw !=null and jkpw !=''">
                 jkpw=#{jkpw},
             </if>
-            <if test="jkaddtime !=null and jkaddtime !=''">
                 jkaddtime=#{jkaddtime},
-            </if>
-            <if test="jkupdatetime !=null and jkupdatetime !=''">
                 jkupdatetime=#{jkupdatetime},
-            </if>
             <if test="jkaddperson !=null and jkaddperson !=''">
                 jkaddperson=#{jkaddperson},
             </if>
@@ -46,7 +42,7 @@
         where jkid=#{jkid}
     </update>
 
-    <select id="findJkyById" parameterType="String"
+    <select id="findJkyById" parameterType="Integer"
             resultType="jky">
 		select jkname , jkcourse,jkpw,jkaddtime,jkupdatetime,jkaddperson ,jkupdateperson from jky where jkid =#{jkid}
 	</select>

@@ -29,7 +29,7 @@ public interface JkyMapper {
      * @param jkid
      * @return
      */
-    String deleteJky(Integer jkid);
+    Integer deleteJky(Integer jkid);
 
     /**
      * 查询根据id

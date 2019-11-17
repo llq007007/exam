@@ -32,7 +32,7 @@
         where adid=#{adid}
     </update>
 
-    <select id="findAdminById" parameterType="String"
+    <select id="findAdminById" parameterType="Integer"
             resultType="admin">
 		select * from admin where adid =#{adid}
 	</select>

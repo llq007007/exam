@@ -1,34 +1,32 @@
 package com.qst.examsystem.test;
 
-import com.qst.examsystem.entity.Student;
-import com.qst.examsystem.service.IStudentService;
+import com.qst.examsystem.entity.Teacher;
+import com.qst.examsystem.service.ITeacherService;
 import com.qst.examsystem.util.Page;
 import org.junit.Test;
 import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.Date;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 /**
- * 学生测试类
+ * 教师测试类
  */
-public class StudentTest {
-    
+public class TeacherTest {
 
     /**
      * 删除测试
      */
     @Test
-    public void testdeleteStudent(){
+    public void testdeleteTeacher(){
         // int rows=0;
         AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
-        IStudentService studentService=(IStudentService)context.getBean("studentService");
-        Integer students=studentService.deleteStudent(3);
+        ITeacherService teacherService=(ITeacherService)context.getBean("teacherService");
+        Integer teachers=teacherService.deleteTeacher(1);
 
-        if(students==0){
+        if(teachers==0){
             System.out.println("删除失败");
         }
         else{
@@ -36,24 +34,25 @@ public class StudentTest {
         }
     }
     /**
-     * 增加管理员
+     * 增加教师
      */
     @Test
-    public void testaddStudent(){
+    public void testaddTeacher(){
         Date addtime=null;
         Date  updatetime = null;
         AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
-        IStudentService studentService=(IStudentService)context.getBean("studentService");
+        ITeacherService teacherService=(ITeacherService)context.getBean("teacherService");
         //时间格式处理使用sql时间，实体类构造器也强转为sql了
         try {
             addtime=(new java.sql.Date(new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-15").getTime()));
-              updatetime=(new Date(new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-16").getTime()));
+            updatetime=(new Date(new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-16").getTime()));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Student student=new Student(null,3,"a","1","123456",addtime,updatetime,"1a","2b","cc");
-        Integer students=studentService.addStudent(student);
-        if(students==0){
+        Teacher teacher=new Teacher(null,"1","123456","1a",addtime,updatetime,"2b","cc");
+
+        Integer teachers=teacherService.addTeacher(teacher);
+        if(teachers==0){
             System.out.println("增加失败");
         }
         else{
@@ -63,24 +62,24 @@ public class StudentTest {
     }
 
     /**
-     * 修改管理员
+     * 修改教师
      */
     @Test
-    public void testupdataStudent(){
+    public void testupdataTeacher(){
         //时间格式处理使用sql时间，实体类构造器也强转为sql了
         Date addtime=null;
         Date  updatetime = null;
         AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
-        IStudentService studentService=(IStudentService)context.getBean("studentService");
+        ITeacherService teacherService=(ITeacherService)context.getBean("teacherService");
         try {
             addtime=(new java.sql.Date(new SimpleDateFormat("yyyy-MM-dd").parse("2018-11-15").getTime()));
             updatetime=(new Date(new SimpleDateFormat("yyyy-MM-dd").parse("2018-11-16").getTime()));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Student student=new Student(4,3,"a","1","123456",addtime,updatetime,"1a","2b","cc");
-        Integer students=studentService.updataStudent(student);
-        if(students==0){
+        Teacher teacher=new Teacher(2,"1","1234567","1a",addtime,updatetime,"2b","cc");
+        Integer teachers=teacherService.updataTeacher(teacher);
+        if(teachers==0){
             System.out.println("修改失败");
         }
         else{
@@ -90,37 +89,37 @@ public class StudentTest {
     }
 
     /**
-     * 根据查询管理员
+     * 根据查询教师
      */
     @Test
-    public void testfindStudentbyid(){
+    public void testfindTeacherbyid(){
         AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
-        IStudentService studentService=(IStudentService)context.getBean("studentService");
-        Student students=studentService.findStudentById(4);
-        if(students.equals(null)){
+        ITeacherService teacherService=(ITeacherService)context.getBean("teacherService");
+        Teacher teachers=teacherService.findTeacherById(2);
+        if(teachers.equals(null)){
             System.out.println("查询失败");
         }
         else{
             System.out.println("查询成功");
-            //  System.out.println(students);
+            //  System.out.println(teachers);
         }
 
     }
     /**
-     * 查询所有管理员
+     * 查询所有教师
      */
     @Test
-    public void testfindAllStudent(){
+    public void testfindAllTeacher(){
         AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
-        IStudentService studentService=(IStudentService)context.getBean("studentService");
-        Student student=new Student();
-        Page<Student> students=studentService.findStudentPage(3,3,student);
-        if(students.equals(null)){
+        ITeacherService teacherService=(ITeacherService)context.getBean("teacherService");
+        Teacher teacher=new Teacher();
+        Page<Teacher> teachers=teacherService.findTeacherPage(3,3,teacher);
+        if(teachers.equals(null)){
             System.out.println("查询失败");
         }
         else{
             System.out.println("查询成功");
-            //  System.out.println(students);
+            //  System.out.println(teachers);
         }
 
     }

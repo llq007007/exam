@@ -28,7 +28,7 @@ public interface StudentMapper {
      * @param sid
      * @return
      */
-    String deleteStudent(Integer sid);
+    Integer deleteStudent(Integer sid);
 
     /**
      * 查询根据id

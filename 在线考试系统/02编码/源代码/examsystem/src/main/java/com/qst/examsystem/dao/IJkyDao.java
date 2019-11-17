@@ -36,7 +36,7 @@ public interface IJkyDao {
      * @param jkid
      * @return
      */
-    String deleteJky(Integer jkid);
+    Integer deleteJky(Integer jkid);
 
     /**
      * 添加

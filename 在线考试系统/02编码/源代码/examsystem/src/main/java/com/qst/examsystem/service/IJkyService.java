@@ -26,7 +26,7 @@ public interface IJkyService {
      * @param jkid
      * @return
      */
-    public String deleteJky(@Param("jkid") Integer jkid);
+    public Integer deleteJky(@Param("jkid") Integer jkid);
     /**
      * 根据id查找监考员
      * @param jkid

@@ -9,7 +9,7 @@
     -->
     <select id="findStudentByCond" parameterType="student"
             resultType="student">
-        select zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments from students
+        select zyid,sname,ssex,spw,addtime, supdatetime, saddperson, supdateperson,scomments from students
     </select>
 
     <select id="findStudentCount"  resultType="int"  parameterType="student">
@@ -17,7 +17,7 @@
     </select>
 
     <insert	id="addStudent" parameterType="student" >
-		insert into students(zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments)
+		insert into students(zyid,sname,ssex,spw,addtime, supdatetime, saddperson, supdateperson,scomments)
 			values(#{zyid},#{sname},#{ssex},#{spw},#{saddtime},#{supdatetime},#{saddperson},#{supdateperson},#{scomments})
 	</insert>
 
@@ -36,12 +36,8 @@
             <if test="spw !=null and spw !=''">
                 spw=#{spw},
             </if>
-            <if test="saddtime !=null and saddtime !=''">
-                saddtime=#{saddtime},
-            </if>
-            <if test="supdatetime !=null and supdatetime !=''">
+                addtime=#{saddtime},
                 supdatetime=#{supdatetime},
-            </if>
             <if test="saddperson !=null and saddperson !=''">
                 saddperson=#{saddperson},
             </if>
@@ -52,15 +48,15 @@
                 scomments=#{scomments},
             </if>
         </set>
-        where sid=#{sid}
+        where khid=#{khid}
     </update>
 
-    <select id="findStudentById" parameterType="String"
+    <select id="findStudentById" parameterType="Integer"
             resultType="student">
-		select zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments from students where sid =#{sid}
+		select zyid,sname,ssex,spw,addtime, supdatetime, saddperson, supdateperson,scomments from students where khid =#{sid}
 	</select>
 
     <delete id="deleteStudent" parameterType="Integer">
-		delete from students where sid=#{sid}
+		delete from students where KHid=#{sid}
 	</delete>
 </mapper>

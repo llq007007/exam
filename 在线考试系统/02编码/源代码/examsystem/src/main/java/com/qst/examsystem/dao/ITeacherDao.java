@@ -29,7 +29,7 @@ public interface ITeacherDao {
      * @param tid
      * @return
      */
-    String deleteTeacher(Integer tid);
+    Integer deleteTeacher(Integer tid);
 
     /**
      * 根据id查询

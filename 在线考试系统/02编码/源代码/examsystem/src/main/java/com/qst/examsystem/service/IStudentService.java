@@ -26,7 +26,7 @@ public interface IStudentService {
      * @param sid
      * @return  1成功，0失败
      */
-    public String deleteStudent(@Param("jkid") Integer sid);
+    public Integer deleteStudent(@Param("jkid") Integer sid);
     /**
      * 根据id查找考生
      * @param sid

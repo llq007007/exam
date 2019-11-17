@@ -56,7 +56,7 @@ public class JkyDaoImpl implements IJkyDao {
      * @return
      */
     @Override
-    public String deleteJky(Integer jkid) {
+    public Integer deleteJky(Integer jkid) {
         return jkyMapper.deleteJky(jkid);
     }
 

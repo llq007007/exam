@@ -43,7 +43,7 @@ public class StudenServiceImpl implements IStudentService {
      * @return
      */
     @Override
-    public String deleteStudent(Integer sid) {
+    public Integer deleteStudent(Integer sid) {
         return studentDao.deleteStudent(sid);
     }
 

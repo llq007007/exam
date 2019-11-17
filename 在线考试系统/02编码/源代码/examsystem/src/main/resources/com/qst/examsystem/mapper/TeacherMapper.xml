@@ -30,12 +30,11 @@
             <if test="tpw !=null and tpw !=''">
                 tpw=#{tpw},
             </if>
-            <if test="taddtime !=null and taddtime !=''">
+
                 taddtime=#{taddtime},
-            </if>
-            <if test="tupdatetime !=null and tupdatetime !=''">
+
                 tupdatetime=#{tupdatetime},
-            </if>
+
             <if test="taddperson !=null and taddperson !=''">
                 taddperson=#{taddperson},
             </if>
@@ -47,7 +46,7 @@
         where tid=#{tid}
     </update>
 
-    <select id="findTeacherById" parameterType="String"
+    <select id="findTeacherById" parameterType="Integer"
             resultType="teacher">
 		select tname, tno, tpw, taddtime, tupdatetime, taddperson, tupdateperson  from teachers where tid =#{tid}
 	</select>

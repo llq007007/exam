@@ -28,7 +28,7 @@ public interface IStudentDao {
      * @param sid
      * @return
      */
-    String deleteStudent(Integer sid);
+    Integer deleteStudent(Integer sid);
 
     /**
      * 根据id查询
