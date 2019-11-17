@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.examsystem.mapper.TestquestionMapper">
+    <!--添加试题-->
+    <insert id="addQuestion" parameterType="testquestion">
+        <![CDATA[
+          INSERT INTO testquestion ( cid, type, contain, answer, degree, tid, staddtime, stupdatetime, staddperson, stupdateperson )
+          VALUES
+	     (#{cid},#{type},#{contain},#{answer},#{degree},#{tid},#{staddtime},#{stupdatetime},#{staddperson},#{stupdateperson})
+]]>
+    </insert>
+    <!--查询所有试题-->
+    <select id="queryQuestion" resultType="testquestion">
+        <![CDATA[
+      	SELECT
+		cid,
+		type,
+		contain,
+		answer,
+		degree,
+		tid,
+		staddtime,
+		stupdatetime,
+		staddperson,
+		stupdateperson
+        FROM
+	    testquestion
+]]>
+    </select>
+    <!--更新试题-->
+    <update id="updateQuestion" parameterType="testquestion">
+        <![CDATA[
+        	UPDATE testquestion
+	SET cid = #{cid},
+	    type = #{type},
+	    contain = #{contain},
+	    answer = #{answer},
+	   degree = #{degree},
+	   tid = #{tid},
+	   staddtime = #{staddtime},
+	   stupdatetime = #{stupdatetime},
+	   staddperson = #{staddperson},
+	   stupdateperson = #{stupdateperson}
+	WHERE
+		stid = #{stid}
+]]>
+    </update>
+</mapper>

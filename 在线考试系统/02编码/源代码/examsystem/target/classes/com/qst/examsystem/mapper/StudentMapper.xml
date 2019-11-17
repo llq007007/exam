@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.examsystem.mapper.StudentMapper">
+    <!--查询所有
+    （考号（khid），专业zyid（外）， 姓名 sname，性别ssex，密码 spw
+    添加时间 saddtime，修改时间 supdatetime，添加人 saddperson，修改人 supdateperson，备注 scomments）
+    -->
+    <select id="findStudentByCond" parameterType="student"
+            resultType="student">
+        select zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments from students
+    </select>
+
+    <select id="findStudentCount"  resultType="int"  parameterType="student">
+        select count(*) from students
+    </select>
+
+    <insert	id="addStudent" parameterType="student" >
+		insert into students(zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments)
+			values(#{zyid},#{sname},#{ssex},#{spw},#{saddtime},#{supdatetime},#{saddperson},#{supdateperson},#{scomments})
+	</insert>
+
+    <update id="findStudentModify"  parameterType="student">
+        update students
+        <set>
+            <if test="zyid !=null and zyid!=''">
+                zyid=#{zyid},
+            </if>
+            <if test="sname !=null and sname !=''">
+                sname=#{sname},
+            </if>
+            <if test="ssex !=null and ssex !=''">
+                ssex=#{ssex},
+            </if>
+            <if test="spw !=null and spw !=''">
+                spw=#{spw},
+            </if>
+            <if test="saddtime !=null and saddtime !=''">
+                saddtime=#{saddtime},
+            </if>
+            <if test="supdatetime !=null and supdatetime !=''">
+                supdatetime=#{supdatetime},
+            </if>
+            <if test="saddperson !=null and saddperson !=''">
+                saddperson=#{saddperson},
+            </if>
+            <if test="supdateperson !=null and supdateperson !=''">
+                supdateperson=#{supdateperson},
+            </if>
+            <if test="scomments !=null and scomments !=''">
+                scomments=#{scomments},
+            </if>
+        </set>
+        where sid=#{sid}
+    </update>
+
+    <select id="findStudentById" parameterType="String"
+            resultType="student">
+		select zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments from students where sid =#{sid}
+	</select>
+
+    <delete id="deleteStudent" parameterType="Integer">
+		delete from students where sid=#{sid}
+	</delete>
+</mapper>
