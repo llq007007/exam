@@ -29,4 +29,22 @@
 	    testquestion
 ]]>
     </select>
+    <!--更新试题-->
+    <update id="updateQuestion" parameterType="testquestion">
+        <![CDATA[
+        	UPDATE testquestion
+	SET cid = #{cid},
+	    type = #{type},
+	    contain = #{contain},
+	    answer = #{answer},
+	   degree = #{degree},
+	   tid = #{tid},
+	   staddtime = #{staddtime},
+	   stupdatetime = #{stupdatetime},
+	   staddperson = #{staddperson},
+	   stupdateperson = #{stupdateperson}
+	WHERE
+		stid = #{stid}
+]]>
+    </update>
 </mapper>
