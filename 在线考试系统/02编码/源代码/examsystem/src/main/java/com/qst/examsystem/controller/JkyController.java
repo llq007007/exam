@@ -62,15 +62,15 @@ public class JkyController {
 
     /**
      * 根据id查询需要修改的监考员信息
-     * @param tid
+     * @param jkid
      * @param model
      * @param sesson
      * @return
      */
     @RequestMapping("/toeditjky.action")
-    public String editJky(String tid,Model model,HttpSession sesson) {
+    public String editJky(Integer jkid,Model model,HttpSession sesson) {
 
-        Jky jky =jkyService.findJkyById(tid);
+        Jky jky =jkyService.findJkyById(jkid);
         System.out.println(jky);
         model.addAttribute("jky", jky);
         //返回客户信息展示页面
@@ -92,13 +92,13 @@ public class JkyController {
 
     /**
      * 根据id删除监考员信息
-     * @param tid
+     * @param jkid
      * @param model
      * @return
      */
     @RequestMapping("/deletejky.action")
-    public String deleteJky(String tid,Model model) {
-        jkyService.deleteJky(tid);
+    public String deleteJky(Integer jkid,Model model) {
+        jkyService.deleteJky(jkid);
         System.out.print("删除");
         return "redirect:tojky.action";
     }

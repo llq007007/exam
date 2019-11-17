@@ -63,15 +63,15 @@ public class StudentController {
 
     /**
      * 根据id查询需要修改的学生信息
-     * @param tid
+     * @param sid
      * @param model
      * @param sesson
      * @return
      */
     @RequestMapping("/toeditstudent.action")
-    public String editStudent(String tid,Model model,HttpSession sesson) {
+    public String editStudent(Integer sid,Model model,HttpSession sesson) {
 
-        Student student =studentService.findStudentById(tid);
+        Student student =studentService.findStudentById(sid);
         System.out.println(student);
         model.addAttribute("student", student);
         //返回客户信息展示页面
@@ -94,13 +94,13 @@ public class StudentController {
 
     /**
      * 删除学生信息
-     * @param tid
+     * @param sid
      * @param model
      * @return
      */
     @RequestMapping("/deletestudent.action")
-    public String deleteStudent(String tid,Model model) {
-        studentService.deleteStudent(tid);
+    public String deleteStudent(Integer sid,Model model) {
+        studentService.deleteStudent(sid);
         System.out.print("删除");
         return "redirect:tostudent.action";
     }

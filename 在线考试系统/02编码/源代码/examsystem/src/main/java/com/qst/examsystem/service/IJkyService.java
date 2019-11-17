@@ -12,27 +12,27 @@ public interface IJkyService {
     /**
      * 增加监考员
      * @param iky
-     * @return 1成功，0失败
+     * @return
      */
     public Integer addJky(Jky iky);
     /**
      * 修改监考员
      * @param iky
-     * @return 1成功，0失败
+     * @return
      */
     public Integer updataJky(Jky iky);
     /**
      * 删除监考员
      * @param jkid
-     * @return  1成功，0失败
+     * @return
      */
-    public String deleteJky(@Param("jkid") String jkid);
+    public String deleteJky(@Param("jkid") Integer jkid);
     /**
      * 根据id查找监考员
      * @param jkid
      * @return
      */
-    public Jky findJkyById(String jkid);
+    public Jky findJkyById(Integer jkid);
     /**
      * 查询所有监考员
      * @param page

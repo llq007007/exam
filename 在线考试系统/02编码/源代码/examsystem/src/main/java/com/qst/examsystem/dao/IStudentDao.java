@@ -28,14 +28,14 @@ public interface IStudentDao {
      * @param sid
      * @return
      */
-    String deleteStudent(String sid);
+    String deleteStudent(Integer sid);
 
     /**
      * 根据id查询
      * @param sid
      * @return
      */
-    Student findStudentById(String sid);
+    Student findStudentById(Integer sid);
 
     /**
      * 查询所有

@@ -17,8 +17,7 @@ import java.util.List;
 @Repository("teacherDao")
 public class TeacherDaoImpl implements ITeacherDao {
     @Autowired
-    @Qualifier("sqlSession")
-    SqlSession sqlSession;
+    @Qualifier("teacherMapper")
     private TeacherMapper teacherMapper;//创建mapper对象
 
     /**
@@ -38,7 +37,7 @@ public class TeacherDaoImpl implements ITeacherDao {
      */
     @Override
     public Integer updataTeacher(Teacher teacher) {
-        return teacherMapper.updataTeacher(teacher);
+        return teacherMapper.findTeacherModify(teacher);
     }
 
     /**
@@ -47,7 +46,7 @@ public class TeacherDaoImpl implements ITeacherDao {
      * @return
      */
     @Override
-    public String deleteTeacher(String tid) {
+    public String deleteTeacher(Integer tid) {
         return teacherMapper.deleteTeacher(tid);
     }
 
@@ -57,7 +56,7 @@ public class TeacherDaoImpl implements ITeacherDao {
      * @return
      */
     @Override
-    public Teacher findTeacherById(String tid) {
+    public Teacher findTeacherById(Integer tid) {
         return teacherMapper.findTeacherById(tid);
     }
 

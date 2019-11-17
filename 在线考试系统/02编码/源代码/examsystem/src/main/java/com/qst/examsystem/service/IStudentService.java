@@ -26,13 +26,13 @@ public interface IStudentService {
      * @param sid
      * @return  1成功，0失败
      */
-    public String deleteStudent(@Param("jkid") String sid);
+    public String deleteStudent(@Param("jkid") Integer sid);
     /**
      * 根据id查找考生
      * @param sid
      * @return
      */
-    public Student findStudentById(String sid);
+    public Student findStudentById(Integer sid);
     /**
      * 查询所有考生
      * @param page

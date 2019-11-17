@@ -16,8 +16,7 @@ import java.util.List;
 @Repository("jkyDao")
 public class JkyDaoImpl implements IJkyDao {
     @Autowired
-    @Qualifier("sqlSession")
-    SqlSession sqlSession;
+    @Qualifier("jkyMapper")
     private JkyMapper jkyMapper;//创建 JkyMapper 对象
 
     /**
@@ -47,7 +46,7 @@ public class JkyDaoImpl implements IJkyDao {
      * @return
      */
     @Override
-    public Jky findJkyById(String jkid) {
+    public Jky findJkyById(Integer jkid) {
         return jkyMapper.findJkyById(jkid);
     }
 
@@ -57,7 +56,7 @@ public class JkyDaoImpl implements IJkyDao {
      * @return
      */
     @Override
-    public String deleteJky(String jkid) {
+    public String deleteJky(Integer jkid) {
         return jkyMapper.deleteJky(jkid);
     }
 

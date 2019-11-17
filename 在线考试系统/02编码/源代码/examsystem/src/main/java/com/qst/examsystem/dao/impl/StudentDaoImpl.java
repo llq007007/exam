@@ -16,8 +16,7 @@ import java.util.List;
 @Repository("studentDao")
 public class StudentDaoImpl implements IStudentDao {
     @Autowired
-    @Qualifier("sqlSession")
-    SqlSession sqlSession;
+    @Qualifier("studentMapper")
     private StudentMapper studentMapper;//创建mapper对象
 
     /**
@@ -46,7 +45,7 @@ public class StudentDaoImpl implements IStudentDao {
      * @return
      */
     @Override
-    public String deleteStudent(String sid) {
+    public String deleteStudent(Integer sid) {
         return studentMapper.deleteStudent(sid);
     }
 
@@ -56,7 +55,7 @@ public class StudentDaoImpl implements IStudentDao {
      * @return
      */
     @Override
-    public Student findStudentById(String sid) {
+    public Student findStudentById(Integer sid) {
         return studentMapper.findStudentById(sid);
     }
 

@@ -29,14 +29,14 @@ public interface IJkyDao {
      * @param jkid
      * @return
      */
-    Jky findJkyById(String jkid);
+    Jky findJkyById(Integer jkid);
 
     /**
      * 删除
      * @param jkid
      * @return
      */
-    String deleteJky(String jkid);
+    String deleteJky(Integer jkid);
 
     /**
      * 添加

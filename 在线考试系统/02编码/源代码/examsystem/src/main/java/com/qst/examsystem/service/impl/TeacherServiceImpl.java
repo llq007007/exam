@@ -17,26 +17,53 @@ public class TeacherServiceImpl implements ITeacherService {
     @Qualifier("teacherDao")
     private ITeacherDao teacherDao;
 
+    /**
+     * 增加
+     * @param teacher
+     * @return
+     */
     @Override
     public Integer addTeacher(Teacher teacher) {
         return teacherDao.addTeacher(teacher);
     }
 
+    /**
+     * 修改
+     * @param teacher
+     * @return
+     */
     @Override
     public Integer updataTeacher(Teacher teacher) {
         return teacherDao.updataTeacher(teacher);
     }
 
+    /**
+     * 删除
+     * @param tid
+     * @return
+     */
     @Override
-    public String deleteTeacher(String tid) {
+    public String deleteTeacher(Integer tid) {
         return teacherDao.deleteTeacher(tid);
     }
 
+    /**
+     * 根据id查询
+     * @param tid
+     * @return
+     */
     @Override
-    public Teacher findTeacherById(String tid) {
+    public Teacher findTeacherById(Integer tid) {
         return teacherDao.findTeacherById(tid);
     }
 
+    /**
+     * 查询所有
+     * @param page
+     * @param rows
+     * @param teacher
+     * @return
+     */
     @Override
     public Page<Teacher> findTeacherPage(Integer page, Integer rows, Teacher teacher) {
         RowBounds rowBounds = new RowBounds((page-1) * rows, rows);

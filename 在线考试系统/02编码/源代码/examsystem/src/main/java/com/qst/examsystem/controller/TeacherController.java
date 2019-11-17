@@ -68,7 +68,7 @@ public class TeacherController {
      * @return
      */
     @RequestMapping("/toeditteacher.action")
-    public String editTeacher(String tid,Model model,HttpSession sesson) {
+    public String editTeacher(Integer tid,Model model,HttpSession sesson) {
 
         Teacher teacher =teacherService.findTeacherById(tid);
         System.out.println(teacher);
@@ -98,7 +98,7 @@ public class TeacherController {
      * @return
      */
     @RequestMapping("/deleteteacher.action")
-    public String deleteTeacher(String tid,Model model) {
+    public String deleteTeacher(Integer tid,Model model) {
         teacherService.deleteTeacher(tid);
         System.out.print("删除");
         return "redirect:toteacher.action";

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 /**
  * 管理员控制层
@@ -55,8 +54,8 @@ public class AdminController {
      * @return
      */
     @RequestMapping("/deleteAdmin.action")
-    public String deleteAdmin(String adid,Model model) {
-        String admins=adminService.deleteAdmin(adid);
+    public String deleteAdmin(Integer adid, Model model) {
+        Integer admins=adminService.deleteAdmin(adid);
         System.out.print("删除管理员"+adid);
         if(admins.equals(null)){
             model.addAttribute("mess", "添加成功");
@@ -107,7 +106,7 @@ public class AdminController {
      * @return
      */
     @RequestMapping("/toeditadmin.action")
-    public String editAdmin(String adid,Model model,HttpSession sesson) {
+    public String editAdmin(Integer adid, Model model, HttpSession sesson) {
 
         Admin admin =adminService.findAdminById(adid);
         System.out.println(admin);

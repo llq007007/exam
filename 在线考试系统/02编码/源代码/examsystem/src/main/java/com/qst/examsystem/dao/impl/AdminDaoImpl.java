@@ -3,9 +3,9 @@ package com.qst.examsystem.dao.impl;
 import com.qst.examsystem.dao.IAdminDao;
 import com.qst.examsystem.entity.Admin;
 import com.qst.examsystem.mapper.AdminMapper;
-import org.apache.ibatis.annotations.Param;
+
 import org.apache.ibatis.session.RowBounds;
-import org.apache.ibatis.session.SqlSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -18,8 +18,7 @@ import java.util.List;
 @Repository("adminDao")
 public class AdminDaoImpl implements IAdminDao {
     @Autowired
-    @Qualifier("sqlSession")
-    SqlSession sqlSession;
+    @Qualifier("adminMapper")
     private AdminMapper adminMapper;//创建AdminMapper对象
 
     /**
@@ -48,7 +47,8 @@ public class AdminDaoImpl implements IAdminDao {
      * @return
      */
     @Override
-    public String deleteAdmin(String adid) {
+    public Integer deleteAdmin(Integer adid) {
+        System.out.println("****"+adid);
         return adminMapper.deleteAdmin(adid);
     }
 
@@ -58,7 +58,7 @@ public class AdminDaoImpl implements IAdminDao {
      * @return
      */
     @Override
-    public Admin findAdminById(String adid) {
+    public Admin findAdminById(Integer adid) {
         return adminMapper.findAdminById(adid);
     }
 

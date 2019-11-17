@@ -10,16 +10,46 @@ import java.util.List;
  */
 public interface JkyMapper {
 
-
+    /**
+     * 增加
+     * @param jky
+     * @return
+     */
     Integer addJky(Jky jky);
 
+    /**
+     * 修改
+     * @param jky
+     * @return
+     */
     Integer findJkyModify(Jky jky);
 
-    String deleteJky(String jkid);
+    /**
+     * 删除
+     * @param jkid
+     * @return
+     */
+    String deleteJky(Integer jkid);
 
-    Jky findJkyById(String jkid);
+    /**
+     * 查询根据id
+     * @param jkid
+     * @return
+     */
+    Jky findJkyById(Integer jkid);
 
+    /**
+     * 查询所有
+     * @param rowBounds
+     * @param jky
+     * @return
+     */
     List<Jky> findJkyByCond(RowBounds rowBounds, Jky jky);
 
+    /**
+     * 查询count（*） 总条数
+     * @param jky
+     * @return
+     */
     Integer findJkyCount(Jky jky);
 }
