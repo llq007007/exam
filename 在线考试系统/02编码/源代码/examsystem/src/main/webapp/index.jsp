@@ -48,8 +48,8 @@
         </div>
     </form>
 </div>
+
 <div class="loginbm">版权所有&nbsp;&nbsp;&nbsp;&nbsp;java4班第二小组</div>
 </body>
-<%--李林生真帅--%>
 </html>
 

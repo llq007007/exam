@@ -25,11 +25,9 @@
     function zhuce() {
         window.location.href='/users/user-register.jsp';
     }
-    真帅
-//
-//
-//
+
 </script>
+<a href="/course/addCourse.jsp">添加课程</a>
 </body>
 </html>
 
