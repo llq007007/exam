@@ -38,5 +38,13 @@ public class TtServiceImpl implements ITtService {
         return TtDao.queryTt();
     }
 
-
+    /**
+     * 根据套题ID删除套题
+     * @param ttid
+     * @return
+     */
+    @Override
+    public int deleteTt(int ttid) {
+        return TtDao.deleteTt(ttid);
+    }
 }

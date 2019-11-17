@@ -20,4 +20,11 @@ public interface ITtService {
      * @return
      */
      List<Tt> queryTt();
+
+    /**
+     * 根据套题ID删除套题
+     * @param ttid
+     * @return
+     */
+     int deleteTt(int ttid);
 }
