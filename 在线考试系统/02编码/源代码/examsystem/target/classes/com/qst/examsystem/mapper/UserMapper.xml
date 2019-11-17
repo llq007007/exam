@@ -7,7 +7,7 @@
         <![CDATA[
 insert into
     user(username,password,image)
-    values(#{username},MD5(#{password}),#{image})
+    values(#{username},(#{password}),#{image})
 ]]>
     </insert>
 </mapper>
