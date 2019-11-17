@@ -45,6 +45,11 @@ public interface IAdminDao {
      */
     List<Admin> findAdminByCond(RowBounds rowBounds, Admin admin);
 
+    /**
+     * 查询 admin count（*）
+     * @param admin
+     * @return
+     */
     Integer findAdminCount(Admin admin);
 
 }

@@ -18,33 +18,64 @@ public class JkyDaoImpl implements IJkyDao {
     @Autowired
     @Qualifier("sqlSession")
     SqlSession sqlSession;
-    private JkyMapper jkyMapper;
+    private JkyMapper jkyMapper;//创建 JkyMapper 对象
 
+    /**
+     * 查找Jky count(*)
+     * @param jky
+     * @return
+     */
     @Override
     public Integer findJkyCount(Jky jky) {
         return jkyMapper.findJkyCount(jky);
     }
 
+    /**
+     * 分页查找所有
+     * @param rowBounds
+     * @param jky
+     * @return
+     */
     @Override
     public List<Jky> findJkyByCond(RowBounds rowBounds, Jky jky) {
         return jkyMapper.findJkyByCond(rowBounds, jky);
     }
 
+    /**
+     * 根据id查找
+     * @param jkid
+     * @return
+     */
     @Override
     public Jky findJkyById(String jkid) {
         return jkyMapper.findJkyById(jkid);
     }
 
+    /**
+     * 根据id删除
+     * @param jkid
+     * @return
+     */
     @Override
     public String deleteJky(String jkid) {
         return jkyMapper.deleteJky(jkid);
     }
 
+    /**
+     * 添加
+     * @param jky
+     * @return
+     */
     @Override
     public Integer addJky(Jky jky) {
         return jkyMapper.addJky(jky);
     }
 
+    /**
+     * 修改
+     * @param jky
+     * @return
+     */
     @Override
     public Integer updataJky(Jky jky) {
         return jkyMapper.findJkyModify(jky);

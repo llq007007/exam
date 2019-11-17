@@ -19,34 +19,64 @@ public class TeacherDaoImpl implements ITeacherDao {
     @Autowired
     @Qualifier("sqlSession")
     SqlSession sqlSession;
-    private TeacherMapper teacherMapper;
+    private TeacherMapper teacherMapper;//创建mapper对象
 
-
+    /**
+     * 添加
+     * @param teacher
+     * @return
+     */
     @Override
     public Integer addTeacher(Teacher teacher) {
         return teacherMapper.addTeacher(teacher);
     }
 
+    /**
+     * 修改
+     * @param teacher
+     * @return
+     */
     @Override
     public Integer updataTeacher(Teacher teacher) {
         return teacherMapper.updataTeacher(teacher);
     }
 
+    /**
+     * 删除
+     * @param tid
+     * @return
+     */
     @Override
     public String deleteTeacher(String tid) {
         return teacherMapper.deleteTeacher(tid);
     }
 
+    /**
+     * 根据id查询
+     * @param tid
+     * @return
+     */
     @Override
     public Teacher findTeacherById(String tid) {
         return teacherMapper.findTeacherById(tid);
     }
 
+    /**
+     * 分页查询所有
+     * @param rowBounds
+     * @param teacher
+     * @return
+     */
     @Override
     public List<Teacher> findTeacherByCond(RowBounds rowBounds, Teacher teacher) {
         return teacherMapper.findTeacherByCond(rowBounds,teacher);
     }
 
+    /**
+     *  查询 teacher count（*）
+     * @param teacher
+     * @return
+     */
     @Override
     public Integer findTeacherCount(Teacher teacher) {
         return teacherMapper.findTeacherCount(teacher);
