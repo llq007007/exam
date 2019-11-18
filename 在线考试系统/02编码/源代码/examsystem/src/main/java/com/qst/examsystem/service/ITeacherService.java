@@ -25,13 +25,13 @@ public interface ITeacherService {
      * @param tid
      * @return  1成功，0失败
      */
-    public String deleteTeacher(@Param("jkid") String tid);
+    public String deleteTeacher(@Param("jkid") Integer tid);
     /**
      * 根据id查找考生
      * @param tid
      * @return
      */
-    public Teacher findTeacherById(String tid);
+    public Teacher findTeacherById(Integer tid);
     /**
      * 查询所有考生
      * @param page

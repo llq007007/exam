@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service("studentService")
 public class StudenServiceImpl implements IStudentService {
@@ -17,26 +18,53 @@ public class StudenServiceImpl implements IStudentService {
     @Qualifier("studentDao")
     private IStudentDao studentDao;
 
+    /**
+     * 增加
+     * @param student
+     * @return
+     */
     @Override
     public Integer addStudent(Student student) {
         return studentDao.addStudent(student);
     }
 
+    /**
+     * 修改
+     * @param student
+     * @return
+     */
     @Override
     public Integer updataStudent(Student student) {
         return studentDao.updataStudent(student);
     }
 
+    /**
+     * 删除
+     * @param sid
+     * @return
+     */
     @Override
-    public String deleteStudent(String sid) {
+    public String deleteStudent(Integer sid) {
         return studentDao.deleteStudent(sid);
     }
 
+    /**
+     * 根据id查询
+     * @param sid
+     * @return
+     */
     @Override
-    public Student findStudentById(String sid) {
+    public Student findStudentById(Integer sid) {
         return studentDao.findStudentById(sid);
     }
 
+    /**
+     * 查询所有
+     * @param page
+     * @param rows
+     * @param student
+     * @return
+     */
     @Override
     public Page<Student> findStudentPage(Integer page, Integer rows, Student student) {
         RowBounds rowBounds = new RowBounds((page-1) * rows, rows);
@@ -52,5 +80,10 @@ public class StudenServiceImpl implements IStudentService {
         result.setSize(rows);
         result.setTotal(count);
         return result;
+    }
+
+    @Override
+    public Map<String, String> queryStudentDegree(String name) {
+        return studentDao.queryStudentDegree(name);
     }
 }

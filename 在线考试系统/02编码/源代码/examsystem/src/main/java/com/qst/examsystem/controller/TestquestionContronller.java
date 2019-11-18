@@ -19,16 +19,16 @@ import java.util.List;
 @Controller
 @RequestMapping("testquestion")
 public class TestquestionContronller {
-    @Autowired
+   @Autowired
     @Qualifier("testquestionService")
     private ITestquestionService testquestionService;
 
-    /**
+    /*
      * 添加试题
      * @param testquestion
      * @return
      */
-    @RequestMapping(value = "add",method= RequestMethod.POST)
+   @RequestMapping(value = "add",method= RequestMethod.POST)
     @ResponseBody
     public String addQuestion(Testquestion testquestion){
         int rows=testquestionService.addQuestion(testquestion);

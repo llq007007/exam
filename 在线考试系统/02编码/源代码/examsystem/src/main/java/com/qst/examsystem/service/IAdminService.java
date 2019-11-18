@@ -25,13 +25,13 @@ public interface IAdminService {
      * @param adid
      * @return  1成功，0失败
      */
-    public String deleteAdmin(@Param("adid") String adid);
+    public Integer deleteAdmin(@Param("adid") Integer adid);
     /**
      * 根据id查找管理员
      * @param adid
      * @return
      */
-    public Admin findAdminById(String adid);
+    public Admin findAdminById(Integer adid);
     /**
      * 查询所有管理员
      * @param page

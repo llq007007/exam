@@ -28,14 +28,14 @@ public interface IAdminDao {
      * @param adid
      * @return
      */
-    String deleteAdmin(String adid);
+    Integer deleteAdmin(Integer adid);
 
     /**
      * 查找
      * @param adid
      * @return
      */
-    Admin findAdminById(String adid);
+    Admin findAdminById(Integer adid);
 
     /**
      * 查询所有
@@ -45,6 +45,11 @@ public interface IAdminDao {
      */
     List<Admin> findAdminByCond(RowBounds rowBounds, Admin admin);
 
+    /**
+     * 查询 admin count（*）
+     * @param admin
+     * @return
+     */
     Integer findAdminCount(Admin admin);
 
 }

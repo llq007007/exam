@@ -18,26 +18,53 @@ public class AdminServiceImpl implements IAdminService {
     @Qualifier("adminDao")
     private IAdminDao adminDao;
 
+    /**
+     * 增加
+     * @param admin
+     * @return
+     */
     @Override
     public Integer addAdmin(Admin admin) {
         return adminDao.addAdmin(admin);
     }
 
+    /**
+     * 修改
+     * @param admin
+     * @return
+     */
     @Override
     public Integer updataAdmin(Admin admin) {
         return adminDao.findAdminModify(admin);
     }
 
+    /**
+     * 删除
+     * @param adid
+     * @return
+     */
     @Override
-    public String deleteAdmin(String adid) {
+    public Integer deleteAdmin(Integer adid) {
         return adminDao.deleteAdmin(adid);
     }
 
+    /**
+     * 根据id查询
+     * @param adid
+     * @return
+     */
     @Override
-    public Admin findAdminById(String adid) {
+    public Admin findAdminById(Integer adid) {
         return adminDao.findAdminById( adid);
     }
 
+    /**
+     * 查询所有
+     * @param page
+     * @param rows
+     * @param admin
+     * @return
+     */
     @Override
     public Page<Admin> findAdminPage(Integer page, Integer rows, Admin admin) {
         RowBounds rowBounds = new RowBounds((page-1) * rows, rows);

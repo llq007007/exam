@@ -20,26 +20,53 @@ public class JkyServiceImpl implements IJkyService {
     @Qualifier("jkyDao")
     private IJkyDao jkyDao;
 
+    /**
+     * 增加
+     * @param jky
+     * @return
+     */
     @Override
     public Integer addJky(Jky jky) {
         return jkyDao.addJky(jky);
     }
 
+    /**
+     * 修改
+     * @param jky
+     * @return
+     */
     @Override
     public Integer updataJky(Jky jky) {
         return jkyDao.updataJky(jky);
     }
 
+    /**
+     * 删除
+     * @param jkid
+     * @return
+     */
     @Override
-    public String deleteJky(String jkid) {
+    public String deleteJky(Integer jkid) {
         return jkyDao.deleteJky(jkid);
     }
 
+    /**
+     * 根据id查询
+     * @param jkid
+     * @return
+     */
     @Override
-    public Jky findJkyById(String jkid) {
+    public Jky findJkyById(Integer jkid) {
         return jkyDao.findJkyById(jkid);
     }
 
+    /**
+     * 查询所有
+     * @param page
+     * @param rows
+     * @param jky
+     * @return
+     */
     @Override
     public Page<Jky> findJkyPage(Integer page, Integer rows, Jky jky) {
         RowBounds rowBounds = new RowBounds((page-1) * rows, rows);
