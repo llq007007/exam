@@ -59,4 +59,5 @@ public class TtController {
         return "redirect:/Tt/delete_Tt_result.jsp?rows="+rows;
     }
 
+
 }
