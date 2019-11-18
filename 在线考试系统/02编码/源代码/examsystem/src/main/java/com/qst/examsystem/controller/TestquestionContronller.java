@@ -19,7 +19,7 @@ import java.util.List;
 @Controller
 @RequestMapping("testquestion")
 public class TestquestionContronller {
-   @Autowired
+    @Autowired
     @Qualifier("testquestionService")
     private ITestquestionService testquestionService;
 
@@ -28,21 +28,59 @@ public class TestquestionContronller {
      * @param testquestion
      * @return
      */
-   @RequestMapping(value = "add",method= RequestMethod.POST)
+    @RequestMapping(value = "add",method= RequestMethod.POST)
     @ResponseBody
     public String addQuestion(Testquestion testquestion){
         int rows=testquestionService.addQuestion(testquestion);
         return "redirect:/testquestion/add_testquestion_result.jsp?rows=" + rows;
     }
+
+    /**
+     * 查询所有试题
+     * @param request
+     * @param model
+     * @return
+     */
     @RequestMapping("query")
     public String queryQuestion(HttpServletRequest request, Model model){
         List<Testquestion> testquestionList=testquestionService.queryQuestion();
         model.addAttribute("testquestionList",testquestionList);
         return "/testquestion/query_question.jsp";
     }
+
+    /**
+     * 更新试题
+     * @param testquestion
+     * @return
+     */
     @RequestMapping("update")
     public String updateQuestion(Testquestion testquestion){
         int rows=testquestionService.updateQuestion(testquestion);
         return "redirect:/testquestion/update_question_result.jsp?rows="+rows;
+    }
+
+    /**
+     * 删除试题
+     * @param stid
+     * @return
+     */
+    @RequestMapping("delete")
+    public String deleteQuestion(int stid){
+        int rows=testquestionService.deleteQuestion(stid);
+        return "redirect:/testquestion/delete_question_result.jsp?rows="+rows;
+    }
+
+    /**
+     * 查询试题详细信息
+     * @param stid
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("getInfo")
+    public String getQuestionInfo(int stid,HttpServletRequest request, Model model){
+        Testquestion testquestion=testquestionService.getQuestionInfo(stid);
+        model.addAttribute("testquestion",testquestion);
+        return "/testquestion/query_questionInfo.jsp";
     }
 }

@@ -48,7 +48,12 @@
         </div>
     </form>
 </div>
+<script>
+    function zhuce() {
+        window.location.href='/users/user-register.jsp';
+    }
 
+</script>
 <div class="loginbm">版权所有&nbsp;&nbsp;&nbsp;&nbsp;java4班第二小组</div>
 </body>
 </html>

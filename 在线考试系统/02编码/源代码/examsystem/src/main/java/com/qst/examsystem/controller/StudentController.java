@@ -16,6 +16,7 @@ import java.util.Map;
  * 学生控制层
  */
 @Controller
+@RequestMapping("student")
 public class StudentController {
     @Autowired
     private IStudentService studentService;
@@ -112,11 +113,12 @@ public class StudentController {
     @RequestMapping(value = "query_degree", method= RequestMethod.POST)
     @ResponseBody
     public ModelAndView studentQueryDegree(String name) {
-        Map<String,String> stringMap=studentService.queryStudentDegree(name);
+        Map<String,Object> stringMap=studentService.queryStudentDegree(name);
         ModelAndView mv=new ModelAndView();
         mv.addObject("degreeMap",stringMap);
         mv.setViewName("/student/query-degree-result.jsp");
         return mv;
     }
+
 
 }

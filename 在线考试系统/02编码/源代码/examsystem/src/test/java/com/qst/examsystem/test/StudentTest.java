@@ -11,6 +11,8 @@ import java.sql.Date;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 学生测试类
@@ -51,7 +53,7 @@ public class StudentTest {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Student student=new Student(null,3,"a","1","123456",addtime,updatetime,"1a","2b","cc");
+        Student student=new Student(null,1,"a","1","123456",addtime,updatetime,"1a","2b","cc");
         Integer students=studentService.addStudent(student);
         if(students==0){
             System.out.println("增加失败");
@@ -96,13 +98,13 @@ public class StudentTest {
     public void testfindStudentbyid(){
         AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
         IStudentService studentService=(IStudentService)context.getBean("studentService");
-        Student students=studentService.findStudentById(4);
-        if(students.equals(null)){
+        Student students=studentService.findStudentById(1);
+        if("".equals(students)){
             System.out.println("查询失败");
         }
         else{
             System.out.println("查询成功");
-            //  System.out.println(students);
+              System.out.println(students);
         }
 
     }
@@ -123,5 +125,19 @@ public class StudentTest {
             //  System.out.println(students);
         }
 
+    }
+    @Test
+    public void testQueryDegree(){
+        AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
+        IStudentService studentService=(IStudentService)context.getBean("studentService");
+        System.out.println(studentService.queryStudentDegree("lisi"));
+    }
+    @Test
+    public void testGetStudent(){
+        AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
+        IStudentService studentService=(IStudentService)context.getBean("studentService");
+        Map<String,Object> map=new HashMap<>();
+        map.put("name","lisi");
+        System.out.println(studentService.getStudentByName(map));
     }
 }

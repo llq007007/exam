@@ -83,7 +83,13 @@ public class StudenServiceImpl implements IStudentService {
     }
 
     @Override
-    public Map<String, String> queryStudentDegree(String name) {
+    public Map<String,Object> getStudentByName(Map map) {
+        return studentDao.getStudentByName(map);
+    }
+
+    @Override
+    public Map<String,Object> queryStudentDegree(String name) {
+
         return studentDao.queryStudentDegree(name);
     }
 }

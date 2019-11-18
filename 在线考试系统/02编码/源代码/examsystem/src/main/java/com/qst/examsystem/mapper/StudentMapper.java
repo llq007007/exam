@@ -1,6 +1,7 @@
 package com.qst.examsystem.mapper;
 
 import com.qst.examsystem.entity.Student;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
@@ -57,8 +58,15 @@ public interface StudentMapper {
     /**
      * lilinsheng
      * 查询学生成绩
-     * @param name 学生名
+     * @param sname 学生名
      * @return
      */
-    Map<String,String> queryStudentDegree(String name);
+    Map<String,Object> queryStudentDegree(@Param("name")String sname);
+
+    /**
+     * 查询学生个人信息
+     * @param map 学生姓名 key value
+     * @return
+     */
+    Map<String,Object>getStudentByName(Map map);
 }

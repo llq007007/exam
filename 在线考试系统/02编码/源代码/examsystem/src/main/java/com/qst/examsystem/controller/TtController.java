@@ -1,17 +1,24 @@
 package com.qst.examsystem.controller;
 
+import com.qst.examsystem.entity.Testquestion;
 import com.qst.examsystem.entity.Tt;
+import com.qst.examsystem.service.ITestquestionService;
 import com.qst.examsystem.service.ITtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -24,6 +31,10 @@ public class TtController {
     @Autowired
     @Qualifier("TtService")
     private ITtService ttService;
+
+    @Autowired
+    @Qualifier("testquestionService")
+    private ITestquestionService testquestionService;
 
     /**
      * 添加套题
@@ -59,5 +70,19 @@ public class TtController {
         return "redirect:/Tt/delete_Tt_result.jsp?rows="+rows;
     }
 
-
+    /**
+     * 根据套题ID查询题目及答案
+     * @param ttid
+     * @return
+     */
+    @RequestMapping(value = "queryTt",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public Map<String,Object> loadTtDate(@RequestParam("ttid") int ttid){
+        Tt tt=ttService.getTt(ttid);
+        List<Testquestion> testquestionList=testquestionService.queryQuestion();
+        Map<String,Object> dateTt=new HashMap<>();
+        dateTt.put("Tt",tt);
+        dateTt.put("testquestionList",testquestionList);
+        return dateTt;
+    }
 }

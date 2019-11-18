@@ -27,4 +27,14 @@ public interface ITestquestionService {
      * @return
      */
     int updateQuestion(Testquestion testquestion);
+    /**
+     * 删除试题
+     */
+    int deleteQuestion(int stid);
+    /**
+     * 查询试题详细信息
+     * @param stid
+     * @return
+     */
+    Testquestion getQuestionInfo(int stid);
 }

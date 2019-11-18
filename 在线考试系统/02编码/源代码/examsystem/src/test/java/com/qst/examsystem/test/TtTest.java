@@ -60,4 +60,13 @@ public class TtTest {
         int rows=ttService.deleteTt(4);
         System.out.println("rows="+rows);
     }
+    @Test
+    public void testgetTt(){
+        AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
+        ITtService ttService=(ITtService) context.getBean("TtService");
+        Tt tt=ttService.getTt(1);
+        System.out.println(tt);
+        context.close();
+    }
+
 }

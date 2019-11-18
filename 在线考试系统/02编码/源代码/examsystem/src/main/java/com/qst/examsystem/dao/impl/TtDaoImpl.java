@@ -48,4 +48,14 @@ public class TtDaoImpl implements ITtDao {
         return ttMapper.deleteTt(ttid);
     }
 
+    /**
+     * 根据套题ID查询题目及答案
+     * @param ttid
+     * @return
+     */
+    @Override
+    public Tt getTt(int ttid) {
+        return ttMapper.getTt(ttid);
+    }
+
 }

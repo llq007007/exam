@@ -58,6 +58,12 @@ public interface IStudentDao {
      * @param name 模糊查询（学生名字）
      * @return
      */
-    Map<String,String> queryStudentDegree(String name);
+    Map<String,Object> queryStudentDegree(String name);
 
+    /**
+     * 查询学生个人信息
+     * @param map
+     * @return
+     */
+    Map<String,Object>getStudentByName(Map map);
 }

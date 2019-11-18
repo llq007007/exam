@@ -27,4 +27,23 @@
            delete from tt where ttid=#{ttid}
          ]]>
     </delete>
+
+    <!--根据套题ID查询题目及答案-->
+    <select id="getTt" resultType="com.qst.examsystem.entity.Tt" parameterType="int">
+        <![CDATA[
+        select
+        cid,
+		type,
+		contain,
+		answer,
+		degree,
+		tid,
+		staddtime,
+		stupdatetime,
+		staddperson,
+		stupdateperson
+       from
+         testquestion te left join tt on te.stid=tt.stid left join sj on tt.sjid=sj.sjid where ttid=#{ttid}
+        ]]>
+    </select>
 </mapper>

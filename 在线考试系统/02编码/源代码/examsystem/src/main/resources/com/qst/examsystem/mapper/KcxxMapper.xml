@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.examsystem.mapper.KcxxMapper">
+    <!--添加考场信息-->
+<insert id="insertKcxx" parameterType="kcxx">
+    <![CDATA[
+INSERT INTO kcxx ( kcname, kcnum, badnum, nullnum, jkname, kcno )
+VALUES
+	(#{kcname},#{kcnum},#{badnum},#{nullnum},#{jkname},#{kcno})
+]]>
+</insert>
+    <!--模糊查询考场信息-->
+    <select id="selectKcxxInfo" resultType="kcxx">
+        <![CDATA[
+		SELECT
+			kcname,
+			kcnum,
+			jkname,
+			kcno
+	FROM
+	kcxx
+	WHERE
+    <where>
+            <if test="kcname!=null and kcname!=''" >
+                and kcname like concat('%',#kcname,'%')
+            </if>
+            <if test="jkname!=null and jkname=''">
+                and jkname like concat('%',#jkname,'%')
+            </if>
+            <if test="kcno!=null and kcno=''">
+                and kcno like concat('%',#kcno,'%')
+            </if>
+   </where>
+]]>
+    </select>
+</mapper>

@@ -2,6 +2,7 @@ package com.qst.examsystem.service;
 
 import com.qst.examsystem.entity.Tt;
 
+
 import java.util.List;
 
 /**
@@ -27,4 +28,11 @@ public interface ITtService {
      * @return
      */
      int deleteTt(int ttid);
+
+    /**
+     * 根据套题ID查询题目及答案
+     * @param ttid
+     * @return
+     */
+     Tt getTt(int ttid);
 }

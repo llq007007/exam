@@ -60,7 +60,11 @@
 		delete from students where KHid=#{sid}
 	</delete>
     <!--学生查看个人成绩-->
-    <select id="queryStudentDegree" resultType="java.util.Map">
+    <select id="">
+
+    </select>
+    <!--计算成绩-->
+    <select id="queryStudentDegree" resultType="java.util.Map" parameterType="String">
         SELECT
         sjname,
         count( degree ) * 2
@@ -72,13 +76,19 @@
         LEFT JOIN sj ON sj.sjid = dj.sjid
         WHERE
         k.dacontain = tq.answer
-        <where>
-            <if test="sname!=null and sname!=''" >
-                and sanme like concat('%',#sname,'%')
-            </if>
-            <if test="sjname!=null and sjname=''">
-                and sjname like concat('%',#sjname,'%')
-            </if>
-        </where>
+        and sname like '${name}'
+
+    </select>
+    <!--查看个人信息  条件查询还有点问题-->
+    <select id="getStudentByName" resultType="java.util.Map" parameterType="java.util.Map" >
+SELECT
+	zyname,
+	khid,
+	sname,
+	ssex
+FROM
+	students s
+	LEFT JOIN zy ON s.zyid = zy.zyid
+WHERE  s.sname like '${name}'
     </select>
 </mapper>

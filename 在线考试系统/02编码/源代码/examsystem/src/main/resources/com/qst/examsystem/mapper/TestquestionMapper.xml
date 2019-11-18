@@ -47,4 +47,34 @@
 		stid = #{stid}
 ]]>
     </update>
+    <!--删除试题-->
+<delete id="deleteQuestion" parameterType="int">
+<![CDATA[
+	DELETE
+	FROM
+		testquestion
+	WHERE
+	stid = #{stid}
+]]>
+    </delete>
+    <!--查询试题详细信息-->
+    <select id="getQuestionInfo" resultType="testquestion">
+        <![CDATA[
+    SELECT
+		cid,
+		type,
+		contain,
+		answer,
+		degree,
+		tid,
+		staddtime,
+		stupdatetime,
+		staddperson,
+		stupdateperson
+	FROM
+		testquestion
+    WHERE
+	stid = #{stid}
+]]>
+    </select>
 </mapper>
