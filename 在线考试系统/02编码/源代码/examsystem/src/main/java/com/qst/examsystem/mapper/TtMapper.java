@@ -1,6 +1,7 @@
 package com.qst.examsystem.mapper;
 
 import com.qst.examsystem.entity.Tt;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -28,4 +29,11 @@ public interface TtMapper {
      * @return
      */
     int deleteTt(int ttid);
+
+    /**
+     * 根据套题ID查询题目及答案
+     * @param ttid
+     * @return
+     */
+    Tt getTt(@Param("ttid") int ttid);
 }
