@@ -50,5 +50,12 @@ public interface IStudentService {
      * @param name
      * @return
      */
-    public Map<String,String> queryStudentDegree(String name);
+    public Map<String,Object> queryStudentDegree(String name);
+
+    /**
+     * 根据姓名查询学生信息
+     * @param map
+     * @return
+     */
+    public Map<String,Object>getStudentByName(Map map);
 }

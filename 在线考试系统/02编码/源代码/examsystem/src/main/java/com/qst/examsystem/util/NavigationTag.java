@@ -10,12 +10,12 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class NavigationTag extends TagSupport {
 	static final long serialVersionUID = 2372405317744358833L;
+	/**33L;
 	/**
 	 * request 中用于保存Page<E> 对象的变量名,默认为“page”
 	 */
 	private String bean = "page";
-	/**
-	 * 分页跳转的url地址,此属性必须
+	 /* 分页跳转的url地址,此属性必须
 	 */
 	private String url = null;
 	/**

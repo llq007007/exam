@@ -82,8 +82,23 @@ public class StudentDaoImpl implements IStudentDao {
         return studentMapper.findStudentCount(student);
     }
 
+    /**
+     * 查询学生个人信息
+     * @param map 姓名
+     * @return
+     */
     @Override
-    public Map<String, String> queryStudentDegree(String name) {
+    public Map<String, Object> getStudentByName(Map map) {
+        return studentMapper.getStudentByName(map);
+    }
+
+    /**
+     * 计算成绩（查询个人成绩）
+     * @param name 模糊查询（学生名字）
+     * @return
+     */
+    @Override
+    public Map<String, Object> queryStudentDegree(String name) {
         return studentMapper.queryStudentDegree(name);
     }
 }
