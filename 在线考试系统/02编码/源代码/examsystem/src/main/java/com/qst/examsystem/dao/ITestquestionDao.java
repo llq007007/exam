@@ -24,4 +24,7 @@ public interface ITestquestionDao {
      * @return
      */
     int updateQuestion(Testquestion testquestion);
+    /**
+     * 删除试题
+     */
 }
