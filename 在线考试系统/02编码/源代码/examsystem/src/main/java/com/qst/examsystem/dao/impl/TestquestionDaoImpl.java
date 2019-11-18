@@ -47,4 +47,23 @@ public class TestquestionDaoImpl implements ITestquestionDao {
     public int updateQuestion(Testquestion testquestion) {
         return testquestionMapper.updateQuestion(testquestion);
     }
+    /**
+     * 删除试题
+     * @param stid
+     * @return
+     */
+    @Override
+    public int deleteQuestion(int stid) {
+        return testquestionMapper.deleteQuestion(stid);
+    }
+
+    /**
+     * 查询试题详细信息
+     * @param stid
+     * @return
+     */
+    @Override
+    public Testquestion getQuestionInfo(int stid) {
+        return testquestionMapper.getQuestionInfo(stid);
+    }
 }

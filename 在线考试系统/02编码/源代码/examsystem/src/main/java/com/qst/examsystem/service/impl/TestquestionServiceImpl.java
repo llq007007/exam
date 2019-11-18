@@ -44,4 +44,23 @@ public class TestquestionServiceImpl implements ITestquestionService {
     public int updateQuestion(Testquestion testquestion) {
         return testquestionDao.updateQuestion(testquestion);
     }
+    /**
+     * 删除试题
+     * @param stid
+     * @return
+     */
+    @Override
+    public int deleteQuestion(int stid) {
+        return testquestionDao.deleteQuestion(stid);
+    }
+
+    /**
+     * 查询试题详细信息
+     * @param stid
+     * @return
+     */
+    @Override
+    public Testquestion getQuestionInfo(int stid) {
+        return testquestionDao.getQuestionInfo(stid);
+    }
 }

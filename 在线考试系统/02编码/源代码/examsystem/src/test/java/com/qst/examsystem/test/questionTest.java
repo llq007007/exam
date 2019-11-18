@@ -36,4 +36,11 @@ public class questionTest {
         int r=testquestionService.updateQuestion(testquestion);
         System.out.println(r);
     }
+    @Test
+    public void testdelete(){
+        AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
+        ITestquestionService testquestionService=(ITestquestionService)context.getBean("testquestionService");
+        int rows=testquestionService.deleteQuestion(3);
+        System.out.println(rows);
+    }
 }
