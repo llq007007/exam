@@ -4,6 +4,7 @@ import com.qst.examsystem.entity.Student;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 学生Dao层接口
@@ -51,5 +52,12 @@ public interface IStudentDao {
      * @return
      */
     Integer findStudentCount(Student student);
+
+    /**
+     *lilinsheng
+     * @param name 模糊查询（学生名字）
+     * @return
+     */
+    Map<String,String> queryStudentDegree(String name);
 
 }

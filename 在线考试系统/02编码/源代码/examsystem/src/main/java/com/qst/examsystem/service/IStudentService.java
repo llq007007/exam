@@ -5,6 +5,8 @@ import com.qst.examsystem.entity.Student;
 import com.qst.examsystem.util.Page;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Map;
+
 /**
  * student表业务层
  */
@@ -41,4 +43,12 @@ public interface IStudentService {
      * @return
      */
     public Page<Student> findStudentPage(Integer page, Integer rows, Student student);
+
+    /**
+     * lilinsheng
+     * 查询学生成绩 （计算）
+     * @param name
+     * @return
+     */
+    public Map<String,String> queryStudentDegree(String name);
 }

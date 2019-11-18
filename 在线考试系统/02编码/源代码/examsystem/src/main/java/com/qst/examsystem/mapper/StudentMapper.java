@@ -4,6 +4,7 @@ import com.qst.examsystem.entity.Student;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 学生接口
@@ -51,4 +52,13 @@ public interface StudentMapper {
      * @return
      */
     Integer findStudentCount(Student student);
+
+
+    /**
+     * lilinsheng
+     * 查询学生成绩
+     * @param name 学生名
+     * @return
+     */
+    Map<String,String> queryStudentDegree(String name);
 }

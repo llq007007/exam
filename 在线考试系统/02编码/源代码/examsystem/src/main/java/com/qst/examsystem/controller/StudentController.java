@@ -6,12 +6,11 @@ import com.qst.examsystem.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
  * 学生控制层
@@ -105,5 +104,19 @@ public class StudentController {
         return "redirect:tostudent.action";
     }
 
+    /**
+     * 根据学生姓名模糊查询考试成绩
+     * @param name
+     * @return
+     */
+    @RequestMapping(value = "query_degree", method= RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView studentQueryDegree(String name) {
+        Map<String,String> stringMap=studentService.queryStudentDegree(name);
+        ModelAndView mv=new ModelAndView();
+        mv.addObject("degreeMap",stringMap);
+        mv.setViewName("/student/query-degree-result.jsp");
+        return mv;
+    }
 
 }

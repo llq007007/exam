@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
+
 /**
  * 学生数据访问
  */
@@ -78,5 +80,10 @@ public class StudentDaoImpl implements IStudentDao {
     @Override
     public Integer findStudentCount(Student student) {
         return studentMapper.findStudentCount(student);
+    }
+
+    @Override
+    public Map<String, String> queryStudentDegree(String name) {
+        return studentMapper.queryStudentDegree(name);
     }
 }

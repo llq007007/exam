@@ -59,4 +59,26 @@
     <delete id="deleteStudent" parameterType="Integer">
 		delete from students where KHid=#{sid}
 	</delete>
+    <!--学生查看个人成绩-->
+    <select id="queryStudentDegree" resultType="java.util.Map">
+        SELECT
+        sjname,
+        count( degree ) * 2
+        FROM
+        ksda k
+        LEFT JOIN testquestion tq ON tq.stid = k.stid
+        LEFT JOIN students st ON st.khid = k.khid
+        LEFT JOIN dj ON dj.khid = st.khid
+        LEFT JOIN sj ON sj.sjid = dj.sjid
+        WHERE
+        k.dacontain = tq.answer
+        <where>
+            <if test="sname!=null and sname!=''" >
+                and sanme like concat('%',#sname,'%')
+            </if>
+            <if test="sjname!=null and sjname=''">
+                and sjname like concat('%',#sjname,'%')
+            </if>
+        </where>
+    </select>
 </mapper>

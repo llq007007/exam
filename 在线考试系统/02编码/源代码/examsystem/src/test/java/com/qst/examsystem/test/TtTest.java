@@ -49,4 +49,15 @@ public class TtTest {
         }
         context.close();
     }
+
+    /**
+     * 根据套题ID删除套题
+     */
+    @Test
+    public void testdeleteTt(){
+        AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
+        ITtService ttService=(ITtService) context.getBean("TtService");
+        int rows=ttService.deleteTt(4);
+        System.out.println("rows="+rows);
+    }
 }

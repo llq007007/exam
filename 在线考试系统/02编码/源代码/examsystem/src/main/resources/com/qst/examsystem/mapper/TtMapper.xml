@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.examsystem.mapper.TtMapper">
+
     <!--添加套题-->
     <insert id="insertTt" parameterType="taoti">
         <![CDATA[
@@ -11,6 +12,7 @@
            values(#{sjid},(#{stid}),#{ttaddtime},#{ttupdatetime},#{ttaddperson},#{ttupdateperson})
          ]]>
     </insert>
+
     <!--查询套题-->
     <select id="queryTt" resultType="taoti">
         <![CDATA[
@@ -18,4 +20,11 @@
           from tt
         ]]>
     </select>
+
+    <!--根据套题ID删除套题-->
+    <delete id="deleteTt" parameterType="int">
+        <![CDATA[
+           delete from tt where ttid=#{ttid}
+         ]]>
+    </delete>
 </mapper>

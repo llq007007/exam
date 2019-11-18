@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service("studentService")
 public class StudenServiceImpl implements IStudentService {
@@ -79,5 +80,10 @@ public class StudenServiceImpl implements IStudentService {
         result.setSize(rows);
         result.setTotal(count);
         return result;
+    }
+
+    @Override
+    public Map<String, String> queryStudentDegree(String name) {
+        return studentDao.queryStudentDegree(name);
     }
 }
