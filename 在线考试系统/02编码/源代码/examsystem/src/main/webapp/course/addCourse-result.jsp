@@ -23,6 +23,6 @@
         <span style="color:rgb(219,99,48)">添加员工,服务器返回未知的状态</span>
     </c:otherwise>
 </c:choose>
-<a href="/course/addCourse.jsp">继续添加</a>
+<a href="/course/course-add.jsp">继续添加</a>
 </body>
 </html>

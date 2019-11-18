@@ -38,7 +38,7 @@
     </ul>
 </div>
 <div class="loginbody">
-    <form action="/main.jsp" method="post">
+    <form action="pages/main.jsp" method="post">
         <div class="loginbox">
             <ul>
                 <li><input id="name" name="name" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" /></li>
