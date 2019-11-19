@@ -20,37 +20,11 @@
 		<ul class="sidebar-menu">
 			<li class="header">菜单</li>
 			<li id="admin-index"><a
-				href="${pageContext.request.contextPath}/pages/main.jsp"><i
+				href="${pageContext.request.contextPath}../admin/adminmain.jsp"><i
 					class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
-			<li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
-					<span>系统管理</span> <span class="pull-right-container"> <i
-						class="fa fa-angle-left pull-right"></i>
-				</span>
-
-
-			</a>
-				<ul class="treeview-menu">
-
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/user/findAll.do"> <i
-							class="fa fa-circle-o"></i> 用户管理
-					</a></li>
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/role/findAll.do"> <i
-							class="fa fa-circle-o"></i> 角色管理
-					</a></li>
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/permission/findAll.do">
-							<i class="fa fa-circle-o"></i> 资源权限管理
-					</a></li>
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/sysLog/findAll.do"> <i
-							class="fa fa-circle-o"></i> 访问日志
-					</a></li>
-				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
-					<span>课程管理</span> <span class="pull-right-container"> <i
+				<span>专业管理</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
@@ -58,11 +32,74 @@
 
 					<li id="system-setting">
 						<a href="${pageContext.request.contextPath}/course/course-add.jsp">
-							<i class="fa fa-circle-o"></i> 课程添加
+							<i class="fa fa-circle-o"></i> 添加专业
+						</a></li>
+					<li id="system-setting"><a
+							href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
+							class="fa fa-circle-o"></i> 查询专业
+					</a></li>
+					<li id="system-setting"><a
+							href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
+							class="fa fa-circle-o"></i> 删除专业
+					</a></li>
+
+				</ul></li>
+			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
+				<span>课程管理</span> <span class="pull-right-container"> <i
+						class="fa fa-angle-left pull-right"></i>
+				</span>
+			</a>
+				<ul class="treeview-menu">
+
+					<li id="system-setting">
+						<a href="${pageContext.request.contextPath}/course/addCourse.jsp">
+							<i class="fa fa-circle-o"></i> 添加课程
+						</a></li>
+					<li id="system-setting"><a
+							href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
+							class="fa fa-circle-o"></i> 查看课程
+					</a></li>
+					<li id="system-setting"><a
+							href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
+							class="fa fa-circle-o"></i> 删除课程
+					</a></li>
+
+
+				</ul></li>
+			<li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
+					<span>用户管理</span> <span class="pull-right-container"> <i
+						class="fa fa-angle-left pull-right"></i>
+				</span>
+			</a>
+				<ul class="treeview-menu">
+
+					<li id="system-setting"><a
+						href="${pageContext.request.contextPath}/admin/teacher.jsp"> <i
+							class="fa fa-circle-o"></i> 教师管理
+					</a></li>
+					<li id="system-setting"><a
+						href="${pageContext.request.contextPath}/admin/student.jsp"> <i
+							class="fa fa-circle-o"></i>学生管理
+					</a></li>
+					<li id="system-setting"><a
+						href="${pageContext.request.contextPath}/permission/findAll.do">
+							<i class="fa fa-circle-o"></i> 监考员管理
+					</a></li>
+				</ul></li>
+			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
+					<span>套题管理</span> <span class="pull-right-container"> <i
+						class="fa fa-angle-left pull-right"></i>
+				</span>
+			</a>
+				<ul class="treeview-menu">
+
+					<li id="system-setting">
+						<a href="${pageContext.request.contextPath}/course/course-add.jsp">
+							<i class="fa fa-circle-o"></i> 查询套题
 					</a></li>
 					<li id="system-setting"><a
 						href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
-							class="fa fa-circle-o"></i> 订单管理
+							class="fa fa-circle-o"></i> 删除套题
 					</a></li>
 
 				</ul></li>

@@ -131,28 +131,20 @@
 <div class="wrapper">
 
     <!-- 页面头部 -->
-    <jsp:include page="../pages/header.jsp"></jsp:include>
+    <jsp:include page="../pages/userheader.jsp"></jsp:include>
     <!-- 页面头部 /-->
 
     <!-- 导航侧栏 -->
-    <jsp:include page="../pages/aside.jsp"></jsp:include>
+    <jsp:include page="../pages/teacheraside.jsp"></jsp:include>
     <!-- 导航侧栏 /-->
 
     <!-- 内容区域 -->
     <div class="content-wrapper">
 
-        <form action="/course/add" method="post">
-            <ul style="list-style: none">
-                <li><h3>添加课程信息</h3></li>
-                <li>课程名称:<input type="text" name="cname" required></li>
-                <li>专业名称:<input type="text" name="zyname" required></li>
-                <li>任课老师:<input type="text" name="tname" required></li>
-                <li>添加人:<input type="text" name="caddperson" required></li>
-                <input type="submit" value="确认添加">&nbsp;&nbsp;
-                <input type="reset" value="重新填写">
-            </ul>
-
-        </form>
+        <ul style="align:center;font-size: 20px;width: 100%;height: 100%">
+            <li><a href="#">手动组卷</a></li>
+            <li><a href="#">自动组卷</a></li>
+        </ul>
 
     </div>
     <!-- 内容区域 /-->
@@ -280,5 +272,3 @@
 </body>
 
 </html>
-
-

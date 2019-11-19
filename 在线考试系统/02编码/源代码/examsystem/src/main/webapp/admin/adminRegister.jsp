@@ -38,13 +38,15 @@
     </ul>
 </div>
 <div class="loginbody">
-        <div class="loginbox2">
-            <ul>
-                <li><a href="/student/studentLogin.jsp">学生登录</a></li>
-                <li><a href="/teacher/teacherLogin.jsp">教师登录</a></li>
-                <li><a href="/admin/AdminLogin.jsp">管理员登录</a></li>
-            </ul>
-        </div>
+    <form action="/admin/adminmain.jsp" method="post">
+    <div class="loginbox2">
+        <ul>
+            <li><input id="name" name="name" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" /></li>
+            <li><input id="password" name="password" type="password" class="loginpwd" onclick="JavaScript:this.value=''" /></li>
+            <li><input type="submit" class="loginbtn" value="注册" /></li>
+        </ul>
+    </div>
+    </form>
 </div>
 <div class="loginbm">版权所有&nbsp;&nbsp;&nbsp;&nbsp;java4班第二小组</div>
 </body>

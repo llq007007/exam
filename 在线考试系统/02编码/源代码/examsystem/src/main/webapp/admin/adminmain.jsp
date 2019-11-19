@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>在线考试系统</title>
+    <title>ITCAST - AdminLTE2定制版</title>
     <meta name="description" content="AdminLTE2定制版">
     <meta name="keywords" content="AdminLTE2定制版">
 
@@ -141,18 +141,8 @@
     <!-- 内容区域 -->
     <div class="content-wrapper">
 
-        <form action="/course/add" method="post">
-            <ul style="list-style: none">
-                <li><h3>添加课程信息</h3></li>
-                <li>课程名称:<input type="text" name="cname" required></li>
-                <li>专业名称:<input type="text" name="zyname" required></li>
-                <li>任课老师:<input type="text" name="tname" required></li>
-                <li>添加人:<input type="text" name="caddperson" required></li>
-                <input type="submit" value="确认添加">&nbsp;&nbsp;
-                <input type="reset" value="重新填写">
-            </ul>
-
-        </form>
+        <img src="${pageContext.request.contextPath}/img/center.jpg"
+             width="100%" height="100%" />
 
     </div>
     <!-- 内容区域 /-->
@@ -280,5 +270,3 @@
 </body>
 
 </html>
-
-
