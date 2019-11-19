@@ -13,7 +13,7 @@ public interface ITestquestionDao {
     int addQuestion(Testquestion testquestion);
 
     /**
-     * 查询所有试题
+     * 查询试题
      * @return
      */
     List<Testquestion> queryQuestion();
@@ -35,4 +35,11 @@ public interface ITestquestionDao {
      * @return
      */
     Testquestion getQuestionInfo(int stid);
+
+    /**
+     * 按类型查找试题
+     * @param type1
+     * @return
+     */
+    List<Testquestion> queryQbyType(String type1);
 }

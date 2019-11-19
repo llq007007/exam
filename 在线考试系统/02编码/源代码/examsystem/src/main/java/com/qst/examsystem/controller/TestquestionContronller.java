@@ -36,7 +36,7 @@ public class TestquestionContronller {
     }
 
     /**
-     * 查询所有试题
+     * 查询试题
      * @param request
      * @param model
      * @return
@@ -54,11 +54,28 @@ public class TestquestionContronller {
      * @return
      */
     @RequestMapping("update")
-    public String updateQuestion(Testquestion testquestion){
+    public String updateQuestion(Model model, Testquestion testquestion){
         int rows=testquestionService.updateQuestion(testquestion);
-        return "redirect:/testquestion/update_question_result.jsp?rows="+rows;
+        model.addAttribute("rows",rows);
+        return "/teacher/update_question_result.jsp";
     }
 
+    /**
+     * 更新试题前加载信息
+     * @param model
+     * @return
+     */
+    @RequestMapping("getQuestion")
+    public String getQuestion(HttpServletRequest request,Model model){
+        int stid=Integer.parseInt(request.getParameter("stid"));
+        Testquestion testquestion=testquestionService.getQuestionInfo(stid);
+        if (testquestion!=null){
+            model.addAttribute("testquestion",testquestion);
+        }else {
+            model.addAttribute("testquestion","exp");//设置查询发生异常的标志
+        }
+        return "/teacher/updateQuestion.jsp";
+    }
     /**
      * 删除试题
      * @param stid
@@ -72,15 +89,33 @@ public class TestquestionContronller {
 
     /**
      * 查询试题详细信息
-     * @param stid
      * @param request
      * @param model
      * @return
      */
     @RequestMapping("getInfo")
-    public String getQuestionInfo(int stid,HttpServletRequest request, Model model){
+    public String getQuestionInfo(HttpServletRequest request, Model model){
+        int stid=Integer.parseInt(request.getParameter("stid"));
         Testquestion testquestion=testquestionService.getQuestionInfo(stid);
         model.addAttribute("testquestion",testquestion);
-        return "/testquestion/query_questionInfo.jsp";
+        return "/teacher/query_questionInfo.jsp";
+    }
+
+    /**
+     * 根据类型查询试题
+     * @param type1
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("queryByType")
+    public String queryQbyType(String type1,HttpServletRequest request, Model model){
+        List<Testquestion> testquestionList=testquestionService.queryQbyType(type1);
+        if (testquestionList!=null){
+            model.addAttribute("list",testquestionList);
+        }else {
+            model.addAttribute("list","exp");//设置查询发生异常的标志
+        }
+        return "/teacher/queryQuestion.jsp";
     }
 }

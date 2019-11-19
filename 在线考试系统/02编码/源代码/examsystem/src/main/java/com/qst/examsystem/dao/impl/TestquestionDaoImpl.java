@@ -30,7 +30,7 @@ public class TestquestionDaoImpl implements ITestquestionDao {
     }
 
     /**
-     * 查询所有试题
+     * 查询试题
      * @return
      */
     @Override
@@ -65,5 +65,15 @@ public class TestquestionDaoImpl implements ITestquestionDao {
     @Override
     public Testquestion getQuestionInfo(int stid) {
         return testquestionMapper.getQuestionInfo(stid);
+    }
+
+    /**
+     *按类型查询试题
+     * @param type1
+     * @return
+     */
+    @Override
+    public List<Testquestion> queryQbyType(String type1) {
+        return testquestionMapper.queryQbyType(type1);
     }
 }

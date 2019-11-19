@@ -20,7 +20,7 @@ public class Testquestion {
     /**
      *题型
      */
-    private String type;
+    private String type1;
     /**
      * 题目内容
      */
@@ -60,24 +60,10 @@ public class Testquestion {
     public Testquestion() {
     }
 
-    /**
-     * 有参构造
-     * @param stid
-     * @param cid
-     * @param type
-     * @param contain
-     * @param answer
-     * @param degree
-     * @param tid
-     * @param staddtime
-     * @param stupdatetime
-     * @param staddperson
-     * @param stupdateperson
-     */
-    public Testquestion(Integer stid, Integer cid, String type, String contain, String answer, Integer degree, Integer tid, Date staddtime, Date stupdatetime, String staddperson, String stupdateperson) {
+    public Testquestion(Integer stid, Integer cid, String type1, String contain, String answer, Integer degree, Integer tid, Date staddtime, Date stupdatetime, String staddperson, String stupdateperson) {
         this.stid = stid;
         this.cid = cid;
-        this.type = type;
+        this.type1 = type1;
         this.contain = contain;
         this.answer = answer;
         this.degree = degree;
@@ -96,20 +82,20 @@ public class Testquestion {
         this.stid = stid;
     }
 
-    public Integer getKcid() {
+    public Integer getCid() {
         return cid;
     }
 
-    public void setKcid(Integer kcid) {
-        this.cid = kcid;
+    public void setCid(Integer cid) {
+        this.cid = cid;
     }
 
-    public String getType() {
-        return type;
+    public String getType1() {
+        return type1;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType1(String type1) {
+        this.type1 = type1;
     }
 
     public String getContain() {
@@ -174,22 +160,5 @@ public class Testquestion {
 
     public void setStupdateperson(String stupdateperson) {
         this.stupdateperson = stupdateperson;
-    }
-
-    @Override
-    public String toString() {
-        return "Testquestion{" +
-                "stid=" + stid +
-                ", kcid=" + cid +
-                ", type='" + type + '\'' +
-                ", contain='" + contain + '\'' +
-                ", answer='" + answer + '\'' +
-                ", degree=" + degree +
-                ", tid=" + tid +
-                ", staddtime=" + staddtime +
-                ", stupdatetime=" + stupdatetime +
-                ", staddperson='" + staddperson + '\'' +
-                ", stupdateperson='" + stupdateperson + '\'' +
-                '}';
     }
 }

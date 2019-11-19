@@ -6,42 +6,51 @@
     <!--添加试题-->
     <insert id="addQuestion" parameterType="testquestion">
         <![CDATA[
-          INSERT INTO testquestion ( cid, type, contain, answer, degree, tid, staddtime, stupdatetime, staddperson, stupdateperson )
+          INSERT INTO testquestion ( cid, type1, contain, answer, degree, tid, staddtime, stupdatetime, staddperson, stupdateperson )
           VALUES
-	     (#{cid},#{type},#{contain},#{answer},#{degree},#{tid},#{staddtime},#{stupdatetime},#{staddperson},#{stupdateperson})
+	     (#{cid},#{type1},#{contain},#{answer},#{degree},#{tid},#{staddtime},#{stupdatetime},#{staddperson},#{stupdateperson})
 ]]>
     </insert>
     <!--查询所有试题-->
     <select id="queryQuestion" resultType="testquestion">
         <![CDATA[
       	SELECT
+      	stid,
 		cid,
-		type,
+		type1,
 		contain,
 		answer,
-		degree,
-		tid,
-		staddtime,
-		stupdatetime,
-		staddperson,
-		stupdateperson
+		degree
         FROM
 	    testquestion
+]]>
+    </select>
+    <!--根据类型查询试题-->
+    <select id="queryQbyType" resultType="testquestion" parameterType="String">
+        <![CDATA[
+      	SELECT
+      	stid,
+		cid,
+		type1,
+		contain,
+		answer,
+		degree
+        FROM
+	    testquestion
+	    WHERE
+          type1=#{type1}
 ]]>
     </select>
     <!--更新试题-->
     <update id="updateQuestion" parameterType="testquestion">
         <![CDATA[
         	UPDATE testquestion
-	SET cid = #{cid},
-	    type = #{type},
+	SET
+	    type1 = #{type1},
 	    contain = #{contain},
 	    answer = #{answer},
 	   degree = #{degree},
 	   tid = #{tid},
-	   staddtime = #{staddtime},
-	   stupdatetime = #{stupdatetime},
-	   staddperson = #{staddperson},
 	   stupdateperson = #{stupdateperson}
 	WHERE
 		stid = #{stid}
@@ -60,20 +69,18 @@
     <!--查询试题详细信息-->
     <select id="getQuestionInfo" resultType="testquestion">
         <![CDATA[
-    SELECT
+	SELECT
 		cid,
-		type,
+		type1,
 		contain,
 		answer,
 		degree,
 		tid,
-		staddtime,
-		stupdatetime,
 		staddperson,
 		stupdateperson
 	FROM
 		testquestion
-    WHERE
+WHERE
 	stid = #{stid}
 ]]>
     </select>

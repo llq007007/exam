@@ -45,7 +45,7 @@
                 <ul class="treeview-menu">
 
                     <li id="system-setting"><a
-                            href="${pageContext.request.contextPath}/user/findAll.do"> <i
+                            href="${pageContext.request.contextPath}/teacher/queryQuestion.jsp"> <i
                             class="fa fa-circle-o"></i> 查找试题
                     </a></li>
                     <li id="system-setting"><a

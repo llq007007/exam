@@ -27,7 +27,7 @@ public class TestquestionServiceImpl implements ITestquestionService {
     }
 
     /**
-     * 查询所有试题
+     * 查询试题
      * @return
      */
     @Override
@@ -62,5 +62,15 @@ public class TestquestionServiceImpl implements ITestquestionService {
     @Override
     public Testquestion getQuestionInfo(int stid) {
         return testquestionDao.getQuestionInfo(stid);
+    }
+
+    /**
+     * 按类型查找试题
+     * @param type1
+     * @return
+     */
+    @Override
+    public List<Testquestion> queryQbyType(String type1) {
+        return testquestionDao.queryQbyType(type1);
     }
 }

@@ -37,4 +37,11 @@ public interface ITestquestionService {
      * @return
      */
     Testquestion getQuestionInfo(int stid);
+
+    /**
+     * 按类型查找试题
+     * @param type1
+     * @return
+     */
+    List<Testquestion> queryQbyType(String type1);
 }
