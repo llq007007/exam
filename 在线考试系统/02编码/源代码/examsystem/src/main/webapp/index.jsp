@@ -40,9 +40,9 @@
 <div class="loginbody">
         <div class="loginbox2">
             <ul>
-                <li><a href="/student/studentLogin.jsp">学生登录</a></li>
-                <li><a href="/teacher/teacherLogin.jsp">教师登录</a></li>
-                <li><a href="/admin/AdminLogin.jsp">管理员登录</a></li>
+                <li><a href="/student/studentLogin.jsp" style="font-size: 20px">学生登录</a></li>
+                <li><a href="/teacher/teacherLogin.jsp"style="font-size: 20px">教师登录</a></li>
+                <li><a href="/admin/AdminLogin.jsp"style="font-size: 20px">管理员登录</a></li>
             </ul>
         </div>
 </div>
