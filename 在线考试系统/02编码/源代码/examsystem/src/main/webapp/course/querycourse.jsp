@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,8 +8,7 @@
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<title>ITCAST - AdminLTE2定制版</title>
+<title>数据 - AdminLTE2定制版</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -16,72 +16,7 @@
 <meta
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 	name="viewport">
-<!-- Bootstrap 3.3.6 -->
-<!-- Font Awesome -->
-<!-- Ionicons -->
-<!-- iCheck -->
-<!-- Morris chart -->
-<!-- jvectormap -->
-<!-- Date Picker -->
-<!-- Daterange picker -->
-<!-- Bootstrap time Picker -->
-<!--<link rel="stylesheet" href="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.css">-->
-<!-- bootstrap wysihtml5 - text editor -->
-<!--数据表格-->
-<!-- 表格树 -->
-<!-- select2 -->
-<!-- Bootstrap Color Picker -->
-<!-- bootstrap wysihtml5 - text editor -->
-<!--bootstrap-markdown-->
-<!-- Theme style -->
-<!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-<!-- Ion Slider -->
-<!-- ion slider Nice -->
-<!-- bootstrap slider -->
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 
-<!-- jQuery 2.2.3 -->
-<!-- jQuery UI 1.11.4 -->
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!-- Bootstrap 3.3.6 -->
-<!-- Morris.js charts -->
-<!-- Sparkline -->
-<!-- jvectormap -->
-<!-- jQuery Knob Chart -->
-<!-- daterangepicker -->
-<!-- datepicker -->
-<!-- Bootstrap WYSIHTML5 -->
-<!-- Slimscroll -->
-<!-- FastClick -->
-<!-- iCheck -->
-<!-- AdminLTE App -->
-<!-- 表格树 -->
-<!-- select2 -->
-<!-- bootstrap color picker -->
-<!-- bootstrap time picker -->
-<!--<script src="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.js"></script>-->
-<!-- Bootstrap WYSIHTML5 -->
-<!--bootstrap-markdown-->
-<!-- CK Editor -->
-<!-- InputMask -->
-<!-- DataTables -->
-<!-- ChartJS 1.0.1 -->
-<!-- FLOT CHARTS -->
-<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
-<!-- jQuery Knob -->
-<!-- Sparkline -->
-<!-- Morris.js charts -->
-<!-- Ion Slider -->
-<!-- Bootstrap slider -->
-<!-- 页面meta /-->
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
@@ -125,16 +60,17 @@
 	href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 
 	<div class="wrapper">
 
 		<!-- 页面头部 -->
 		<jsp:include page="${pageContext.request.contextPath}/pages/header.jsp"></jsp:include>
-			<!-- 页面头部 /-->
-
+		<!-- 页面头部 /-->
 		<!-- 导航侧栏 -->
 		<jsp:include page="${pageContext.request.contextPath}/pages/aside.jsp"></jsp:include>
 		<!-- 导航侧栏 /-->
@@ -142,19 +78,103 @@
 		<!-- 内容区域 -->
 		<div class="content-wrapper">
 
-			<c:choose>
-				<c:when test="${1==param.rows}">
-					<span style="color:rgb(0,0,255)">添加成功</span>
-				</c:when>
-				<c:when test="${-1==param.rows}">
-					<span style="color:rgb(255,0,0)">添加失败,服务器异常</span>
-				</c:when>
-				<c:otherwise>
-					<span style="color:rgb(219,99,48)">添加员工,服务器返回未知的状态</span>
-				</c:otherwise>
-			</c:choose>
-			<a href="/course/course-add.jsp">继续添加</a>
+			<!-- 内容头部 -->
+			<section class="content-header">
+			<h1>
+				课程管理 <small>课程查看表单</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
+						class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a
+					href="${pageContext.request.contextPath}/product/findAll.do">课程管理</a></li>
+				<li class="active">课程表单</li>
+			</ol>
+			</section>
+			<!-- 内容头部 /-->
 
+			<form action="#"
+				method="post">
+				<!-- 正文区域 -->
+				<section class="content"> <!--添加课程信息-->
+
+				<div class="panel panel-default">
+					<div class="panel-heading">查看课程信息</div>
+					<div class="row data-type">
+						<div class="col-md-1 title">课程名</div>
+						<div class="col-md-2 title">课程名称</div>
+						<div class="col-md-1 title">专业名称</div>
+						<div class="col-md-1 title">任课老师</div>
+						<div class="col-md-2 title">添加时间</div>
+						<div class="col-md-2 title">修改时间</div>
+						<div class="col-md-1 title">添加人</div>
+						<div class="col-md-1 title">修改人</div>
+						<div class="col-md-1 title">操作</div>
+					</div>
+				</div>
+				<!--订单信息/--> <!--工具栏-->
+				<div class="row data-type">
+					<c:choose>
+						<c:when test="${ empty requestScope.courseList}">
+							<tr>
+								<td colspan="7" align="center"><span style="color: #0000FF">未查询到数据</span></td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${requestScope.courseList}" var="course">
+								<tr>
+									<div class="col-md-1 data">
+										<td>${course.cid}</td>
+									</div>
+								<div class="col-md-1 data">
+									<td>${course.cname}</td>
+								</div>
+								<div class="col-lg-2 data">
+									<td>${course.zyname}</td>
+								</div>
+								<div class="col-lg-1 data">
+									<td>${course.tname}</td>
+								</div>
+									<!-- 利用格式化标签输出出生日期-->
+								<div class="col-lg-2 data">
+									<td><fmt:formatDate value="${course.caddtime}" pattern="yyyy-MM-dd"/></td>
+								</div>
+								<div class="col-lg-2 data"	>
+									<td><fmt:formatDate value="${course.cupdatetime}" pattern="yyyy-MM-dd"/></td>
+								</div>
+								<div class="col-lg-1 data">
+									<td>${course.caddperson}</td>
+								</div>
+								<div class="col-lg-1 data">
+									<td>${course.cupdateperson}</td>
+								</div>
+								<div class="col-lg-1 data" >
+									<td>
+										<a href="#" onclick="deleteCourse(${course.cid})">删除</a>
+										<a href=/course/course-update.jsp?cid=${course.cid}" target="_blank">修改</a>
+									</td>
+								</div>
+								</tr>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+
+				</div>
+				<!--工具栏/--> </section>
+				<script>
+					/**
+					 * 根据员工ID删除信息
+					 * @param
+					 */
+					function deleteCourse(cid) {
+						if (window.confirm('确定要删除吗?')) {
+							window.location.href = '/course/delete?cid='+ cid;
+						}
+					}
+
+				</script>
+				<!-- 正文区域 /-->
+			</form>
 		</div>
 		<!-- 内容区域 /-->
 
@@ -169,6 +189,7 @@
 		<!-- 底部导航 /-->
 
 	</div>
+
 
 	<script
 		src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -253,6 +274,9 @@
 		src="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+
 	<script>
 		$(document).ready(function() {
 			// 选择框
@@ -274,10 +298,26 @@
 		}
 
 		$(document).ready(function() {
+			$('#datepicker-a3').datetimepicker({
+				format : "yyyy-mm-dd hh:ii",
+				autoclose : true,
+				todayBtn : true,
+				language : "zh-CN"
+			});
+		});
+
+		$(document).ready(function() {
 			// 激活导航位置
-			setSidebarActive("admin-index");
+			setSidebarActive("order-manage");
+			$("#datepicker-a3").datetimepicker({
+				format : "yyyy-mm-dd hh:ii",
+
+			});
+
 		});
 	</script>
+
+
 </body>
 
 </html>

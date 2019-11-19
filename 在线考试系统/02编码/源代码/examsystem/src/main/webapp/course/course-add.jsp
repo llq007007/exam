@@ -124,8 +124,8 @@
 								<div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								</div>
-								<input type="text" class="form-control pull-right"
-									id="datepicker-a3" name="caddtime">
+								<input type="date" class="form-control pull-right"
+									id="添加时间" name="caddtime">
 							</div>
 						</div>
 
@@ -136,7 +136,7 @@
 									<i class="fa fa-calendar"></i>
 								</div>
 								<input type="date" class="form-control pull-right"
-									   id="datepicker" name="departureTime">
+									   id="修改时间" name="cupdatetime">
 							</div>
 						</div>
 

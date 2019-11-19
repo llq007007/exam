@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.examsystem.mapper.CourseMapper">
+    <!--添加信息-->
     <insert id="addCourse" parameterType="course">
         <![CDATA[
 insert into
@@ -10,4 +11,42 @@ insert into
     values(#{cname},#{zyname},#{tname},#{caddtime},#{cupdatetime},#{caddperson},#{cupdateperson})
 ]]>
     </insert>
+
+    <!--删除课程信息-->
+    <delete id="deleteCourse" parameterType="int">
+        <![CDATA[
+    delete from course where cid=#{cid}
+]]>
+    </delete>
+    <!--查询所有信息-->
+    <select id="queryCourse" resultType="course">
+        <![CDATA[
+select
+    cid,cname,zyname,tname,caddtime,cupdatetime,caddperson,cupdateperson  from  course
+
+]]>
+    </select>
+    <!--根据cid查询-->
+    <select id="getCourse" resultType="course" parameterType="int">
+        <![CDATA[
+select
+    cname,zyname,tname,caddtime,cupdatetime,caddperson,cupdateperson  from  course where cid=#{cid}
+
+]]>
+    </select>
+    <!--修改信息-->
+    <update id="updateCourse" parameterType="course">
+        <![CDATA[
+update course set
+    cname=#{cname},
+    zyname=#{zyname},
+    tname=#{tname},
+    caddtime=#{caddtime},
+    cupdatetime=#{cupdatetime},
+    caddperson=#{caddperson},
+    cupdateperson=#{cupdateperson}
+    where
+      cid=#{cid}
+]]>
+    </update>
 </mapper>

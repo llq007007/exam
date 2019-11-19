@@ -52,18 +52,17 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting">
-						<a href="${pageContext.request.contextPath}/course/addCourse.jsp">
+						<a href="${pageContext.request.contextPath}/course/course-add.jsp">
 							<i class="fa fa-circle-o"></i> 添加课程
 						</a></li>
-					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
-							class="fa fa-circle-o"></i> 查看课程
+					<li id="system-setting">
+						<a href="${pageContext.request.contextPath}/course/query">
+						<i class="fa fa-circle-o"></i> 查看课程
 					</a></li>
-					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
-							class="fa fa-circle-o"></i> 删除课程
+					<li id="system-setting">
+						<a href="${pageContext.request.contextPath}/course/query">
+						<i class="fa fa-circle-o"></i> 删除课程
 					</a></li>
-
 
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
@@ -97,6 +96,10 @@
 						<a href="${pageContext.request.contextPath}/course/course-add.jsp">
 							<i class="fa fa-circle-o"></i> 查询套题
 					</a></li>
+					<li id="system-setting">
+						<a href="${pageContext.request.contextPath}/course/query">
+							<i class="fa fa-circle-o"></i> 查看课程
+						</a></li>
 					<li id="system-setting"><a
 						href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
 							class="fa fa-circle-o"></i> 删除套题
