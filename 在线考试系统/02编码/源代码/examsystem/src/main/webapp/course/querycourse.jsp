@@ -151,7 +151,7 @@
 								<div class="col-lg-1 data" >
 									<td>
 										<a href="#" onclick="deleteCourse(${course.cid})">删除</a>
-										<a href=/course/course-update.jsp?cid=${course.cid}" target="_blank">修改</a>
+										<a href=/course/course-update.jsp?cid=${course.cid}">修改</a>
 									</td>
 								</div>
 								</tr>

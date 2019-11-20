@@ -88,24 +88,7 @@
 				$('input[name="cupdatetime"]').val(course.cupdatetime);
 				$('input[name="caddperson"]').val(course.caddperson);
 				$('input[name="cupdateperson"]').val(course.cupdateperson);
-			}
-
-		/*		var deps=data.deps;
-				var length=deps.length;
-				if(0==length){
-					alert("未加载到部门数据");
-					return ;
-				}*/
-		/*		for(var index=0;index<length;index++){
-					var dep=deps[index];
-					var depId=dep.depId;//部门ID
-					var depName=dep.depName;//部门名称
-					var optionHTML='<option value="'+depId+'">'+depName+'</option>';
-					$("#dep-select").append(optionHTML);
-				}
-				//默认选中用户所属部门
-				$("#dep-select").val(emp.depId);
-			}*/,
+			},
 			error: function (XMLHttpRequest, textStatus, errorThrown) {
 				// 请求失败
 				console.error(errorThrown);
@@ -154,19 +137,19 @@
 						<div class="col-md-2 title">课程名称</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="cname"
-								placeholder="课程名称" >
+								 >
 						</div>
 
 						<div class="col-md-2 title">专业名称</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="zyname"
-								placeholder="专业名称" >
+								>
 						</div>
 
 						<div class="col-md-2 title">任课老师</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="tname"
-								   placeholder="任课老师" >
+								   >
 						</div>
 
 						<div class="col-md-2 title">添加时间</div>
@@ -176,7 +159,7 @@
 									<i class="fa fa-calendar"></i>
 								</div>
 								<input type="date" class="form-control pull-right"
-									id="添加时间" name="caddtime">
+									 name="caddtime">
 							</div>
 						</div>
 
@@ -187,7 +170,7 @@
 									<i class="fa fa-calendar"></i>
 								</div>
 								<input type="date" class="form-control pull-right"
-									   id="修改时间" name="cupdatetime">
+									    name="cupdatetime">
 							</div>
 						</div>
 
@@ -195,16 +178,15 @@
 						<div class="col-md-2 title">添加人</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="caddperson"
-								placeholder="添加人" >
+								 >
 						</div>
-
 
 
 
 						<div class="col-md-2 title">修改人</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="cupdateperson"
-								   placeholder="修改人">
+								  >
 						</div>
 
 					</div>
@@ -213,8 +195,6 @@
 				<div class="box-tools text-center">
 					<input type="hidden" name="cid" value="${param.cid}">
 					<button type="submit" class="btn bg-maroon">确认修改</button>
-					<button type="button" class="btn bg-default"
-						onclick="history.back(-1);">返回</button>
 				</div>
 				<!--工具栏/--> </section>
 				<!-- 正文区域 /-->

@@ -1,6 +1,7 @@
 package com.qst.examsystem.mapper;
 
 import com.qst.examsystem.entity.Course;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ public interface CourseMapper {
      * @param cid
      * @return
      */
-    Course getCourse(int cid);
+    Course getCourse(@Param("cid") int cid);
 
     /**
      * 修改课程信息

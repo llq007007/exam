@@ -30,7 +30,7 @@ select
     <select id="getCourse" resultType="course" parameterType="int">
         <![CDATA[
 select
-    cname,zyname,tname,caddtime,cupdatetime,caddperson,cupdateperson  from  course where cid=#{cid}
+    cid,cname,zyname,tname,caddtime,cupdatetime,caddperson,cupdateperson  from  course where cid=#{cid}
 
 ]]>
     </select>

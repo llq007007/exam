@@ -63,7 +63,7 @@ public class CourseController {
     }
 
     /**
-     * 根据id查看信息
+     * 根据id加载信息
      * @param cid
      * @return
      */
@@ -81,6 +81,7 @@ public class CourseController {
      * @param course
      * @return
      */
+    @RequestMapping("update")
     public  String updateCourse(Course course){
         int rows = courseService.updateCourse(course);
         return "redirect:/course/course-updateresult.jsp?rows="+rows;

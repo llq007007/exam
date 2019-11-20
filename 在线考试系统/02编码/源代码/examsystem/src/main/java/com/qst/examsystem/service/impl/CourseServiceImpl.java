@@ -6,6 +6,8 @@ import com.qst.examsystem.service.ICourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -51,6 +53,7 @@ public class CourseServiceImpl implements ICourseService {
      * @return
      */
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public Course getCourse(int cid) {
         return courseDao.getCourse(cid);
     }
