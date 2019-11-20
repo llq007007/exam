@@ -93,7 +93,7 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting">
-						<a href="${pageContext.request.contextPath}/course/course-add.jsp">
+						<a href="${pageContext.request.contextPath}/Tt/query">
 							<i class="fa fa-circle-o"></i> 查询套题
 					</a></li>
 					<li id="system-setting">
@@ -101,8 +101,8 @@
 							<i class="fa fa-circle-o"></i> 查看课程
 						</a></li>
 					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
-							class="fa fa-circle-o"></i> 删除套题
+						href="${pageContext.request.contextPath}/admin/taoti_add.jsp"> <i
+							class="fa fa-circle-o"></i> 添加套题
 					</a></li>
 
 				</ul></li>

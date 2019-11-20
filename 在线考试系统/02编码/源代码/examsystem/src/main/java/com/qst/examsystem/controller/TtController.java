@@ -36,15 +36,17 @@ public class TtController {
     @Qualifier("testquestionService")
     private ITestquestionService testquestionService;
 
+
+
     /**
      * 添加套题
      * @param tt
      * @return
      */
-    @RequestMapping(value = "add",method = RequestMethod.POST)
+    @RequestMapping(value ="add",method = RequestMethod.POST)
     public String addTt(Tt tt){
         int rows=ttService.insertTt(tt);
-        return "redirect:/Tt/add_Tt_result.jsp?rows="+rows;
+        return "redirect:/admin/taoti_addresult.jsp?rows="+rows;
     }
 
     /**
@@ -55,7 +57,7 @@ public class TtController {
     public String queryTt(HttpServletRequest request, Model model){
         List<Tt> queryTt=ttService.queryTt();
         model.addAttribute("queryTt",queryTt);
-        return "/Tt/query_Tt.jsp";
+        return "/admin/taoti_query.jsp";
     }
 
     /**
@@ -67,7 +69,7 @@ public class TtController {
     public String deleteTt(@RequestParam("ttid") int ttid){
         int rows=ttService.deleteTt(ttid);
         //重定向到删除结果的页面
-        return "redirect:/Tt/delete_Tt_result.jsp?rows="+rows;
+        return "redirect:/admin/taoti_deleteresult.jsp?rows="+rows;
     }
 
     /**
