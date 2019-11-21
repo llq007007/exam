@@ -69,11 +69,9 @@ public class CourseController {
      */
     @RequestMapping(value = "load_one", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public Map<String, Object> loadCourseData(@RequestParam("cid") int cid) {
+    public Course loadCourseData(@RequestParam("cid") int cid) {
         Course course = courseService.getCourse(cid);
-        Map<String, Object> dataMap = new HashMap<>();
-        dataMap.put("course", course);
-        return dataMap;
+        return course;
     }
 
     /**

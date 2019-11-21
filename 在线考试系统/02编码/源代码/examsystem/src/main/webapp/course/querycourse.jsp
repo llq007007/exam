@@ -8,7 +8,7 @@
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>数据 - AdminLTE2定制版</title>
+<title>课程查询页面</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -151,7 +151,7 @@
 								<div class="col-lg-1 data" >
 									<td>
 										<a href="#" onclick="deleteCourse(${course.cid})">删除</a>
-										<a href=/course/course-update.jsp?cid=${course.cid}">修改</a>
+										<a href="/course/course-update.jsp?cid=${course.cid}">修改</a>
 									</td>
 								</div>
 								</tr>

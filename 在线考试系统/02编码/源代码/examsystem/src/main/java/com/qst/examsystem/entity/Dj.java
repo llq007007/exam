@@ -7,4 +7,5 @@ import org.apache.ibatis.type.Alias;
  */
 @Alias("dj")
 public class Dj {
+
 }

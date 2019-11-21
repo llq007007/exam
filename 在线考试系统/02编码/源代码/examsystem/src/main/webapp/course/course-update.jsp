@@ -6,7 +6,7 @@
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>数据 - AdminLTE2定制版</title>
+<title>课程修改页面</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -74,7 +74,7 @@
 				//请求成功,data表示从服务获取的数据
 				console.info(data)
 				//获取员工数据
-				var course=data.course;
+				var course=data;
 				if($.isEmptyObject(course)){
 					alert("该课程不存在或已被删除");
 					$('input,select').attr('disabled',true);
@@ -131,19 +131,19 @@
 				<section class="content"> <!--添加课程信息-->
 
 				<div class="panel panel-default">
-					<div class="panel-heading">修改课程信息</div>
+					<div class="panel-heading">课程号:${param.cid}</div>
 					<div class="row data-type">
 
 						<div class="col-md-2 title">课程名称</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="cname"
-								 >
+								>
 						</div>
 
 						<div class="col-md-2 title">专业名称</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="zyname"
-								>
+								   >
 						</div>
 
 						<div class="col-md-2 title">任课老师</div>
