@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>在线考试系统-查询试题</title>
+    <title>在线考试系统-添加考场信息</title>
     <meta name="description" content="AdminLTE2定制版">
     <meta name="keywords" content="AdminLTE2定制版">
 
@@ -127,6 +127,7 @@
           href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -142,62 +143,68 @@
 
     <!-- 内容区域 -->
     <div class="content-wrapper">
-        <div align="center">
-            <form action="/testquestion/queryByType" method="post" align="center">
-                请选择类型进行查询：
-                <label><input id="leixing1" name="type1" type="radio" value="选择"  required>选择</label>
-                <label><input id="leixing2" name="type1" type="radio" value="判断"  required>判断</label>
-                <p><input type="submit"value="确认查询"></p>
-            </form>
-        </div>
-        <div align="center">
-            <c:if test="${requestScope.list!=null}">
-                <c:choose>
-                    <c:when test="${requestScope.list=='exp'}">
-                        <span>服务器异常</span>
-                    </c:when>
-                    <c:when test="${empty requestScope.list}">
-                        <span>未查询到数据</span>
-                    </c:when>
-                    <c:otherwise>
-                        <table width="600" border="1" cellspacing="0" align="center">
-                            <tr>
-                                <th>试题ID</th>
-                                <th>所属课程ID</th>
-                                <th>题目类型</th>
-                                <th>题目</th>
-                                <th>答案</th>
-                                <th>分值</th>
-                                <th>操作</th>
-                            </tr>
-                            <c:forEach items="${requestScope.list}" var="test">
-                                <tr>
-                                    <td>${test.stid}</td>
-                                    <td>${test.cid}</td>
-                                    <td>${test.type1}</td>
-                                    <td>${test.contain}</td>
-                                    <td>${test.answer}</td>
-                                    <td>${test.degree}</td>
-                                    <td align="center">
-                                        <a href="/testquestion/getQuestion?stid=${test.stid}" target="_parent">修改</a>
-                                        <a href="/testquestion/getInfo?stid=${test.stid}" target="_parent">详情</a>
-                                        <a href="#" target="_parent" onclick="shanchu(${test.stid})">删除</a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                    </c:otherwise>
-                </c:choose>
-                共查询到:<span style="color: #1f33ff">${fn:length(requestScope.list)}</span>条记录
-            </c:if>
-<script type="text/javascript">
-    function shanchu(stid) {
-        if (window.confirm("确定要删除该试题么")){
-            window.location.href="/testquestion/delete?stid="+stid;
-        }
-    }
-</script>
-        </div>
+
+        <!-- 内容头部 -->
+        <section class="content-header">
+            <h1>
+                考场管理 <small>考场信息添加表单</small>
+            </h1>
+        </section>
+        <!-- 内容头部 /-->
+
+        <form action="${pageContext.request.contextPath}/kcxx/addKcxx"
+              method="post">
+            <!-- 正文区域 -->
+            <section class="content">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">添加考场信息</div>
+                    <div class="row data-type">
+
+                        <div class="col-md-2 title">考场名称</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="type1"
+                                   placeholder="考场名称" value="">
+                        </div>
+
+                        <div class="col-md-2 title">总人数</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="contain"
+                                   placeholder="总人数" value="">
+                        </div>
+
+                        <div class="col-md-2 title">作弊人数</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="answer"
+                                   placeholder="作弊人数" value="">
+                        </div>
+
+                        <div class="col-md-2 title">缺考人数</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="degree"
+                                   placeholder="缺考人数" value="5" readonly>
+                        </div>
+                        <div class="col-md-2 title">监考老师</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="tid"
+                                   placeholder="监考老师" value="">
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+                <!--订单信息/--> <!--工具栏-->
+                <div class="box-tools text-center">
+                    <button type="submit" class="btn bg-maroon">保存</button>
+                    <button type="button" class="btn bg-default"
+                            onclick="history.back(-1);">返回</button>
+                </div>
+                <!--工具栏/--> </section>
+            <!-- 正文区域 /-->
+        </form>
 
     </div>
     <!-- 内容区域 /-->

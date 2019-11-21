@@ -70,6 +70,7 @@
     <select id="getQuestionInfo" resultType="testquestion">
         <![CDATA[
 	SELECT
+	    stid,
 		cid,
 		type1,
 		contain,

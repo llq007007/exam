@@ -49,12 +49,8 @@
                             class="fa fa-circle-o"></i> 查找试题
                     </a></li>
                     <li id="system-setting"><a
-                            href="${pageContext.request.contextPath}/role/findAll.do"> <i
+                            href="${pageContext.request.contextPath}/teacher/addQuestion.jsp"> <i
                             class="fa fa-circle-o"></i> 添加试题
-                    </a></li>
-                    <li id="system-setting"><a
-                            href="${pageContext.request.contextPath}/permission/findAll.do">
-                        <i class="fa fa-circle-o"></i> 删除试题
                     </a></li>
                 </ul></li>
             <li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
@@ -87,7 +83,7 @@
                             class="fa fa-circle-o"></i> 发布考试
                     </a></li>
                     <li id="system-setting">
-                        <a href="${pageContext.request.contextPath}/course/course-add.jsp">
+                        <a href="${pageContext.request.contextPath}/teacher/kcxx.jsp">
                             <i class="fa fa-circle-o"></i> 考场信息
                         </a></li>
                 </ul></li>

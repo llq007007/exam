@@ -17,6 +17,7 @@ import java.util.List;
  * 考场信息控制层
  */
 @Controller
+@RequestMapping("kcxx")
 public class KcxxController {
     @Autowired
     @Qualifier("kcxxService")

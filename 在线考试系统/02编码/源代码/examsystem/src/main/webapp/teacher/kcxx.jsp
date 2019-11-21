@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>在线考试系统-查询试题</title>
+    <title>在线考试系统-考场信息管理</title>
     <meta name="description" content="AdminLTE2定制版">
     <meta name="keywords" content="AdminLTE2定制版">
 
@@ -132,6 +129,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 
 <div class="wrapper">
+
     <!-- 页面头部 -->
     <jsp:include page="../pages/userheader.jsp"></jsp:include>
     <!-- 页面头部 /-->
@@ -142,62 +140,11 @@
 
     <!-- 内容区域 -->
     <div class="content-wrapper">
-        <div align="center">
-            <form action="/testquestion/queryByType" method="post" align="center">
-                请选择类型进行查询：
-                <label><input id="leixing1" name="type1" type="radio" value="选择"  required>选择</label>
-                <label><input id="leixing2" name="type1" type="radio" value="判断"  required>判断</label>
-                <p><input type="submit"value="确认查询"></p>
-            </form>
-        </div>
-        <div align="center">
-            <c:if test="${requestScope.list!=null}">
-                <c:choose>
-                    <c:when test="${requestScope.list=='exp'}">
-                        <span>服务器异常</span>
-                    </c:when>
-                    <c:when test="${empty requestScope.list}">
-                        <span>未查询到数据</span>
-                    </c:when>
-                    <c:otherwise>
-                        <table width="600" border="1" cellspacing="0" align="center">
-                            <tr>
-                                <th>试题ID</th>
-                                <th>所属课程ID</th>
-                                <th>题目类型</th>
-                                <th>题目</th>
-                                <th>答案</th>
-                                <th>分值</th>
-                                <th>操作</th>
-                            </tr>
-                            <c:forEach items="${requestScope.list}" var="test">
-                                <tr>
-                                    <td>${test.stid}</td>
-                                    <td>${test.cid}</td>
-                                    <td>${test.type1}</td>
-                                    <td>${test.contain}</td>
-                                    <td>${test.answer}</td>
-                                    <td>${test.degree}</td>
-                                    <td align="center">
-                                        <a href="/testquestion/getQuestion?stid=${test.stid}" target="_parent">修改</a>
-                                        <a href="/testquestion/getInfo?stid=${test.stid}" target="_parent">详情</a>
-                                        <a href="#" target="_parent" onclick="shanchu(${test.stid})">删除</a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                    </c:otherwise>
-                </c:choose>
-                共查询到:<span style="color: #1f33ff">${fn:length(requestScope.list)}</span>条记录
-            </c:if>
-<script type="text/javascript">
-    function shanchu(stid) {
-        if (window.confirm("确定要删除该试题么")){
-            window.location.href="/testquestion/delete?stid="+stid;
-        }
-    }
-</script>
-        </div>
+
+        <ul style="align:center;font-size: 20px;width: 100%;height: 100%">
+            <li><a href="/teacher/addKcxx.jsp">添加考场信息</a></li>
+            <li><a href="#">查看考场信息</a></li>
+        </ul>
 
     </div>
     <!-- 内容区域 /-->

@@ -28,11 +28,11 @@ public class TestquestionContronller {
      * @param testquestion
      * @return
      */
-    @RequestMapping(value = "add",method= RequestMethod.POST)
-    @ResponseBody
-    public String addQuestion(Testquestion testquestion){
+    @RequestMapping(value = "add")
+    public String addQuestion(Testquestion testquestion,Model model){
         int rows=testquestionService.addQuestion(testquestion);
-        return "redirect:/testquestion/add_testquestion_result.jsp?rows=" + rows;
+        model.addAttribute("rows",rows);
+        return "/teacher/add_testquestion_result.jsp";
     }
 
     /**
@@ -45,7 +45,7 @@ public class TestquestionContronller {
     public String queryQuestion(HttpServletRequest request, Model model){
         List<Testquestion> testquestionList=testquestionService.queryQuestion();
         model.addAttribute("testquestionList",testquestionList);
-        return "/testquestion/query_question.jsp";
+        return "/teacher/query_question.jsp";
     }
 
     /**
@@ -82,9 +82,10 @@ public class TestquestionContronller {
      * @return
      */
     @RequestMapping("delete")
-    public String deleteQuestion(int stid){
+    public String deleteQuestion(int stid,Model model){
         int rows=testquestionService.deleteQuestion(stid);
-        return "redirect:/testquestion/delete_question_result.jsp?rows="+rows;
+        model.addAttribute("rows",rows);
+        return "/teacher/delete_question_result.jsp";
     }
 
     /**
@@ -118,4 +119,5 @@ public class TestquestionContronller {
         }
         return "/teacher/queryQuestion.jsp";
     }
+
 }

@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * 教师表控制层
  */
-@Controller
+@Controller("teacher")
 public class TeacherController {
     @Autowired
     private ITeacherService teacherService;
@@ -103,7 +104,6 @@ public class TeacherController {
         System.out.print("删除");
         return "redirect:toteacher.action";
     }
-
 
 
 

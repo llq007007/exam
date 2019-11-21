@@ -4,6 +4,8 @@ import com.qst.examsystem.entity.Teacher;
 import com.qst.examsystem.util.Page;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * 教师表业务层接口
  */
@@ -40,4 +42,5 @@ public interface ITeacherService {
      * @return
      */
     public Page<Teacher> findTeacherPage(Integer page, Integer rows, Teacher teacher);
+
 }
