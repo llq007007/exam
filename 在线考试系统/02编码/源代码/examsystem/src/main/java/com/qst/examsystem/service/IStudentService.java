@@ -58,4 +58,5 @@ public interface IStudentService {
      * @return
      */
     public Map<String,Object>getStudentByName(Map map);
+
 }

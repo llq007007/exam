@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 教师数据访问
@@ -79,5 +80,40 @@ public class TeacherDaoImpl implements ITeacherDao {
     @Override
     public Integer findTeacherCount(Teacher teacher) {
         return teacherMapper.findTeacherCount(teacher);
+    }
+
+    /**
+     * 计算成绩
+     * @param khid
+     * @return
+     */
+    @Override
+    public Map<String, Integer> countDegree(Integer khid) {
+        return teacherMapper.countDegree(khid);
+    }
+
+    /**
+     * 添加成绩
+     * @param map （分数，khid）
+     * @return
+     */
+    @Override
+    public int insertScore(Map map) {
+        return teacherMapper.insertScore(map);
+    }
+    /**
+     * 根据试卷名字
+     * @param map
+     * @return
+     */
+
+    @Override
+    public List<Map<String,Object>> selectAVGDegree(Map map) {
+        return teacherMapper.selectAVGDegree(map);
+    }
+
+    @Override
+    public List<Map<String, Object>> selectAllDegreeBySJName(Map map) {
+        return teacherMapper.selectAllDegreeBySJName(map);
     }
 }

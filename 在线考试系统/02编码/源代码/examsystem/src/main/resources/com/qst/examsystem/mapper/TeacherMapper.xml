@@ -54,4 +54,63 @@
     <delete id="deleteTeacher" parameterType="Integer">
 		delete from teachers where tid=#{tid}
 	</delete>
+
+    <select id="countDegree" resultType="java.util.Map">
+    SELECT
+        count( degree ) * 2 as score
+    FROM
+        ksda k
+        LEFT JOIN testquestion tq ON tq.stid = k.stid
+        LEFT JOIN students st ON st.khid = k.khid
+        LEFT JOIN dj ON dj.khid = st.khid
+        LEFT JOIN sj ON sj.sjid = dj.sjid
+    WHERE
+        k.dacontain = tq.answer
+        and k.khid=#{khid}
+    </select>
+    <update id="insertScore" parameterType="java.util.Map">
+        	update dj set
+        	<if test="score!=null" >
+                score=#{score},isreade=1
+            </if>
+        	where khid=#{khid}
+    </update>
+
+    <!--查询某一科低于平均分的同学成绩-->
+    <select id="selectAVGDegree" parameterType="java.util.Map" resultType="java.util.Map">
+        <![CDATA[
+   SELECT
+        zyname,
+        sname,
+        sjname,
+        ( SELECT AVG( score ) FROM dj LEFT JOIN sj ON dj.sjid = sj.sjid WHERE sjname = #{sjname} ) AS avgScore,
+        score
+        FROM
+        sj
+        LEFT JOIN dj ON sj.sjid = dj.sjid
+        LEFT JOIN students s ON dj.khid = s.khid
+        LEFT JOIN zy ON zy.zyid = s.zyid
+        WHERE
+        score<( SELECT AVG( score ) FROM dj WHERE sjname = #{sjname} )
+        ORDER BY
+        score
+
+]]>
+    </select>
+    <select id="selectAllDegreeBySJName" resultType="java.util.Map" parameterType="java.util.Map">
+        <![CDATA[
+            SELECT
+            zyname,
+            sname,
+            sjname,
+            score
+        FROM
+            sj
+            LEFT JOIN dj ON sj.sjid = dj.sjid
+            LEFT JOIN students s ON dj.khid = s.khid
+            LEFT JOIN zy ON zy.zyid = s.zyid
+             where sjname=#{sjname}
+            ORDER BY score
+        ]]>
+    </select>
 </mapper>

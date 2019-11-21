@@ -1,0 +1,25 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 老李头
+  Date: 2019/11/21
+  Time: 16:28
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>查询所有成绩</title>
+</head>
+<body>
+<form action="/teacher/select_all_score" method="post">
+    <ul style="list-style: none">
+        <li><h3>所有成绩</h3></li>
+        <li>试卷名称:<input type="text" name="sjname" required></li>
+        <li>
+        <input type="submit" value="查询">&nbsp;&nbsp;
+        <input type="reset" value="重新填写">
+        </li>
+    </ul>
+</form>
+</body>
+</html>

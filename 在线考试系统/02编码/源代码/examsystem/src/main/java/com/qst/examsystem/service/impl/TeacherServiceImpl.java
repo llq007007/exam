@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service("teacherService")
 public class TeacherServiceImpl implements ITeacherService {
@@ -81,4 +82,23 @@ public class TeacherServiceImpl implements ITeacherService {
         return result;
     }
 
+    @Override
+    public Map<String, Integer> countDegree(Integer khid) {
+        return teacherDao.countDegree(khid);
+    }
+
+    @Override
+    public int insertScore(Map map) {
+        return teacherDao.insertScore(map);
+    }
+
+    @Override
+    public List<Map<String, Object>> selectAVGDegree(Map map) {
+        return teacherDao.selectAVGDegree(map);
+    }
+
+    @Override
+    public List<Map<String, Object>> selectAllDegreeBySJName(Map map) {
+        return teacherDao.selectAllDegreeBySJName(map);
+    }
 }

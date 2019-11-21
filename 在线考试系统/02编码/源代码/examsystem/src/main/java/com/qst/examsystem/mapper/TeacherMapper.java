@@ -1,9 +1,10 @@
 package com.qst.examsystem.mapper;
 
-import com.qst.examsystem.entity.Teacher;
-import org.apache.ibatis.session.RowBounds;
+        import com.qst.examsystem.entity.Teacher;
+        import org.apache.ibatis.session.RowBounds;
 
-import java.util.List;
+        import java.util.List;
+        import java.util.Map;
 
 /**
  * 教师mapper接口
@@ -54,4 +55,30 @@ public interface TeacherMapper {
 
     //Integer updataTeacher(Teacher teacher);
 
+    /**
+     * 计算成绩
+     * @param
+     * @return
+     */
+    Map<String,Integer>countDegree(Integer khid);
+
+    /**
+     * 添加成绩
+     * @param map
+     * @return
+     */
+    int insertScore(Map map);
+    /**
+     * 根据试卷名字
+     * @param map
+     * @return
+     */
+    List<Map<String,Object>>selectAVGDegree(Map map);
+
+    /**
+     * g根据试卷名查询所有成绩
+     * @param map
+     * @return
+     */
+    List<Map<String, Object>>selectAllDegreeBySJName(Map map);
 }

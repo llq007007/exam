@@ -61,7 +61,7 @@ public interface StudentMapper {
      * @param sname 学生名
      * @return
      */
-    Map<String,Object> queryStudentDegree(@Param("name")String sname);
+    Map<String,Object> queryStudentDegree(@Param("name") String sname);
 
     /**
      * 查询学生个人信息
@@ -69,4 +69,11 @@ public interface StudentMapper {
      * @return
      */
     Map<String,Object>getStudentByName(Map map);
+
+    /**
+     * 根据考号id修改学生信息
+     * @param khid
+     * @return
+     */
+    int updateStudent(Integer khid);
 }
