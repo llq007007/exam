@@ -145,6 +145,7 @@ public class TeacherTest {
         map.put("score",97);
         System.out.println(teacherService.insertScore(map));
     }
+
     @Test
     public void testSelectAVGDegree() {
         AbstractXmlApplicationContext context = new ClassPathXmlApplicationContext("db.xml");
@@ -153,6 +154,10 @@ public class TeacherTest {
         map.put("sjname","物理期末考试");
         System.out.println(teacherService.selectAVGDegree(map));
     }
+
+    /**
+     * 根据试卷名查询所有成绩
+     */
     @Test
     public void testSelectAllDegreeBySJName() {
         AbstractXmlApplicationContext context = new ClassPathXmlApplicationContext("db.xml");

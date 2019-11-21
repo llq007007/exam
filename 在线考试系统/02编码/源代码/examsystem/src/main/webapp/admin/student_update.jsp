@@ -6,7 +6,7 @@
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>在线考试系统-添加套题</title>
+<title>学生管理-修改学生</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -60,8 +60,43 @@
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
-</head>
 
+<script src="/js/jquery.min.js"></script>
+<script>
+	$(function () {
+		//利用jQuery AJAX加载学生数据
+		$.ajax({
+			url: '/course/load_one',//请求URL
+			data: {cid: '${param.cid}'},//请求参数
+			type: 'POST',//请求方式
+			dataType: 'json', //将从服务器获取的数据处理成JSON格式
+			success: function (data) {
+				//请求成功,data表示从服务获取的数据
+				console.info(data)
+				//获取员工数据
+				var course=data.course;
+				if($.isEmptyObject(course)){
+					alert("该学生不存在或已被删除");
+					$('input,select').attr('disabled',true);
+					return;
+				}
+				//设置课程数据
+				$('input[name="cname"]').val(course.cname);
+				$('input[name="zyname"]').val(course.zyname);
+				$('input[name="tname"]').val(course.tname);
+				$('input[name="caddtime"]').val(course.caddtime);
+				$('input[name="cupdatetime"]').val(course.cupdatetime);
+				$('input[name="caddperson"]').val(course.caddperson);
+				$('input[name="cupdateperson"]').val(course.cupdateperson);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				// 请求失败
+				console.error(errorThrown);
+			}
+		});
+	});
+</script>
+</head>
 <body class="hold-transition skin-purple sidebar-mini">
 
 	<div class="wrapper">
@@ -79,36 +114,42 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 			<h1>
-				套题管理 <small>套题添加表单</small>
+				课程管理 <small>课程修改表单</small>
 			</h1>
-
+			<ol class="breadcrumb">
+				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
+						class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a
+					href="${pageContext.request.contextPath}/product/findAll.do">课程管理</a></li>
+				<li class="active">课程表单</li>
+			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/Tt/add" method="post">
+			<form action="${pageContext.request.contextPath}/course/update"  method="post">
 				<!-- 正文区域 -->
-				<section class="content"> <!--添加套题信息-->
+				<section class="content"> <!--添加课程信息-->
 
 				<div class="panel panel-default">
-					<div class="panel-heading">添加套题信息</div>
+					<div class="panel-heading">修改课程信息</div>
 					<div class="row data-type">
 
-						<div class="col-md-2 title">套题ID</div>
+						<div class="col-md-2 title">课程名称</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="ttid"
-								placeholder="套题ID" value="">
+							<input type="text" class="form-control" name="cname"
+								 >
 						</div>
 
-						<div class="col-md-2 title">试卷ID</div>
+						<div class="col-md-2 title">专业名称</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="sjid"
-								placeholder="试卷ID" value="">
+							<input type="text" class="form-control" name="zyname"
+								>
 						</div>
 
-						<div class="col-md-2 title">题目ID</div>
+						<div class="col-md-2 title">任课老师</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="stid"
-								   placeholder="题目ID" value="">
+							<input type="text" class="form-control" name="tname"
+								   >
 						</div>
 
 						<div class="col-md-2 title">添加时间</div>
@@ -118,44 +159,42 @@
 									<i class="fa fa-calendar"></i>
 								</div>
 								<input type="date" class="form-control pull-right"
-									id="添加时间" name="ttaddtime">
+									 name="caddtime">
 							</div>
 						</div>
 
-						<%--<div class="col-md-2 title">修改时间</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<div class="input-group date">--%>
-								<%--<div class="input-group-addon">--%>
-									<%--<i class="fa fa-calendar"></i>--%>
-								<%--</div>--%>
-								<%--<input type="date" class="form-control pull-right"--%>
-									   <%--id="修改时间" name="cupdatetime">--%>
-							<%--</div>--%>
-						<%--</div>--%>
+						<div class="col-md-2 title">修改时间</div>
+						<div class="col-md-4 data">
+							<div class="input-group date">
+								<div class="input-group-addon">
+									<i class="fa fa-calendar"></i>
+								</div>
+								<input type="date" class="form-control pull-right"
+									    name="cupdatetime">
+							</div>
+						</div>
 
 
 						<div class="col-md-2 title">添加人</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="ttaddperson"
-								placeholder="添加人" value="">
+							<input type="text" class="form-control" name="caddperson"
+								 >
 						</div>
 
 
 
-
-						<%--<div class="col-md-2 title">修改人</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<input type="text" class="form-control" name="cupdateperson"--%>
-								   <%--placeholder="修改人" value="">--%>
-						<%--</div>--%>
+						<div class="col-md-2 title">修改人</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" name="cupdateperson"
+								  >
+						</div>
 
 					</div>
 				</div>
 				<!--订单信息/--> <!--工具栏-->
 				<div class="box-tools text-center">
-					<button type="submit" class="btn bg-maroon">保存</button>
-					<button type="button" class="btn bg-default"
-						onclick="history.back(-1);">返回</button>
+					<input type="hidden" name="cid" value="${param.cid}">
+					<button type="submit" class="btn bg-maroon">确认修改</button>
 				</div>
 				<!--工具栏/--> </section>
 				<!-- 正文区域 /-->

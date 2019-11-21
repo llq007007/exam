@@ -6,7 +6,7 @@
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>在线考试系统-添加套题</title>
+<title>学生管理-添加学生</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -66,12 +66,13 @@
 
 	<div class="wrapper">
 
-		<!-- 页面头部 -->
-		<jsp:include page="${pageContext.request.contextPath}/pages/header.jsp"></jsp:include>
-		<!-- 页面头部 /-->
-		<!-- 导航侧栏 -->
-		<jsp:include page="${pageContext.request.contextPath}/pages/aside.jsp"></jsp:include>
-		<!-- 导航侧栏 /-->
+        <!-- 页面头部 -->
+        <jsp:include page="${pageContext.request.contextPath}/pages/header.jsp"></jsp:include>
+        <!-- 页面头部 /-->
+
+        <!-- 导航侧栏 -->
+        <jsp:include page="${pageContext.request.contextPath}/pages/aside.jsp"></jsp:include>
+        <!-- 导航侧栏 /-->
 
 		<!-- 内容区域 -->
 		<div class="content-wrapper">
@@ -79,37 +80,55 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 			<h1>
-				套题管理 <small>套题添加表单</small>
+				学生管理 <small>学生添加表单</small>
 			</h1>
-
+			<ol class="breadcrumb">
+				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
+						class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a
+					href="${pageContext.request.contextPath}/product/findAll.do">学生管理</a></li>
+				<li class="active">学生表单</li>
+			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/Tt/add" method="post">
+			<form action="${pageContext.request.contextPath}/student/addStudent.action" method="post">
 				<!-- 正文区域 -->
-				<section class="content"> <!--添加套题信息-->
+				<section class="content"> <!--添加学生信息-->
 
 				<div class="panel panel-default">
-					<div class="panel-heading">添加套题信息</div>
+					<div class="panel-heading">添加学生信息</div>
 					<div class="row data-type">
 
-						<div class="col-md-2 title">套题ID</div>
+						<div class="col-md-2 title">考号ID</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="ttid"
-								placeholder="套题ID" value="">
+							<input type="text" class="form-control" name="khid"
+								placeholder="考号ID" value="">
 						</div>
 
-						<div class="col-md-2 title">试卷ID</div>
+						<div class="col-md-2 title">专业ID</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="sjid"
-								placeholder="试卷ID" value="">
+							<input type="text" class="form-control" name="zyid"
+								placeholder="专业ID" value="">
 						</div>
 
-						<div class="col-md-2 title">题目ID</div>
+						<div class="col-md-2 title">姓名</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="stid"
-								   placeholder="题目ID" value="">
+							<input type="text" class="form-control" name="sname"
+								   placeholder="姓名" value="">
 						</div>
+
+                        <div class="col-md-2 title">性别</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="ssex"
+                                   placeholder="性别" value="">
+                        </div>
+
+                        <div class="col-md-2 title">密码</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="spw"
+                                   placeholder="密码" value="">
+                        </div>
 
 						<div class="col-md-2 title">添加时间</div>
 						<div class="col-md-4 data">
@@ -118,36 +137,38 @@
 									<i class="fa fa-calendar"></i>
 								</div>
 								<input type="date" class="form-control pull-right"
-									id="添加时间" name="ttaddtime">
+									id="添加时间" name="saddtime">
 							</div>
 						</div>
 
-						<%--<div class="col-md-2 title">修改时间</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<div class="input-group date">--%>
-								<%--<div class="input-group-addon">--%>
-									<%--<i class="fa fa-calendar"></i>--%>
-								<%--</div>--%>
-								<%--<input type="date" class="form-control pull-right"--%>
-									   <%--id="修改时间" name="cupdatetime">--%>
-							<%--</div>--%>
-						<%--</div>--%>
-
+						<div class="col-md-2 title">修改时间</div>
+						<div class="col-md-4 data">
+							<div class="input-group date">
+								<div class="input-group-addon">
+									<i class="fa fa-calendar"></i>
+								</div>
+								<input type="date" class="form-control pull-right"
+									   id="修改时间" name="supdatetime">
+							</div>
+						</div>
 
 						<div class="col-md-2 title">添加人</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="ttaddperson"
+							<input type="text" class="form-control" name="saddperson"
 								placeholder="添加人" value="">
 						</div>
 
+						<div class="col-md-2 title">修改人</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" name="supdateperson"
+								   placeholder="修改人" value="">
+						</div>
 
-
-
-						<%--<div class="col-md-2 title">修改人</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<input type="text" class="form-control" name="cupdateperson"--%>
-								   <%--placeholder="修改人" value="">--%>
-						<%--</div>--%>
+                        <div class="col-md-2 title">备注</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="scomments"
+                                   placeholder="备注" value="">
+                        </div>
 
 					</div>
 				</div>

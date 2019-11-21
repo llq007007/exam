@@ -7,9 +7,8 @@
     （考号（khid），专业zyid（外）， 姓名 sname，性别ssex，密码 spw
     添加时间 saddtime，修改时间 supdatetime，添加人 saddperson，修改人 supdateperson，备注 scomments）
     -->
-    <select id="findStudentByCond" parameterType="student"
-            resultType="student">
-        select zyid,sname,ssex,spw,addtime, supdatetime, saddperson, supdateperson,scomments from students
+    <select id="findStudentPage" parameterType="student" resultType="student">
+        select zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments from students
     </select>
 
     <select id="findStudentCount"  resultType="int"  parameterType="student">
@@ -17,7 +16,7 @@
     </select>
 
     <insert	id="addStudent" parameterType="student" >
-		insert into students(zyid,sname,ssex,spw,addtime, supdatetime, saddperson, supdateperson,scomments)
+		insert into students(zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments)
 			values(#{zyid},#{sname},#{ssex},#{spw},#{saddtime},#{supdatetime},#{saddperson},#{supdateperson},#{scomments})
 	</insert>
 
@@ -36,7 +35,7 @@
             <if test="spw !=null and spw !=''">
                 spw=#{spw},
             </if>
-                addtime=#{saddtime},
+                saddtime=#{saddtime},
                 supdatetime=#{supdatetime},
             <if test="saddperson !=null and saddperson !=''">
                 saddperson=#{saddperson},
@@ -53,7 +52,7 @@
 
     <select id="findStudentById" parameterType="Integer"
             resultType="student">
-		select zyid,sname,ssex,spw,addtime, supdatetime, saddperson, supdateperson,scomments from students where khid =#{sid}
+		select zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments from students where khid =#{sid}
 	</select>
 
     <delete id="deleteStudent" parameterType="Integer">

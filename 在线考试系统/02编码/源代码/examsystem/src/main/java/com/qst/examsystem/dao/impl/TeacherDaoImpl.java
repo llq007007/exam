@@ -112,6 +112,11 @@ public class TeacherDaoImpl implements ITeacherDao {
         return teacherMapper.selectAVGDegree(map);
     }
 
+    /**
+     * 根据试卷名查询所有成绩
+     * @param map
+     * @return
+     */
     @Override
     public List<Map<String, Object>> selectAllDegreeBySJName(Map map) {
         return teacherMapper.selectAllDegreeBySJName(map);

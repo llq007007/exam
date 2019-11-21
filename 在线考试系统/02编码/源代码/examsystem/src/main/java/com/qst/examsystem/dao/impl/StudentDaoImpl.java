@@ -68,8 +68,8 @@ public class StudentDaoImpl implements IStudentDao {
      * @return
      */
     @Override
-    public List<Student> findStudentByCond(RowBounds rowBounds, Student student) {
-        return studentMapper.findStudentByCond(rowBounds,  student);
+    public List<Student> findStudentPage(RowBounds rowBounds, Student student) {
+        return studentMapper.findStudentPage(rowBounds,  student);
     }
 
     /**

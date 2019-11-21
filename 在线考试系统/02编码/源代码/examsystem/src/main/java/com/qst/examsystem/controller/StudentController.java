@@ -32,10 +32,9 @@ public class StudentController {
     @RequestMapping("/tostudent.action")
     public String toStudent(Model model, Student student, @RequestParam(defaultValue="1")Integer page,
                             @RequestParam(defaultValue="3")Integer rows) {
-        String forword="admin/Student";
+        String forword="/admin/student_query.jsp";
         System.out.println(student);
         Page<Student> students=studentService.findStudentPage(page,rows, student);
-
         model.addAttribute("page",  students);
         model.addAttribute("username",  student.getSname());
         return forword;
@@ -51,13 +50,11 @@ public class StudentController {
     @RequestMapping("/addStudent.action")
     public String addStudent(Model model, Student student, HttpSession session) {
         System.out.print("添加信息");
-        String forword="admin/Student";
+        String forword="/admin/student_add.jsp";
         int students=studentService.addStudent(student);
         if(students>0){
-
             session.setAttribute("students",students);
         }
-
         return forword;
     }
 

@@ -45,7 +45,7 @@ public interface StudentMapper {
      * @param student
      * @return
      */
-    List<Student> findStudentByCond(RowBounds rowBounds, Student student);
+    List<Student> findStudentPage(RowBounds rowBounds, Student student);
 
     /**
      * 查询student count（*）

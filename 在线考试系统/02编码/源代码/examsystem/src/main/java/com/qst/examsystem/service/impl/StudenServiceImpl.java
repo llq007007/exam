@@ -69,7 +69,7 @@ public class StudenServiceImpl implements IStudentService {
     public Page<Student> findStudentPage(Integer page, Integer rows, Student student) {
         RowBounds rowBounds = new RowBounds((page-1) * rows, rows);
 //		// 查询管理员列表
-        List<Student>students=studentDao.findStudentByCond(rowBounds,student);
+        List<Student>students=studentDao.findStudentPage(rowBounds,student);
 
 //		// 查询管理员列表总记录数
         Integer count =studentDao.findStudentCount(student);

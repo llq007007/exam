@@ -55,6 +55,7 @@
 		delete from teachers where tid=#{tid}
 	</delete>
 
+    <!--* 计算学生成绩-->
     <select id="countDegree" resultType="java.util.Map">
     SELECT
         count( degree ) * 2 as score
@@ -97,6 +98,8 @@
 
 ]]>
     </select>
+
+    <!--根据试卷名查询所有成绩-->
     <select id="selectAllDegreeBySJName" resultType="java.util.Map" parameterType="java.util.Map">
         <![CDATA[
             SELECT

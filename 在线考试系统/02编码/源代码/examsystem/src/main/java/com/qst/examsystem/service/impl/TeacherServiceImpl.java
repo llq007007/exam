@@ -97,6 +97,11 @@ public class TeacherServiceImpl implements ITeacherService {
         return teacherDao.selectAVGDegree(map);
     }
 
+    /**
+     * 根据试卷名查询所有成绩
+     * @param map
+     * @return
+     */
     @Override
     public List<Map<String, Object>> selectAllDegreeBySJName(Map map) {
         return teacherDao.selectAllDegreeBySJName(map);

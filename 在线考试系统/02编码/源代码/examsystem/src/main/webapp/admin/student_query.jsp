@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,7 +8,7 @@
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>在线考试系统-添加套题</title>
+<title>在线考试系统-查询学生信息</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -76,88 +78,99 @@
 		<!-- 内容区域 -->
 		<div class="content-wrapper">
 
-			<!-- 内容头部 -->
-			<section class="content-header">
-			<h1>
-				套题管理 <small>套题添加表单</small>
-			</h1>
+            <!-- 内容头部 -->
+            <section class="content-header">
+                <h1>
+                    学生管理 <small>学生信息表单</small>
+                </h1>
 
-			</section>
-			<!-- 内容头部 /-->
+            </section>
+            <!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/Tt/add" method="post">
+			<form action="#" method="post">
 				<!-- 正文区域 -->
-				<section class="content"> <!--添加套题信息-->
+				<section class="content"> <!--学生信息-->
 
 				<div class="panel panel-default">
-					<div class="panel-heading">添加套题信息</div>
+					<div class="panel-heading">查看学生信息</div>
 					<div class="row data-type">
-
-						<div class="col-md-2 title">套题ID</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="ttid"
-								placeholder="套题ID" value="">
-						</div>
-
-						<div class="col-md-2 title">试卷ID</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="sjid"
-								placeholder="试卷ID" value="">
-						</div>
-
-						<div class="col-md-2 title">题目ID</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="stid"
-								   placeholder="题目ID" value="">
-						</div>
-
+						<div class="col-md-1 title">考号ID</div>
+						<div class="col-md-1 title">专业ID</div>
+						<div class="col-md-1 title">姓名</div>
+                        <div class="col-md-1 title">性别</div>
+                        <div class="col-md-1 title">密码</div>
 						<div class="col-md-2 title">添加时间</div>
-						<div class="col-md-4 data">
-							<div class="input-group date">
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-								<input type="date" class="form-control pull-right"
-									id="添加时间" name="ttaddtime">
-							</div>
-						</div>
-
-						<%--<div class="col-md-2 title">修改时间</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<div class="input-group date">--%>
-								<%--<div class="input-group-addon">--%>
-									<%--<i class="fa fa-calendar"></i>--%>
-								<%--</div>--%>
-								<%--<input type="date" class="form-control pull-right"--%>
-									   <%--id="修改时间" name="cupdatetime">--%>
-							<%--</div>--%>
-						<%--</div>--%>
-
-
-						<div class="col-md-2 title">添加人</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="ttaddperson"
-								placeholder="添加人" value="">
-						</div>
-
-
-
-
-						<%--<div class="col-md-2 title">修改人</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<input type="text" class="form-control" name="cupdateperson"--%>
-								   <%--placeholder="修改人" value="">--%>
-						<%--</div>--%>
-
+						<div class="col-md-2 title">修改时间</div>
+						<div class="col-md-1 title">添加人</div>
+						<div class="col-md-1 title">修改人</div>
+						<div class="col-md-1 title">备注</div>
 					</div>
 				</div>
-				<!--订单信息/--> <!--工具栏-->
-				<div class="box-tools text-center">
-					<button type="submit" class="btn bg-maroon">保存</button>
-					<button type="button" class="btn bg-default"
-						onclick="history.back(-1);">返回</button>
+				<!--套题信息/--> <!--工具栏-->
+				<div class="row data-type" align="center">
+					<c:choose>
+						<c:when test="${ empty requestScope.model}">
+							<tr>
+								<td colspan="8" align="center"><span style="color: #0000FF">未查询到数据</span></td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${requestScope.model}" var="student">
+								<tr>
+									<div class="col-lg-2 data">
+										<td>${student.khid}</td>
+									</div>
+                                    <div class="col-lg-2 data">
+                                        <td>${student.zyid}</td>
+                                    </div>
+                                    <div class="col-lg-2 data">
+                                        <td>${student.sname}</td>
+                                    </div>
+                                    <div class="col-lg-2 data">
+                                        <td>${student.ssex}</td>
+                                    </div>
+                                    <div class="col-lg-2 data">
+                                        <td>${student.spw}</td>
+                                    </div>
+									<!-- 利用格式化标签输出日期-->
+                                    <div class="col-lg-2 data">
+                                        <td><fmt:formatDate value="${student.saddtime}" pattern="yyyy-MM-dd"/></td>
+                                    </div>
+                                    <div class="col-lg-2 data"	>
+                                        <td><fmt:formatDate value="${student.supdatetime}" pattern="yyyy-MM-dd"/></td>
+                                    </div>
+                                    <div class="col-lg-2 data">
+                                        <td>${student.saddperson}</td>
+                                    </div>
+                                    <div class="col-lg-1 data">
+                                        <td>${student.supdateperson}</td>
+                                    </div>
+                                    <%--<div class="col-lg-2 data" >--%>
+                                        <%--<td>--%>
+                                            <%--<a href="#" onclick="deleteTaoti(${taoti.ttid})">删除</a>--%>
+                                            <%--<a href=/course/course-update.jsp?cid=${course.cid}" target="_blank">查看试题</a>--%>
+                                        <%--</td>--%>
+                                    <%--</div>--%>
+								</tr>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+
 				</div>
-				<!--工具栏/--> </section>
+				<!--工具栏/-->
+                </section>
+				<%--<script>--%>
+                    <%--/**--%>
+                     <%--* 根据套题ID删除信息--%>
+                     <%--* @param--%>
+                     <%--*/--%>
+                    <%--function deleteTaoti(ttid) {--%>
+                        <%--if (window.confirm('确定要删除吗?')) {--%>
+                            <%--window.location.href = '/Tt/delete?ttid='+ ttid;--%>
+                        <%--}--%>
+                    <%--}--%>
+
+				<%--</script>--%>
 				<!-- 正文区域 /-->
 			</form>
 		</div>

@@ -4,6 +4,8 @@ import com.qst.examsystem.entity.Zy;
 import com.qst.examsystem.service.IZyService;
 import com.qst.examsystem.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +17,16 @@ import javax.servlet.http.HttpSession;
 /**
  * 专业 控制层
  */
+@Controller
+@RequestMapping("zhuanye")
 public class ZyController {
+
     @Autowired
+    @Qualifier("zyService")
     private IZyService zyService;
 
     /**
-     * 分页查询所有监考员信息
+     * 分页查询所有专业信息
      * @param model
      * @param zy
      * @param page

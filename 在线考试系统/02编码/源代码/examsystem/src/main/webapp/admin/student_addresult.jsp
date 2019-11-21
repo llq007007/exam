@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,7 +7,8 @@
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>在线考试系统-添加套题</title>
+
+<title>在线考试-添加学生信息结果</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -14,7 +16,72 @@
 <meta
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 	name="viewport">
+<!-- Bootstrap 3.3.6 -->
+<!-- Font Awesome -->
+<!-- Ionicons -->
+<!-- iCheck -->
+<!-- Morris chart -->
+<!-- jvectormap -->
+<!-- Date Picker -->
+<!-- Daterange picker -->
+<!-- Bootstrap time Picker -->
+<!--<link rel="stylesheet" href="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.css">-->
+<!-- bootstrap wysihtml5 - text editor -->
+<!--数据表格-->
+<!-- 表格树 -->
+<!-- select2 -->
+<!-- Bootstrap Color Picker -->
+<!-- bootstrap wysihtml5 - text editor -->
+<!--bootstrap-markdown-->
+<!-- Theme style -->
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+<!-- Ion Slider -->
+<!-- ion slider Nice -->
+<!-- bootstrap slider -->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
+<!-- jQuery 2.2.3 -->
+<!-- jQuery UI 1.11.4 -->
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!-- Bootstrap 3.3.6 -->
+<!-- Morris.js charts -->
+<!-- Sparkline -->
+<!-- jvectormap -->
+<!-- jQuery Knob Chart -->
+<!-- daterangepicker -->
+<!-- datepicker -->
+<!-- Bootstrap WYSIHTML5 -->
+<!-- Slimscroll -->
+<!-- FastClick -->
+<!-- iCheck -->
+<!-- AdminLTE App -->
+<!-- 表格树 -->
+<!-- select2 -->
+<!-- bootstrap color picker -->
+<!-- bootstrap time picker -->
+<!--<script src="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.js"></script>-->
+<!-- Bootstrap WYSIHTML5 -->
+<!--bootstrap-markdown-->
+<!-- CK Editor -->
+<!-- InputMask -->
+<!-- DataTables -->
+<!-- ChartJS 1.0.1 -->
+<!-- FLOT CHARTS -->
+<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+<!-- jQuery Knob -->
+<!-- Sparkline -->
+<!-- Morris.js charts -->
+<!-- Ion Slider -->
+<!-- Bootstrap slider -->
+<!-- 页面meta /-->
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
@@ -58,17 +125,16 @@
 	href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 </head>
 
-<body class="hold-transition skin-purple sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 
 	<div class="wrapper">
 
 		<!-- 页面头部 -->
 		<jsp:include page="${pageContext.request.contextPath}/pages/header.jsp"></jsp:include>
-		<!-- 页面头部 /-->
+			<!-- 页面头部 /-->
+
 		<!-- 导航侧栏 -->
 		<jsp:include page="${pageContext.request.contextPath}/pages/aside.jsp"></jsp:include>
 		<!-- 导航侧栏 /-->
@@ -76,90 +142,19 @@
 		<!-- 内容区域 -->
 		<div class="content-wrapper">
 
-			<!-- 内容头部 -->
-			<section class="content-header">
-			<h1>
-				套题管理 <small>套题添加表单</small>
-			</h1>
+			<c:choose>
+				<c:when test="${1==param.students}">
+					<span style="color:rgb(0,0,255)">添加成功</span>
+				</c:when>
+				<c:when test="${-1==param.students}">
+					<span style="color:rgb(255,0,0)">添加失败,服务器异常</span>
+				</c:when>
+				<c:otherwise>
+					<span style="color:rgb(219,99,48)">添加学生信息,服务器返回未知的状态</span>
+				</c:otherwise>
+			</c:choose>
+			<a href="/admin/student_add.jsp">继续添加</a>
 
-			</section>
-			<!-- 内容头部 /-->
-
-			<form action="${pageContext.request.contextPath}/Tt/add" method="post">
-				<!-- 正文区域 -->
-				<section class="content"> <!--添加套题信息-->
-
-				<div class="panel panel-default">
-					<div class="panel-heading">添加套题信息</div>
-					<div class="row data-type">
-
-						<div class="col-md-2 title">套题ID</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="ttid"
-								placeholder="套题ID" value="">
-						</div>
-
-						<div class="col-md-2 title">试卷ID</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="sjid"
-								placeholder="试卷ID" value="">
-						</div>
-
-						<div class="col-md-2 title">题目ID</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="stid"
-								   placeholder="题目ID" value="">
-						</div>
-
-						<div class="col-md-2 title">添加时间</div>
-						<div class="col-md-4 data">
-							<div class="input-group date">
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-								<input type="date" class="form-control pull-right"
-									id="添加时间" name="ttaddtime">
-							</div>
-						</div>
-
-						<%--<div class="col-md-2 title">修改时间</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<div class="input-group date">--%>
-								<%--<div class="input-group-addon">--%>
-									<%--<i class="fa fa-calendar"></i>--%>
-								<%--</div>--%>
-								<%--<input type="date" class="form-control pull-right"--%>
-									   <%--id="修改时间" name="cupdatetime">--%>
-							<%--</div>--%>
-						<%--</div>--%>
-
-
-						<div class="col-md-2 title">添加人</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="ttaddperson"
-								placeholder="添加人" value="">
-						</div>
-
-
-
-
-						<%--<div class="col-md-2 title">修改人</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<input type="text" class="form-control" name="cupdateperson"--%>
-								   <%--placeholder="修改人" value="">--%>
-						<%--</div>--%>
-
-					</div>
-				</div>
-				<!--订单信息/--> <!--工具栏-->
-				<div class="box-tools text-center">
-					<button type="submit" class="btn bg-maroon">保存</button>
-					<button type="button" class="btn bg-default"
-						onclick="history.back(-1);">返回</button>
-				</div>
-				<!--工具栏/--> </section>
-				<!-- 正文区域 /-->
-			</form>
 		</div>
 		<!-- 内容区域 /-->
 
@@ -174,7 +169,6 @@
 		<!-- 底部导航 /-->
 
 	</div>
-
 
 	<script
 		src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -259,9 +253,6 @@
 		src="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
-
 	<script>
 		$(document).ready(function() {
 			// 选择框
@@ -283,26 +274,10 @@
 		}
 
 		$(document).ready(function() {
-			$('#datepicker-a3').datetimepicker({
-				format : "yyyy-mm-dd hh:ii",
-				autoclose : true,
-				todayBtn : true,
-				language : "zh-CN"
-			});
-		});
-
-		$(document).ready(function() {
 			// 激活导航位置
-			setSidebarActive("order-manage");
-			$("#datepicker-a3").datetimepicker({
-				format : "yyyy-mm-dd hh:ii",
-
-			});
-
+			setSidebarActive("admin-index");
 		});
 	</script>
-
-
 </body>
 
 </html>

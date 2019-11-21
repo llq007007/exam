@@ -7,11 +7,13 @@ import com.qst.examsystem.util.Page;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 /**
  * 专业
  */
+@Service("zyService")
 public class IZyServiceImpl implements IZyService {
     @Autowired
     @Qualifier("zyDao")
