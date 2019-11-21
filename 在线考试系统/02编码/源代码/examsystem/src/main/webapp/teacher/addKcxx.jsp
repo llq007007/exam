@@ -152,8 +152,7 @@
         </section>
         <!-- 内容头部 /-->
 
-        <form action="${pageContext.request.contextPath}/kcxx/addKcxx"
-              method="post">
+        <form action="${pageContext.request.contextPath}/kcxx/addKcxx" method="post">
             <!-- 正文区域 -->
             <section class="content">
 
@@ -163,31 +162,36 @@
 
                         <div class="col-md-2 title">考场名称</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="type1"
+                            <input type="text" class="form-control" name="kcname"
                                    placeholder="考场名称" value="">
                         </div>
 
                         <div class="col-md-2 title">总人数</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="contain"
+                            <input type="text" class="form-control" name="kcnum"
                                    placeholder="总人数" value="">
                         </div>
 
                         <div class="col-md-2 title">作弊人数</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="answer"
+                            <input type="text" class="form-control" name="badnum"
                                    placeholder="作弊人数" value="">
                         </div>
 
                         <div class="col-md-2 title">缺考人数</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="degree"
-                                   placeholder="缺考人数" value="5" readonly>
+                            <input type="text" class="form-control" name="nullnum"
+                                   placeholder="缺考人数" value="" >
                         </div>
                         <div class="col-md-2 title">监考老师</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="tid"
+                            <input type="text" class="form-control" name="jkname"
                                    placeholder="监考老师" value="">
+                        </div>
+                        <div class="col-md-2 title">考场编号</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="kcno"
+                                   placeholder="考场编号" value="">
                         </div>
 
                     </div>
@@ -198,7 +202,7 @@
                 </div>
                 <!--订单信息/--> <!--工具栏-->
                 <div class="box-tools text-center">
-                    <button type="submit" class="btn bg-maroon">保存</button>
+                    <button type="submit" class="btn bg-maroon">确定</button>
                     <button type="button" class="btn bg-default"
                             onclick="history.back(-1);">返回</button>
                 </div>

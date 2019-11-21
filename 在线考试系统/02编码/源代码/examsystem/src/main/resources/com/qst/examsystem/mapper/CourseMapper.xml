@@ -7,8 +7,8 @@
     <insert id="addCourse" parameterType="course">
         <![CDATA[
 insert into
-    course(cname,zyname,tname,caddtime,cupdatetime,caddperson,cupdateperson)
-    values(#{cname},#{zyname},#{tname},#{caddtime},#{cupdatetime},#{caddperson},#{cupdateperson})
+    course(cname,zyname,tname,caddtime,caddperson)
+    values(#{cname},#{zyname},#{tname},#{caddtime},#{caddperson})
 ]]>
     </insert>
 

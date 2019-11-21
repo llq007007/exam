@@ -128,7 +128,7 @@
 									id="添加时间" name="caddtime">
 							</div>
 						</div>
-
+<%--
 						<div class="col-md-2 title">修改时间</div>
 						<div class="col-md-4 data">
 							<div class="input-group date">
@@ -138,7 +138,7 @@
 								<input type="date" class="form-control pull-right"
 									   id="修改时间" name="cupdatetime">
 							</div>
-						</div>
+						</div>--%>
 
 
 						<div class="col-md-2 title">添加人</div>
@@ -150,11 +150,11 @@
 
 
 
-						<div class="col-md-2 title">修改人</div>
+					<%--	<div class="col-md-2 title">修改人</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="cupdateperson"
 								   placeholder="修改人" value="">
-						</div>
+						</div>--%>
 
 					</div>
 				</div>

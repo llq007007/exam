@@ -29,15 +29,22 @@ public class KcxxController {
      * @return
      */
     @RequestMapping(value = "addKcxx",method= RequestMethod.POST)
-    @ResponseBody
     public String insertKcxx(Kcxx kcxx){
         int rows=kcxxService.insertKcxx(kcxx);
-        return "redirect:/kcxx/addkcxx_result.jsp?rows=" + rows;
+        return "redirect:/teacher/addKcxx_result.jsp?rows="+rows;
     }
+
+    /**
+     * 查询考场信息
+     * @param key
+     * @param request
+     * @param model
+     * @return
+     */
     @RequestMapping("queryKcxx")
     public String selectKcxxInfo(String key,HttpServletRequest request, Model model){
         List<Kcxx> kcxxList=kcxxService.selectKcxxInfo(key);
         model.addAttribute("kcxxList",kcxxList);
-        return "/kcxx/query_kcxx.jsp";
+        return "/teacher/query_kcxx.jsp";
     }
 }

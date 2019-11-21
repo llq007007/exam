@@ -11,28 +11,18 @@ VALUES
 	(#{kcname},#{kcnum},#{badnum},#{nullnum},#{jkname},#{kcno})
 ]]>
 </insert>
-    <!--模糊查询考场信息-->
+    <!--查询考场信息-->
     <select id="selectKcxxInfo" resultType="kcxx">
         <![CDATA[
 		SELECT
 			kcname,
 			kcnum,
+			badnum,
+			nullnum,
 			jkname,
 			kcno
 	FROM
 	kcxx
-	WHERE
-    <where>
-            <if test="kcname!=null and kcname!=''" >
-                and kcname like concat('%',#kcname,'%')
-            </if>
-            <if test="jkname!=null and jkname=''">
-                and jkname like concat('%',#jkname,'%')
-            </if>
-            <if test="kcno!=null and kcno=''">
-                and kcno like concat('%',#kcno,'%')
-            </if>
-   </where>
 ]]>
     </select>
 </mapper>
