@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper>
+    <select id="chouSj" parameterType="java.util.Map" resultType="java.util.Map">
+        <![CDATA[
+SELECT
+	stid,
+	cid,
+	type,
+	contain,
+	answer,
+	degree,
+	tid
+FROM
+	(
+	SELECT
+		RAND( ) AS rowId,
+		stid,
+		cid,
+		type,
+		contain,
+		answer,
+		degree,
+		tid
+	FROM
+		testquestion
+	WHERE
+		cid = #{cid}
+	) t
+ORDER BY
+	rowId
+	LIMIT 0,
+	30
+]]>
+    </select>
+</mapper>
