@@ -116,4 +116,13 @@ public class TeacherDaoImpl implements ITeacherDao {
     public List<Map<String, Object>> selectAllDegreeBySJName(Map map) {
         return teacherMapper.selectAllDegreeBySJName(map);
     }
+    /**
+     * 教师登陆
+     * @param password
+     * @return
+     */
+    @Override
+    public Teacher teacherlogin(String password) {
+        return teacherMapper.teacherlogin(password);
+    }
 }

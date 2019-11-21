@@ -54,4 +54,10 @@ public interface AdminMapper {
      */
     Integer findAdminCount(Admin admin);
 
+    /**
+     * 管理员登陆
+     * @param password
+     * @return
+     */
+    Admin adminlogin(String password);
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -38,11 +39,11 @@
     </ul>
 </div>
 <div class="loginbody">
-    <form action="/admin/adminmain.jsp" method="post">
+    <form action="/Admin/adminlogin" method="post">
         <div class="loginbox">
             <ul>
-                <li><input id="name" name="name" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" /></li>
-                <li><input id="password" name="password" type="password" class="loginpwd" onclick="JavaScript:this.value=''" /></li>
+                <li><input id="adname" name="adname" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" required/></li>
+                <li><input id="adpw" name="adpw" type="password" class="loginpwd" onclick="JavaScript:this.value=''" required/></li>
                 <li><input type="submit" class="loginbtn" value="登录" /><input type="button" class="loginbtn" onclick="zhuce()" value="注册" style="margin-left: 30px"/></li>
             </ul>
         </div>

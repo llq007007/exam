@@ -11,7 +11,7 @@
 					class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
-				<p>xxx</p>
+				<p>${sessionScope.admin.adname}</p>
 				<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
 			</div>
 		</div>
@@ -96,10 +96,6 @@
 						<a href="${pageContext.request.contextPath}/Tt/query">
 							<i class="fa fa-circle-o"></i> 查询套题
 					</a></li>
-					<li id="system-setting">
-						<a href="${pageContext.request.contextPath}/course/query">
-							<i class="fa fa-circle-o"></i> 查看课程
-						</a></li>
 					<li id="system-setting"><a
 						href="${pageContext.request.contextPath}/admin/taoti_add.jsp"> <i
 							class="fa fa-circle-o"></i> 添加套题

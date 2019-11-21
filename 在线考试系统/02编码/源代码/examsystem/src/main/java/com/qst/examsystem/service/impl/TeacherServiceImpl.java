@@ -101,4 +101,9 @@ public class TeacherServiceImpl implements ITeacherService {
     public List<Map<String, Object>> selectAllDegreeBySJName(Map map) {
         return teacherDao.selectAllDegreeBySJName(map);
     }
+
+    @Override
+    public Teacher teacherlogin(String password) {
+        return teacherDao.teacherlogin(password);
+    }
 }

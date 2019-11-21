@@ -113,4 +113,9 @@
             ORDER BY score
         ]]>
     </select>
+    <select id="teacherlogin" parameterType="String" resultType="teacher">
+        <![CDATA[
+        select tname,tpw from teachers where tname =#{tname}
+]]>
+    </select>
 </mapper>

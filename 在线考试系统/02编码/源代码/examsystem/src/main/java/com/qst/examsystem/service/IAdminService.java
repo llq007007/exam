@@ -40,4 +40,10 @@ public interface IAdminService {
      * @return
      */
     public Page<Admin> findAdminPage(Integer page, Integer rows, Admin admin);
+    /**
+     * 管理员登陆
+     * @param password
+     * @return
+     */
+    Admin adminlogin(String password);
 }

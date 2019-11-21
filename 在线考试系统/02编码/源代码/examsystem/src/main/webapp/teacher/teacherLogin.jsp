@@ -38,11 +38,11 @@
     </ul>
 </div>
 <div class="loginbody">
-    <form action="/teacher/teachermain.jsp" method="post">
+    <form action="/Teacher/teacherlogin" method="post">
         <div class="loginbox">
             <ul>
-                <li><input id="name" name="name" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" /></li>
-                <li><input id="password" name="password" type="password" class="loginpwd" onclick="JavaScript:this.value=''" /></li>
+                <li><input id="tname" name="tname" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" required/></li>
+                <li><input id="tpw" name="tpw" type="password" class="loginpwd" onclick="JavaScript:this.value=''" required/></li>
                 <li><input type="submit" class="loginbtn" value="登录" /><input type="button" class="loginbtn" onclick="zhuce()" value="重置密码" style="margin-left: 30px"/></li>
             </ul>
         </div>

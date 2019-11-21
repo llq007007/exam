@@ -18,7 +18,7 @@ import java.util.Map;
  * 教师表控制层
  */
 @Controller
-@RequestMapping("teacher")
+@RequestMapping("Teacher")
 public class TeacherController {
     @Autowired
     private ITeacherService teacherService;
@@ -106,7 +106,23 @@ public class TeacherController {
         return "redirect:toteacher.action";
     }
 
+    @RequestMapping("teacherlogin")
+    public String adminlogin(HttpSession session,Model model,HttpServletRequest request){
+        String tname=request.getParameter("tname");
+        String tpw=request.getParameter("tpw");
+        Teacher teacher=teacherService.teacherlogin(tname);
+        if (teacher.getTpw().equals(tpw)){
+            session.setAttribute("teacher",teacher);
+            return "/teacher/teachermain.jsp";
+        }else if (teacher==null){
+            model.addAttribute("exp","exp");
+            return "/teacher/loginresult.jsp";
+        } else {
+            model.addAttribute("exp","exp");
+            return "/teacher/loginresult.jsp";
+        }
 
+    }
 
 
 }

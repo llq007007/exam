@@ -81,4 +81,12 @@ public class AdminServiceImpl implements IAdminService {
         result.setTotal(count);
         return result;
     }
+    /**
+     * 管理员登陆
+     * @param password
+     * @return
+     */
+    public Admin adminlogin(String password){
+        return adminDao.adminlogin(password);
+    }
 }

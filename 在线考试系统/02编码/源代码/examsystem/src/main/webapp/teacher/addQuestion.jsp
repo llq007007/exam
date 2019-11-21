@@ -190,6 +190,11 @@
                                    placeholder="出题老师" value="">
                         </div>
 
+                        <div class="col-md-2 title">所属课程</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="cid"
+                                   placeholder="所属课程" value="">
+                        </div>
                         </div>
 
 

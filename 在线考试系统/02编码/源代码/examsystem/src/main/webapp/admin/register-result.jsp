@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -14,13 +15,6 @@
             background-position: center top;
             overflow: hidden;
         }
-                              button {
-                                  width: 160px!important;
-                                  height: 120px!important;
-                                  font-size:28px!important ;
-                                  padding-left:0px!important ;
-                              }
-
     </style>
 
 </head>
@@ -44,11 +38,29 @@
         </li>
     </ul>
 </div>
-<div class="center-block" style="text-align: center;padding-top:160px ;">
-    <button type="button"  style="height: 50px" onclick="window.location.href='/student/studentLogin.jsp'">学生登录</button>
-    <button type="button"  onclick="window.location.href='/teacher/teacherLogin.jsp'">教师登录</button>
-    <button type="button"  onclick="window.location.href='/admin/AdminLogin.jsp'">管理员登录</button>
+<div class="loginbody">
+    <c:choose>
+        <c:when test="${1==requestScope.rows}">
+            <script>
+                alert("注册成功，返回登陆");
+                window.location.href="/admin/AdminLogin.jsp"
+            </script>
+        </c:when>
+        <c:when test="${-1==requestScope.rows}">
+            <script>
+                alert("注册失败，返回登陆");
+                window.location.href="/admin/adminRegister.jsp"
+            </script>
+        </c:when>
+        <c:otherwise>
+            <script>
+                alert("服务器返回未知异常");
+                window.location.href="/admin/adminRegister.jsp"
+            </script>
+        </c:otherwise>
+    </c:choose>
 </div>
+
 <div class="loginbm">版权所有&nbsp;&nbsp;&nbsp;&nbsp;java4班第二小组</div>
 </body>
 </html>

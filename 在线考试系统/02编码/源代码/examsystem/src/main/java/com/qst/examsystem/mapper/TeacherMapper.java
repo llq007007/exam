@@ -81,4 +81,11 @@ public interface TeacherMapper {
      * @return
      */
     List<Map<String, Object>>selectAllDegreeBySJName(Map map);
+
+    /**
+     * 教师登陆
+     * @param password
+     * @return
+     */
+    Teacher teacherlogin(String password);
 }

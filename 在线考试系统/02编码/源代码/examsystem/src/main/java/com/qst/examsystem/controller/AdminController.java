@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
  * 管理员控制层
  */
 @Controller
+@RequestMapping("Admin")
 public class AdminController {
     @Autowired
     private IAdminService adminService;
@@ -30,7 +31,7 @@ public class AdminController {
      * @param session
      * @return
      */
-    @RequestMapping("/addAdmin.action")
+    @RequestMapping("addAdmin.action")
     public String addAdmin(Model model, Admin admin, HttpSession session) {
         String forword="";
         System.out.print(admin.toString());
@@ -47,6 +48,18 @@ public class AdminController {
         return forword;
     }
 
+    /**
+     * 管理员注册
+     * @param model
+     * @param admin
+     * @return
+     */
+    @RequestMapping("register")
+    public String Register(Model model,Admin admin){
+        int rows=adminService.addAdmin(admin);
+            model.addAttribute("rows",rows);
+        return "/admin/register-result.jsp";
+    }
     /**
      *删除管理员
      * @param adid
@@ -128,4 +141,22 @@ public class AdminController {
         return adminService.updataAdmin(admin);
     }
 
+    //正常访问login页面
+    @RequestMapping("adminlogin")
+   public String adminlogin(HttpSession session,Model model,HttpServletRequest request){
+        String adname=request.getParameter("adname");
+        String adpw=request.getParameter("adpw");
+        Admin admin=adminService.adminlogin(adname);
+        if (admin.getAdpw().equals(adpw)){
+            session.setAttribute("admin",admin);
+            return "/admin/adminmain.jsp";
+        }else if (admin==null){
+            model.addAttribute("exp","exp");
+            return "/admin/loginresult.jsp";
+        } else {
+            model.addAttribute("exp","exp");
+            return "/admin/loginresult.jsp";
+        }
+
+    }
 }

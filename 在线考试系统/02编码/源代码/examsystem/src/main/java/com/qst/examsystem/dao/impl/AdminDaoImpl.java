@@ -82,4 +82,13 @@ public class AdminDaoImpl implements IAdminDao {
     public Integer findAdminCount(Admin admin) {
         return adminMapper.findAdminCount(admin);
     }
+    /**
+     * 管理员登陆
+     * @param password
+     * @return
+     */
+    @Override
+    public Admin adminlogin(String password){
+        return adminMapper.adminlogin(password);
+    }
 }

@@ -38,11 +38,11 @@
     </ul>
 </div>
 <div class="loginbody">
-    <form action="/admin/adminmain.jsp" method="post">
+    <form action="/Admin/register" method="post">
     <div class="loginbox2">
         <ul>
-            <li><input id="name" name="name" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" /></li>
-            <li><input id="password" name="password" type="password" class="loginpwd" onclick="JavaScript:this.value=''" /></li>
+            <li><input id="adname" name="adname" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" /></li>
+            <li><input id="adpw" name="adpw" type="password" class="loginpwd" onclick="JavaScript:this.value=''" /></li>
             <li><input type="submit" class="loginbtn" value="注册" /></li>
         </ul>
     </div>
