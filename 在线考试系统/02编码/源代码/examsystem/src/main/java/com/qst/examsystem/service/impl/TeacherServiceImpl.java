@@ -111,4 +111,13 @@ public class TeacherServiceImpl implements ITeacherService {
     public Teacher teacherlogin(String password) {
         return teacherDao.teacherlogin(password);
     }
+    /**
+     * 修改密码
+     * @param teacher
+     * @return
+     */
+    @Override
+    public int updateTpw(Teacher teacher) {
+        return teacherDao.updateTpw(teacher);
+    }
 }

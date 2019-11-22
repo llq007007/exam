@@ -1,6 +1,7 @@
 package com.qst.examsystem.dao;
 
 import com.qst.examsystem.entity.Admin;
+import com.qst.examsystem.entity.Student;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
@@ -53,8 +54,14 @@ public interface IAdminDao {
     Integer findAdminCount(Admin admin);
     /**
      * 管理员登陆
-     * @param password
+     * @param adname
      * @return
      */
-    Admin adminlogin(String password);
+    Admin adminlogin(String adname);
+    /**
+     * 修改密码
+     * @param admin
+     * @return
+     */
+    int updateAdpw(Admin admin);
 }

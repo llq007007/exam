@@ -141,8 +141,20 @@
     <!-- 内容区域 -->
     <div class="content-wrapper">
 
-        <img src="${pageContext.request.contextPath}/img/center.jpg"
-             width="100%" height="100%" />
+        <div align="center">
+            <form action="/student/updateSpw" method="post">
+                <ul style="list-style: none">
+                    <li>用户名:<input type="text" id="sname" name="sname" value="${sessionScope.student.sname}" readonly></li>
+                    <li style="margin-top: 20px">
+                        请输入新密码:<input type="password" id="spw" name="spw" required>
+                    </li>
+                    <li style="margin-top: 20px">
+                        <input type="submit" value="确认修改"><input style="margin-left: 20px" type="button"  onclick="history.back(-1)" value="返回">
+                    </li>
+                </ul>
+            </form>
+
+        </div>
 
     </div>
     <!-- 内容区域 /-->

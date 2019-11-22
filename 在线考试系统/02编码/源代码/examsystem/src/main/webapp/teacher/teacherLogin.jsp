@@ -43,7 +43,7 @@
             <ul>
                 <li><input id="tname" name="tname" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" required/></li>
                 <li><input id="tpw" name="tpw" type="password" class="loginpwd" onclick="JavaScript:this.value=''" required/></li>
-                <li><input type="submit" class="loginbtn" value="登录" /><input type="button" class="loginbtn" onclick="zhuce()" value="重置密码" style="margin-left: 30px"/></li>
+                <li><input type="submit" class="loginbtn" value="登录" /></li>
             </ul>
         </div>
     </form>

@@ -38,16 +38,19 @@
     </ul>
 </div>
 <div class="loginbody">
-    <form action="/student/studentmain.jsp" method="post">
+    <form action="/student/studentlogin" method="post">
         <div class="loginbox">
             <ul>
-                <li><input id="name" name="name" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" /></li>
-                <li><input id="password" name="password" type="password" class="loginpwd" onclick="JavaScript:this.value=''" /></li>
-                <li><input type="submit" class="loginbtn" value="登录" /><input type="button" class="loginbtn" onclick="" value="重置密码" style="margin-left: 30px"/></li>
+                <li><input id="sname" name="sname" type="text" class="loginuser" value="用户名" onclick="JavaScript:this.value=''" required></li>
+                <li><input id="spw" name="spw" type="password" class="loginpwd" onclick="JavaScript:this.value=''" required/></li>
+                <li><input type="submit" class="loginbtn" value="登录" /></li>
             </ul>
         </div>
     </form>
 </div>
+<script>
+
+</script>
 <div class="loginbm">版权所有&nbsp;&nbsp;&nbsp;&nbsp;java4班第二小组</div>
 </body>
 </html>

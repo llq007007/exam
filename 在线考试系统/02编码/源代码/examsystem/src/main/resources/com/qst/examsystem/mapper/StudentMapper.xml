@@ -90,4 +90,16 @@ FROM
 	LEFT JOIN zy ON s.zyid = zy.zyid
 WHERE  s.sname like '${name}'
     </select>
+<!--学生登陆-->
+    <select id="studentlogin" parameterType="String" resultType="student">
+        <![CDATA[
+        select sname,spw from students where sname =#{sname}
+]]>
+    </select>
+    <!--修改密码-->
+    <update id="updateSpw" parameterType="student">
+        <![CDATA[
+        update students set spw=#{spw} where sname =#{sname}
+]]>
+    </update>
 </mapper>

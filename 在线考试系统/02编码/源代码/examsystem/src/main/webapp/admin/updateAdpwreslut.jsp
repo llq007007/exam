@@ -6,7 +6,7 @@
     <script src="/js/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/skin/css/style.css" type="text/css" />
     <meta charset="UTF-8">
-    <title>欢迎使用在线考试系统-系统登录</title>
+    <title>修改密码结果</title>
     <style>
         body {
             background-color: #1c77ac;
@@ -42,20 +42,14 @@
     <c:choose>
         <c:when test="${1==requestScope.rows}">
             <script>
-                alert("注册成功，返回登陆");
+                alert("修改成功，请重新登陆");
                 window.location.href="AdminLogin.jsp"
-            </script>
-        </c:when>
-        <c:when test="${-1==requestScope.rows}">
-            <script>
-                alert("注册失败，返回登陆");
-                window.location.href="/admin/adminRegister.jsp"
             </script>
         </c:when>
         <c:otherwise>
             <script>
-                alert("服务器返回未知异常");
-                window.location.href="/admin/adminRegister.jsp"
+                alert("服务器返回未知异常,修改失败");
+                window.location.href="/admin/adminmain.jsp"
             </script>
         </c:otherwise>
     </c:choose>

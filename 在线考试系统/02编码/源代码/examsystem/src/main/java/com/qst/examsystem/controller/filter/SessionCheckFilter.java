@@ -32,13 +32,32 @@ public class SessionCheckFilter implements Filter {
         HttpServletRequest request=(HttpServletRequest) servletRequest;
         HttpServletResponse response=(HttpServletResponse) servletResponse;
         HttpSession session=request.getSession();//获取当前会话
-        if (session.getAttribute("user")==null){
-            //用户未登录,重定向到登录页面
-            response.sendRedirect("/index.jsp");
-        }else{
-            //通过验证
-            filterChain.doFilter(servletRequest,servletResponse);
+        if (request.getRequestURI().equals("/admin/adminmain.jsp")){
+            if (session.getAttribute("admin")==null){
+                //用户未登录,重定向到登录页面
+                response.sendRedirect("/index.jsp");
+            }else{
+                //通过验证
+                filterChain.doFilter(servletRequest,servletResponse);
+            }
+        }else if (request.getRequestURI().equals("/teacher/teachermain.jsp")){
+            if (session.getAttribute("teacher")==null){
+                //用户未登录,重定向到登录页面
+                response.sendRedirect("/index.jsp");
+            }else{
+                //通过验证
+                filterChain.doFilter(servletRequest,servletResponse);
+            }
+        }else {
+            if (session.getAttribute("student")==null){
+                //用户未登录,重定向到登录页面
+                response.sendRedirect("/index.jsp");
+            }else{
+                //通过验证
+                filterChain.doFilter(servletRequest,servletResponse);
+            }
         }
+
     }
 
     @Override

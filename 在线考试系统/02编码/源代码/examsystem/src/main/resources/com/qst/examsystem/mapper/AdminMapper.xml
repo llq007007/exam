@@ -43,10 +43,16 @@
           delete from admin where adid=#{adid}
         ]]>
     </delete>
-
+    <!--登录-->
     <select id="adminlogin" parameterType="String" resultType="admin">
         <![CDATA[
         select adname,adpw from admin where adname =#{adname}
 ]]>
     </select>
+    <!--修改密码-->
+    <update id="updateAdpw" parameterType="com.qst.examsystem.entity.Admin">
+        <![CDATA[
+        update admin set adpw=#{adpw} where adname =#{adname}
+]]>
+    </update>
 </mapper>

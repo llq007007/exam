@@ -131,18 +131,29 @@
 <div class="wrapper">
 
     <!-- 页面头部 -->
-    <jsp:include page="../pages/userheader.jsp"></jsp:include>
+    <jsp:include page="../pages/header.jsp"></jsp:include>
     <!-- 页面头部 /-->
 
     <!-- 导航侧栏 -->
-    <jsp:include page="../pages/studentaside.jsp"></jsp:include>
+    <jsp:include page="../pages/aside.jsp"></jsp:include>
     <!-- 导航侧栏 /-->
 
     <!-- 内容区域 -->
     <div class="content-wrapper">
 
-        <img src="${pageContext.request.contextPath}/img/center.jpg"
-             width="100%" height="100%" />
+        <div align="center">
+            <form action="/Admin/updateAdpw" method="post">
+                <ul style="list-style: none">
+                    <li>用户名:<input type="text" id="adname1" name="adname" value="${sessionScope.admin.adname}" readonly></li>
+                    <li style="margin-top: 20px">
+                        请输入新密码:<input type="password" id="adpw1" name="adpw" required>
+                    </li>
+                    <li style="margin-top: 20px">
+                        <input type="submit" value="确认修改"><input style="margin-left: 20px" type="button"  onclick="history.back(-1)" value="返回">
+                    </li>
+                </ul>
+            </form>
+        </div>
 
     </div>
     <!-- 内容区域 /-->

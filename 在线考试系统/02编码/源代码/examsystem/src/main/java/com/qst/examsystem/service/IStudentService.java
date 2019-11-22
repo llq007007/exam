@@ -59,4 +59,16 @@ public interface IStudentService {
      */
     public Map<String,Object>getStudentByName(Map map);
 
+    /**
+     * 学生登陆
+     * @param sname
+     * @return
+     */
+    Student studentlogin(String sname);
+    /**
+     * 修改密码
+     * @param student
+     * @return
+     */
+    int updateSpw(Student student);
 }

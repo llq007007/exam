@@ -83,10 +83,19 @@ public class AdminServiceImpl implements IAdminService {
     }
     /**
      * 管理员登陆
-     * @param password
+     * @param adname
      * @return
      */
-    public Admin adminlogin(String password){
-        return adminDao.adminlogin(password);
+    public Admin adminlogin(String adname){
+        return adminDao.adminlogin(adname);
+    }
+    /**
+     * 修改密码
+     * @param admin
+     * @return
+     */
+    @Override
+    public int updateAdpw(Admin admin) {
+        return adminDao.updateAdpw(admin);
     }
 }

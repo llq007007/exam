@@ -116,9 +116,16 @@
             ORDER BY score
         ]]>
     </select>
+    <!--教师登录-->
     <select id="teacherlogin" parameterType="String" resultType="teacher">
         <![CDATA[
         select tname,tpw from teachers where tname =#{tname}
 ]]>
     </select>
+    <!--修改密码-->
+    <update id="updateTpw" parameterType="teacher">
+        <![CDATA[
+        update teachers set tpw=#{tpw} where tname =#{tname}
+]]>
+    </update>
 </mapper>

@@ -22,7 +22,7 @@
                                                        class="dropdown-toggle" data-toggle="dropdown"> <img
                         src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
                         class="user-image" alt="User Image"> <span class="hidden-xs">
-
+                        个人中心
 					</span>
 
                 </a>
@@ -33,11 +33,8 @@
                                 class="img-circle" alt="User Image"></li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">修改密码</a>
-                            </div>
                             <div class="pull-right">
-                                <a href="${pageContext.request.contextPath}../index.jsp"
+                                <a href="${pageContext.request.contextPath}/exit"
                                    class="btn btn-default btn-flat">注销</a>
                             </div>
                         </li>

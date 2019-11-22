@@ -84,11 +84,20 @@ public class AdminDaoImpl implements IAdminDao {
     }
     /**
      * 管理员登陆
-     * @param password
+     * @param adname
      * @return
      */
     @Override
-    public Admin adminlogin(String password){
-        return adminMapper.adminlogin(password);
+    public Admin adminlogin(String adname){
+        return adminMapper.adminlogin(adname);
+    }
+    /**
+     * 修改密码
+     * @param admin
+     * @return
+     */
+    @Override
+    public int updateAdpw(Admin admin) {
+        return adminMapper.updateAdpw(admin);
     }
 }

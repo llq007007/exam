@@ -7,30 +7,6 @@ import java.util.Date;
 /**
  * 试卷实体类
  */
-@Alias("sj")
-public class Sj {
-//    试卷id
-    private Integer sjid;
-//    试卷名
-    private String sjname;
-//    考试时间
-    private Date kstime;
-//    阅卷人编号
-    private String rjrno;
-//    出卷日期
-    private String cjrq;
-//    是否延时
-    private String delay;
-//    延时口令
-    private String delaypw;
-//    添加时间
-    private Date sjaddtime;
-//    修改时间
-    private Date sjupdatetime;
-//    添加人
-    private String sjaddperson;
-//    修改人
-    private String sjupdateperson;
 @Alias("shijuan")
 public class Sj {
     //试卷号
@@ -108,19 +84,11 @@ public class Sj {
         this.rjrno = rjrno;
     }
 
-<<<<<<< Updated upstream
     public Date getCjrq() {
         return cjrq;
     }
 
     public void setCjrq(Date cjrq) {
-=======
-    public String getCjrq() {
-        return cjrq;
-    }
-
-    public void setCjrq(String cjrq) {
->>>>>>> Stashed changes
         this.cjrq = cjrq;
     }
 
@@ -172,30 +140,12 @@ public class Sj {
         this.sjupdateperson = sjupdateperson;
     }
 
-<<<<<<< Updated upstream
     public Integer getStid() {
         return stid;
     }
 
     public void setStid(Integer stid) {
         this.stid = stid;
-=======
-    public Sj() {
-    }
-
-    public Sj(Integer sjid, String sjname, Date kstime, String rjrno, String cjrq, String delay, String delaypw, Date sjaddtime, Date sjupdatetime, String sjaddperson, String sjupdateperson) {
-        this.sjid = sjid;
-        this.sjname = sjname;
-        this.kstime = kstime;
-        this.rjrno = rjrno;
-        this.cjrq = cjrq;
-        this.delay = delay;
-        this.delaypw = delaypw;
-        this.sjaddtime = sjaddtime;
-        this.sjupdatetime = sjupdatetime;
-        this.sjaddperson = sjaddperson;
-        this.sjupdateperson = sjupdateperson;
->>>>>>> Stashed changes
     }
 
     @Override
@@ -205,21 +155,14 @@ public class Sj {
                 ", sjname='" + sjname + '\'' +
                 ", kstime=" + kstime +
                 ", rjrno='" + rjrno + '\'' +
-<<<<<<< Updated upstream
                 ", cjrq=" + cjrq +
-=======
-                ", cjrq='" + cjrq + '\'' +
->>>>>>> Stashed changes
                 ", delay='" + delay + '\'' +
                 ", delaypw='" + delaypw + '\'' +
                 ", sjaddtime=" + sjaddtime +
                 ", sjupdatetime=" + sjupdatetime +
                 ", sjaddperson='" + sjaddperson + '\'' +
                 ", sjupdateperson='" + sjupdateperson + '\'' +
-<<<<<<< Updated upstream
                 ", stid=" + stid +
-=======
->>>>>>> Stashed changes
                 '}';
     }
 }

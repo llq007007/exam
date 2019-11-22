@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
@@ -116,6 +117,33 @@ public class StudentController {
         mv.setViewName("/student/query-degree-result.jsp");
         return mv;
     }
-
-
+    @RequestMapping("studentlogin")
+    public String studentlogin(HttpSession session, Model model, HttpServletRequest request){
+        String sname=request.getParameter("sname");
+        String spw=request.getParameter("spw");
+        Student student=studentService.studentlogin(sname);
+        if (student!=null){
+            if (student.getSpw().equals(spw)){
+                session.setAttribute("student",student);
+                return "/student/studentmain.jsp";
+            }else {
+                model.addAttribute("exp","exp");
+                return "/student/loginresult.jsp";
+            }
+        }else {
+            model.addAttribute("exp","exp");
+            return "/student/loginresult.jsp";
+        }
+    }
+   @RequestMapping("updateSpw")
+    public String updateSpw(Student student,Model model, HttpServletRequest request){
+        int rows=studentService.updateSpw(student);
+        if (rows==1){
+            model.addAttribute("rows",rows);
+            return "/student/updateSpwreslut.jsp";
+        }else {
+            model.addAttribute("exp","exp");
+            return "/student/updateSpwreslut.jsp";
+        }
+    }
 }

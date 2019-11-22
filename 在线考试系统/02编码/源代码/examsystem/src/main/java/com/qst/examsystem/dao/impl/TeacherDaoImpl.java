@@ -130,4 +130,13 @@ public class TeacherDaoImpl implements ITeacherDao {
     public Teacher teacherlogin(String password) {
         return teacherMapper.teacherlogin(password);
     }
+    /**
+     * 修改密码
+     * @param teacher
+     * @return
+     */
+    @Override
+    public int updateTpw(Teacher teacher) {
+        return teacherMapper.updateTpw(teacher);
+    }
 }

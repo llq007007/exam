@@ -16,13 +16,13 @@
     <c:when test="${requestScope.exp=='exp'}">
         <script>
             alert("密码或用户名不正确");
-            window.location.href="AdminLogin.jsp";
+            window.location.href="/student/studentLogin.jsp";
         </script>
     </c:when>
     <c:otherwise>
         <script>
             alert("服务器异常");
-            window.location.href="AdminLogin.jsp";
+            window.location.href="/student/studentLogin.jsp";
         </script>
     </c:otherwise>
 </c:choose>

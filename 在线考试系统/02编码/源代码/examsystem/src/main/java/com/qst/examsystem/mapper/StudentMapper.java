@@ -76,4 +76,18 @@ public interface StudentMapper {
      * @return
      */
     int updateStudent(Integer khid);
+
+    /**
+     * 学生登陆
+     * @param sname
+     * @return
+     */
+    Student studentlogin(String sname);
+
+    /**
+     * 修改密码
+     * @param student
+     * @return
+     */
+    int updateSpw(Student student);
 }

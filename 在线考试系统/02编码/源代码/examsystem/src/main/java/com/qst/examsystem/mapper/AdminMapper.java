@@ -56,8 +56,15 @@ public interface AdminMapper {
 
     /**
      * 管理员登陆
-     * @param password
+     * @param adname
      * @return
      */
-    Admin adminlogin(String password);
+    Admin adminlogin(String adname);
+
+    /**
+     * 修改密码
+     * @param admin
+     * @return
+     */
+    int updateAdpw(Admin admin);
 }

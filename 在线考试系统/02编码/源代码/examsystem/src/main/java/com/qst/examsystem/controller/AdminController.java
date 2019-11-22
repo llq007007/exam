@@ -1,6 +1,7 @@
 package com.qst.examsystem.controller;
 
 import com.qst.examsystem.entity.Admin;
+import com.qst.examsystem.entity.Teacher;
 import com.qst.examsystem.service.IAdminService;
 import com.qst.examsystem.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -147,16 +148,35 @@ public class AdminController {
         String adname=request.getParameter("adname");
         String adpw=request.getParameter("adpw");
         Admin admin=adminService.adminlogin(adname);
-        if (admin.getAdpw().equals(adpw)){
-            session.setAttribute("admin",admin);
-            return "/admin/adminmain.jsp";
-        }else if (admin==null){
-            model.addAttribute("exp","exp");
-            return "/admin/loginresult.jsp";
-        } else {
+        if (admin!=null){
+            if (admin.getAdpw().equals(adpw)){
+                session.setAttribute("admin",admin);
+                return "/admin/adminmain.jsp";
+            }else {
+                model.addAttribute("exp","exp");
+                return "/admin/loginresult.jsp";
+            }
+        }else {
             model.addAttribute("exp","exp");
             return "/admin/loginresult.jsp";
         }
+    }
 
+    /**
+     * 修改密码
+     * @param admin
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping("updateAdpw")
+    public String updateAdpw(Admin admin, Model model, HttpServletRequest request){
+        int rows=adminService.updateAdpw(admin);
+        if (rows==1){
+            model.addAttribute("rows",rows);
+        }else {
+            model.addAttribute("exp","exp");
+        }
+        return "/admin/updateAdpwreslut.jsp";
     }
 }

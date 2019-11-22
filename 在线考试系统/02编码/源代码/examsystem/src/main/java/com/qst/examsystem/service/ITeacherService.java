@@ -75,4 +75,10 @@ public interface ITeacherService {
      * @return
      */
     Teacher teacherlogin(String password);
+    /**
+     * 修改密码
+     * @param teacher
+     * @return
+     */
+    int updateTpw(Teacher teacher);
 }

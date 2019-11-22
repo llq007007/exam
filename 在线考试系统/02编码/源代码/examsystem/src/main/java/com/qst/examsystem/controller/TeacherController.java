@@ -111,19 +111,38 @@ public class TeacherController {
         String tname=request.getParameter("tname");
         String tpw=request.getParameter("tpw");
         Teacher teacher=teacherService.teacherlogin(tname);
-        if (teacher.getTpw().equals(tpw)){
-            session.setAttribute("teacher",teacher);
-            return "/teacher/teachermain.jsp";
-        }else if (teacher==null){
-            model.addAttribute("exp","exp");
-            return "/teacher/loginresult.jsp";
-        } else {
+        if (teacher!=null){
+            if (teacher.getTpw().equals(tpw)){
+                session.setAttribute("teacher",teacher);
+                return "/teacher/teachermain.jsp";
+            }else {
+                model.addAttribute("exp","exp");
+                return "/teacher/loginresult.jsp";
+            }
+        }else {
             model.addAttribute("exp","exp");
             return "/teacher/loginresult.jsp";
         }
-
     }
 
+    /**
+     * 修改密码
+     * @param teacher
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping("updateTpw")
+    public String updateSpw(Teacher teacher,Model model, HttpServletRequest request){
+        int rows=teacherService.updateTpw(teacher);
+        if (rows==1){
+            model.addAttribute("rows",rows);
+            return "/teacher/updateTpwreslut.jsp";
+        }else {
+            model.addAttribute("exp","exp");
+            return "/student/updateTpwreslut.jsp";
+        }
+    }
 
 }
 

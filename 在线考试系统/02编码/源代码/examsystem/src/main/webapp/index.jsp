@@ -47,7 +47,7 @@
 <div class="center-block" style="text-align: center;padding-top:160px ;">
     <button type="button"  style="height: 50px" onclick="window.location.href='/student/studentLogin.jsp'">学生登录</button>
     <button type="button"  onclick="window.location.href='/teacher/teacherLogin.jsp'">教师登录</button>
-    <button type="button"  onclick="window.location.href='/admin/AdminLogin.jsp'">管理员登录</button>
+    <button type="button"  onclick="window.location.href='admin/AdminLogin.jsp'">管理员登录</button>
 </div>
 <div class="loginbm">版权所有&nbsp;&nbsp;&nbsp;&nbsp;java4班第二小组</div>
 </body>

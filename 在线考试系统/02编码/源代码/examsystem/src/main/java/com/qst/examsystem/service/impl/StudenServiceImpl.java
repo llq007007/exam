@@ -92,6 +92,22 @@ public class StudenServiceImpl implements IStudentService {
 
         return studentDao.queryStudentDegree(name);
     }
-
-
+    /**
+     * 学生登陆
+     * @param sname
+     * @return
+     */
+    @Override
+    public Student studentlogin(String sname) {
+        return studentDao.studentlogin(sname);
+    }
+    /**
+     * 修改密码
+     * @param student
+     * @return
+     */
+    @Override
+    public int updateSpw(Student student) {
+        return studentDao.updateSpw(student);
+    }
 }

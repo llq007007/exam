@@ -101,4 +101,22 @@ public class StudentDaoImpl implements IStudentDao {
     public Map<String, Object> queryStudentDegree(String name) {
         return studentMapper.queryStudentDegree(name);
     }
+    /**
+     * 学生登陆
+     * @param sname
+     * @return
+     */
+    @Override
+    public Student studentlogin(String sname) {
+        return studentMapper.studentlogin(sname);
+    }
+    /**
+     * 修改密码
+     * @param student
+     * @return
+     */
+    @Override
+    public int updateSpw(Student student) {
+        return studentMapper.updateSpw(student);
+    }
 }

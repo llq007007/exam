@@ -11,7 +11,7 @@
                      class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>${sessionScope.user.sname}</p>
+                <p>${sessionScope.student.sname}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
             </div>
         </div>
@@ -43,6 +43,10 @@
                     <li id="system-setting"><a
                             href="${pageContext.request.contextPath}/permission/findAll.do">
                         <i class="fa fa-circle-o"></i> 修改个人信息
+                    </a></li>
+                    <li id="system-setting"><a
+                            href="${pageContext.request.contextPath}/student/updateSpw.jsp">
+                        <i class="fa fa-circle-o"></i> 修改密码
                     </a></li>
                 </ul></li>
             <li class="treeview"><a href="#"> <i class="fa fa-cube"></i>

@@ -34,6 +34,10 @@
                         <a href="${pageContext.request.contextPath}/course/course-add.jsp">
                             <i class="fa fa-circle-o"></i> 查看个人信息
                         </a></li>
+                    <li id="system-setting">
+                        <a href="${pageContext.request.contextPath}/teacher/updateTpw.jsp">
+                            <i class="fa fa-circle-o"></i> 修改密码
+                        </a></li>
                 </ul></li>
             <li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
                 <span>试题题库管理</span> <span class="pull-right-container"> <i
