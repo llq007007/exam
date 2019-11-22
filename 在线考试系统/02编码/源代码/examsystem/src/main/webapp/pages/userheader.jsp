@@ -34,7 +34,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-right">
-                                <a href="${pageContext.request.contextPath}/exit"
+                                <a href="${pageContext.request.contextPath}/index.jsp"
                                    class="btn btn-default btn-flat">注销</a>
                             </div>
                         </li>

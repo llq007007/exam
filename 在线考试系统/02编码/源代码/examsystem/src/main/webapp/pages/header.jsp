@@ -38,7 +38,7 @@
 								<a href="/admin/updateAdpw.jsp" class="btn btn-default btn-flat">修改密码</a>
 							</div>
 							<div class="pull-right">
-								<a href="${pageContext.request.contextPath}/exit"
+								<a href="${pageContext.request.contextPath}/login.jsp"
 									class="btn btn-default btn-flat">注销</a>
 							</div>
 						</li>
