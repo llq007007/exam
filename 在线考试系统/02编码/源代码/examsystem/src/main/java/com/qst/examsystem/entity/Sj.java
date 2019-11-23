@@ -84,11 +84,11 @@ public class Sj {
         this.rjrno = rjrno;
     }
 
-    public String getCjrq() {
+    public Date getCjrq() {
         return cjrq;
     }
 
-    public void setCjrq(String cjrq) {
+    public void setCjrq(Date cjrq) {
         this.cjrq = cjrq;
     }
 

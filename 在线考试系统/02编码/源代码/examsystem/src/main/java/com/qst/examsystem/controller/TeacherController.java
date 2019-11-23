@@ -153,14 +153,6 @@ public class TeacherController {
             return "/student/updateTpwreslut.jsp";
         }
     }
-    @RequestMapping("query_all_score")
-    public String queryAllScore(String sjname,HttpServletRequest request, Model model) {
-        Map<String,Object> map=new HashMap<>();
-        map.put("sjname",sjname);
-        List<Map<String,Object>> scoreList=teacherService.selectAllDegreeBySJName(map);
-        model.addAttribute("scoreList", scoreList);
-        return "/teacher/select_all_score_result.jsp";
-    }
 
     /**
      * 根据试卷名查询所有成绩
