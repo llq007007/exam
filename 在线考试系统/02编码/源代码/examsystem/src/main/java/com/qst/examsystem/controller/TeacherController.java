@@ -53,7 +53,7 @@ public class TeacherController {
     @RequestMapping("add")
     public String addTeacher( Teacher teacher) {
       int rows=teacherService.addTeacher(teacher);
-        return "redirect:/admin/teacher-deleteresult.jsp?rows="+rows;
+        return "redirect:/admin/teacher-addresult.jsp?rows="+rows;
     }
 
     /**
