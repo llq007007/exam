@@ -40,22 +40,22 @@ public class StudenServiceImpl implements IStudentService {
 
     /**
      * 删除
-     * @param sid
+     * @param khid
      * @return
      */
     @Override
-    public Integer deleteStudent(Integer sid) {
-        return studentDao.deleteStudent(sid);
+    public Integer deleteStudent(Integer khid) {
+        return studentDao.deleteStudent(khid);
     }
 
     /**
      * 根据id查询
-     * @param sid
+     * @param khid
      * @return
      */
     @Override
-    public Student findStudentById(Integer sid) {
-        return studentDao.findStudentById(sid);
+    public Student findStudentById(Integer khid) {
+        return studentDao.findStudentById(khid);
     }
 
     /**

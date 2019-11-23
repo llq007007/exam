@@ -3,6 +3,8 @@ package com.qst.examsystem.mapper;
 import com.qst.examsystem.entity.Student;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
+import org.apache.ibatis.type.Alias;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
@@ -27,17 +29,17 @@ public interface StudentMapper {
 
     /**
      * 删除
-     * @param sid
+     * @param
      * @return
      */
-    Integer deleteStudent(Integer sid);
+    Integer deleteStudent(Integer khid);
 
     /**
      * 查询根据id
-     * @param sid
+     * @param khid
      * @return
      */
-    Student findStudentById(Integer sid);
+    Student findStudentById(@RequestParam("khid") Integer khid);
 
     /**
      * 查询所有

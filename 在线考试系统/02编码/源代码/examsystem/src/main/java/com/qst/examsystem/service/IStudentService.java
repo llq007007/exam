@@ -25,16 +25,16 @@ public interface IStudentService {
     public Integer updataStudent(Student student);
     /**
      * 删除考生
-     * @param sid
+     * @param khid
      * @return  1成功，0失败
      */
-    public Integer deleteStudent(@Param("jkid") Integer sid);
+    public Integer deleteStudent(@Param("khid") Integer khid);
     /**
      * 根据id查找考生
-     * @param sid
+     * @param khid
      * @return
      */
-    public Student findStudentById(Integer sid);
+    public Student findStudentById(Integer khid);
     /**
      * 查询所有考生
      * @param page

@@ -68,7 +68,7 @@ public class TeacherController {
      * @param tid
      * @return
      */
-    @RequestMapping("toeditteacher")
+    @RequestMapping(value = "toeditteacher",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public Teacher editTeacher(@RequestParam("tid")Integer tid) {
 

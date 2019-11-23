@@ -14,7 +14,7 @@ public class Student {
     private Integer khid;
     private Integer zyid;
     private String sname;
-    private String ssex;
+    private int ssex;
     private String spw;
     private Date saddtime;
     private Date supdatetime;
@@ -25,7 +25,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(Integer khid, Integer zyid, String sname, String ssex, String spw, java.sql.Date saddtime, java.sql.Date supdatetime, String saddperson, String supdateperson, String scomments) {
+    public Student(Integer khid, Integer zyid, String sname, int ssex, String spw, Date saddtime, Date supdatetime, String saddperson, String supdateperson, String scomments) {
         this.khid = khid;
         this.zyid = zyid;
         this.sname = sname;
@@ -62,11 +62,11 @@ public class Student {
         this.sname = sname;
     }
 
-    public String getSsex() {
+    public int getSsex() {
         return ssex;
     }
 
-    public void setSsex(String ssex) {
+    public void setSsex(int ssex) {
         this.ssex = ssex;
     }
 

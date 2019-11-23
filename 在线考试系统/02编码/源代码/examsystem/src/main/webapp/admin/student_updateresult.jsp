@@ -153,7 +153,7 @@
 					<span style="color:rgb(219,99,48)">修改学生,服务器返回未知的状态</span>
 				</c:otherwise>
 			</c:choose>
-			<a href="/student/query_degree">返回查询</a>
+			<a href="/student/tostudent.action">返回查询</a>
 			<a href="/admin/AdminLogin.jsp">返回主页面</a>
 
 		</div>

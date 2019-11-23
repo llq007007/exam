@@ -7,8 +7,8 @@
     （考号（khid），专业zyid（外）， 姓名 sname，性别ssex，密码 spw
     添加时间 saddtime，修改时间 supdatetime，添加人 saddperson，修改人 supdateperson，备注 scomments）
     -->
-    <select id="findStudentPage" parameterType="student" resultType="student">
-        select zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments from students
+    <select id="findStudentPage"  resultType="student">
+        select khid,zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments from students
     </select>
 
     <select id="findStudentCount"  resultType="int"  parameterType="student">
@@ -16,47 +16,29 @@
     </select>
 
     <insert	id="addStudent" parameterType="student" >
-		insert into students(zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments)
-			values(#{zyid},#{sname},#{ssex},#{spw},#{saddtime},#{supdatetime},#{saddperson},#{supdateperson},#{scomments})
+		insert into students(zyid,sname,ssex,spw,saddtime,saddperson ,scomments)
+			values(#{zyid},#{sname},#{ssex},#{spw},#{saddtime},#{saddperson},#{scomments})
 	</insert>
 
     <update id="findStudentModify"  parameterType="student">
         update students
-        <set>
-            <if test="zyid !=null and zyid!=''">
-                zyid=#{zyid},
-            </if>
-            <if test="sname !=null and sname !=''">
+          set
                 sname=#{sname},
-            </if>
-            <if test="ssex !=null and ssex !=''">
-                ssex=#{ssex},
-            </if>
-            <if test="spw !=null and spw !=''">
                 spw=#{spw},
-            </if>
-                saddtime=#{saddtime},
                 supdatetime=#{supdatetime},
-            <if test="saddperson !=null and saddperson !=''">
-                saddperson=#{saddperson},
-            </if>
-            <if test="supdateperson !=null and supdateperson !=''">
                 supdateperson=#{supdateperson},
-            </if>
-            <if test="scomments !=null and scomments !=''">
-                scomments=#{scomments},
-            </if>
-        </set>
+                scomments=#{scomments}
+
         where khid=#{khid}
     </update>
 
     <select id="findStudentById" parameterType="Integer"
             resultType="student">
-		select khid,zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments from students where khid =#{sid}
+		select sname,ssex,spw, supdatetime, supdateperson,scomments from students where khid =#{khid}
 	</select>
 
     <delete id="deleteStudent" parameterType="Integer">
-		delete from students where KHid=#{sid}
+		delete from students where khid=#{khid}
 	</delete>
     <!--学生查看个人成绩-->
     <select id="">

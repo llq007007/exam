@@ -92,7 +92,7 @@
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/student/addStudent.action" method="post">
+			<form action="${pageContext.request.contextPath}/student/addStudent" method="post">
 				<!-- 正文区域 -->
 				<section class="content"> <!--添加学生信息-->
 
@@ -113,11 +113,11 @@
 								   placeholder="姓名" value="">
 						</div>
 
-                        <%--<div class="col-md-2 title">性别</div>--%>
-                        <%--<div class="col-md-4 data">--%>
-                            <%--<input type="text" class="form-control" name="ssex"--%>
-                                   <%--placeholder="性别" value="">--%>
-                        <%--</div>--%>
+                        <div class="col-md-2 title">性别</div>
+                        <div class="col-md-4 data">
+                            <input type="radio"  name="ssex" value="1" checked>男
+							<input type="radio"  name="ssex"  value="2">女
+                        </div>
 
                         <div class="col-md-2 title">密码</div>
                         <div class="col-md-4 data">
@@ -169,9 +169,9 @@
 				</div>
 				<!--订单信息/--> <!--工具栏-->
 				<div class="box-tools text-center">
-					<button type="submit" class="btn bg-maroon">保存</button>
-					<button type="button" class="btn bg-default"
-						onclick="history.back(-1);">返回</button>
+					<button type="submit" class="btn bg-maroon">确认</button>
+					<%--<button type="button" class="btn bg-default"
+						onclick="history.back(-1);">返回</button>--%>
 				</div>
 				<!--工具栏/--> </section>
 				<!-- 正文区域 /-->

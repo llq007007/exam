@@ -4,6 +4,8 @@ import com.qst.examsystem.entity.Student;
 import com.qst.examsystem.service.IStudentService;
 import com.qst.examsystem.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,7 @@ import java.util.Map;
 @RequestMapping("student")
 public class StudentController {
     @Autowired
+    @Qualifier("studentService")
     private IStudentService studentService;
 
     /**
@@ -38,7 +41,7 @@ public class StudentController {
         Page<Student> students=studentService.findStudentPage(page,rows, student);
         model.addAttribute("page",  students);
         model.addAttribute("sname",  student.getSname());
-        return forword;
+        return "/admin/student_query.jsp";
     }
 
     /**
@@ -48,27 +51,22 @@ public class StudentController {
      * @param session
      * @return
      */
-    @RequestMapping("/addStudent.action")
-    public String addStudent(Model model, Student student, HttpSession session) {
-        System.out.print("添加信息");
-        String forword="/admin/student_add.jsp";
-        int students=studentService.addStudent(student);
-        if(students>0){
-            session.setAttribute("students",students);
-        }
-        return forword;
+    @RequestMapping("addStudent")
+    public String addStudent( Student student) {
+        //System.out.print("添加信息");
+        int rows=studentService.addStudent(student);
+        return "redirect:/admin/student_addresult.jsp?rows="+rows;
     }
 
     /**
      * 根据id查询需要修改的学生信息
-     * @param sid
-     * @param model
-     * @param sesson
+     * @param khid
      * @return
      */
-    @RequestMapping("toeditstudent.action")
-    public Student editStudent(Integer sid,Model model,HttpSession sesson) {
-        Student student =studentService.findStudentById(sid);
+    @RequestMapping(value = "toeditstudent",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public Student editStudent(@RequestParam("khid") Integer khid) {
+        Student student =studentService.findStudentById(khid);
         System.out.println(student);
        model.addAttribute("student", student);
         //返回客户信息展示页面
@@ -98,24 +96,23 @@ public class StudentController {
      * @param sesson
      * @return
      */
-    @ResponseBody
-    @RequestMapping("/editstudent.action")
-    public String editStudent(@RequestBody Student student, Model model, HttpSession sesson) {
+
+    @RequestMapping( "editstudent")
+    public String editStudent(Student student) {
         int rows=studentService.updataStudent(student);
-        return "redirect:/admin/student_updateresult?rows="+rows;
+        return "redirect:/admin/student_updateresult.jsp?rows="+rows;
     }
 
     /**
      * 删除学生信息
-     * @param sid
-     * @param model
+     * @param khid
      * @return
      */
-    @RequestMapping("/deletestudent.action")
-    public String deleteStudent(Integer sid,Model model) {
-        studentService.deleteStudent(sid);
+    @RequestMapping("deletestudent")
+    public String deleteStudent(Integer khid) {
+        int rows=studentService.deleteStudent(khid);
         System.out.print("删除");
-        return "redirect:tostudent.action";
+        return "redirect:/admin/student_deteleresult.jsp?rows="+rows;
     }
 
     /**

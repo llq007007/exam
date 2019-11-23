@@ -143,10 +143,10 @@
 		<div class="content-wrapper">
 
 			<c:choose>
-				<c:when test="${1==param.students}">
+				<c:when test="${1==param.rows}">
 					<span style="color:rgb(0,0,255)">添加成功</span>
 				</c:when>
-				<c:when test="${-1==param.students}">
+				<c:when test="${-1==param.rows}">
 					<span style="color:rgb(255,0,0)">添加失败,服务器异常</span>
 				</c:when>
 				<c:otherwise>

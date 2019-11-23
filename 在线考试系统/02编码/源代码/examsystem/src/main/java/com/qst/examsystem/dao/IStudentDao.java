@@ -26,17 +26,17 @@ public interface IStudentDao {
 
     /**
      * 删除
-     * @param sid
+     * @param khid
      * @return
      */
-    Integer deleteStudent(Integer sid);
+    Integer deleteStudent(Integer khid);
 
     /**
      * 根据id查询
-     * @param sid
+     * @param khid
      * @return
      */
-    Student findStudentById(Integer sid);
+    Student findStudentById(Integer khid);
 
     /**
      * 查询所有

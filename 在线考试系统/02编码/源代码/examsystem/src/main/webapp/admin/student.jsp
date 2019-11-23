@@ -150,10 +150,10 @@
         <!-- 内容头部 /-->
          <div>
             <ul style="font-size: 20px;width: 100%;height: 100%;">
-                <li class="col-md-2 title"><a href="student_add.jsp">添加学生信息</a></li>
+                <li class="col-md-2 title"><a href="/admin/student_add.jsp">添加学生信息</a></li>
                 <li class="col-md-2 title"><a href="/student/tostudent.action">查找学生信息</a></li>
-                <li class="col-md-2 title"><a href="/student/toeditstudent.action">修改学生信息</a></li>
-                <li class="col-md-2 title"><a href="#">删除学生信息</a></li>
+                <li class="col-md-2 title"><a href="/student/tostudent.action">修改学生信息</a></li>
+                <li class="col-md-2 title"><a href="/student/tostudent.action">删除学生信息</a></li>
             </ul>
          </div>
 

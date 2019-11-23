@@ -43,22 +43,22 @@ public class StudentDaoImpl implements IStudentDao {
 
     /**
      * 删除
-     * @param sid
+     * @param khid
      * @return
      */
     @Override
-    public Integer deleteStudent(Integer sid) {
-        return studentMapper.deleteStudent(sid);
+    public Integer deleteStudent(Integer khid) {
+        return studentMapper.deleteStudent(khid);
     }
 
     /**
      * 根据id查找
-     * @param sid
+     * @param khid
      * @return
      */
     @Override
-    public Student findStudentById(Integer sid) {
-        return studentMapper.findStudentById(sid);
+    public Student findStudentById(Integer khid) {
+        return studentMapper.findStudentById(khid);
     }
 
     /**

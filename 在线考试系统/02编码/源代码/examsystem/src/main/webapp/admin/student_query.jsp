@@ -95,12 +95,12 @@
 					<div class="panel-heading">查看学生信息</div>
 					<div class="row data-type">
 						<div class="col-md-1 title">考号ID</div>
-						<div class="col-md-1 title">专业ID</div>
+						<div class="col-md-2 title">专业ID</div>
 						<div class="col-md-1 title">姓名</div>
                         <div class="col-md-1 title">性别</div>
-                        <div class="col-md-1 title">密码</div>
+                        <div class="col-md-2 title">密码</div>
 						<div class="col-md-1 title">添加人</div>
-						<div class="col-md-1 title">修改人</div>
+						<div class="col-md-2 title">修改人</div>
 						<div class="col-md-2 title">操作</div>
 					</div>
 				</div>
@@ -118,28 +118,28 @@
 										<div class="col-md-1 data">
 											${student.khid}
 										</div>
-										<div class="col-md-1 data">
+										<div class="col-md-2 data">
 											${student.zyid}
 										</div>
 										<div class="col-md-1 data">
 											${student.sname}
 										</div>
 										<div class="col-md-1 data">
-											${student.ssex}
+											${1==student.ssex?'男':'女'}
 										</div>
-										<div class="col-md-1 data">
+										<div class="col-md-2 data">
 											${student.spw}
 										</div>
 										<div class="col-md-1 data">
 											${student.saddperson}
 										</div>
-										<div class="col-md-1 data">
+										<div class="col-md-2 data">
 											${student.supdateperson}
 										</div>
 										<div class="col-md-2 data" >
 											<td>
-												<a href="#" onclick="deleteCourse(${student.khid})">删除</a>
-												<a href="/course/course-update.jsp?cid=${student.khid}">修改</a>
+												<a href="#" onclick="deleteStudent(${student.khid})">删除</a>
+												<a href="/admin/student_update.jsp?khid=${student.khid}">修改</a>
 											</td>
 										</div>
 								  </div>
@@ -184,6 +184,12 @@
 					<script >
 						function  gotoPage(page){
 							window.location.href='/student/tostudent.action?page='+page;
+						}
+
+						function deleteStudent(khid) {
+							if (window.confirm('确定要删除吗?')) {
+								window.location.href = '/student/deletestudent?khid='+ khid;
+							}
 						}
 					</script>
 							</c:otherwise>
