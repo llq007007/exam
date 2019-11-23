@@ -1,6 +1,8 @@
 package com.qst.examsystem.mapper;
 
+import com.qst.examsystem.entity.Course;
 import com.qst.examsystem.entity.Zy;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
@@ -11,51 +13,36 @@ import java.util.List;
 public interface ZyMapper {
 
     /**
-     * 增加
-     *
+     * 查询专业
+     * @return
+     */
+    List<Zy> queryZy();
+
+    /**
+     * 插入专业
      * @param zy
      * @return
      */
-    Integer addZy(Zy zy);
+    int insertZy(Zy zy);
 
     /**
-     * 修改
-     *
-     * @param zy
-     * @return
-     */
-    Integer findZyModify(Zy zy);
-
-    /**
-     * 删除
-     *
+     * 查询一个专业
      * @param zyid
      * @return
      */
-    String deleteZy(Integer zyid);
+    Zy selectOneZy(int zyid);
 
     /**
-     * 查询根据id
-     *
+     * 删除专业
      * @param zyid
      * @return
      */
-    Zy findZyById(Integer zyid);
+    int deleteZy(int zyid);
 
     /**
-     * 查询所有
-     *
-     * @param rowBounds
+     * 更新 专业
      * @param zy
      * @return
      */
-    List<Zy> findZyByCond(RowBounds rowBounds, Zy zy);
-
-    /**
-     * 查询count（*） 总条数
-     *
-     * @param zy
-     * @return
-     */
-    Integer findZyCount(Zy zy);
+    int updateZy(Zy zy);
 }

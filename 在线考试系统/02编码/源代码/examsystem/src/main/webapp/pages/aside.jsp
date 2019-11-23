@@ -31,17 +31,14 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting">
-						<a href="${pageContext.request.contextPath}/course/course-add.jsp">
+						<a href="${pageContext.request.contextPath}/zy/zy-add.jsp">
 							<i class="fa fa-circle-o"></i> 添加专业
 						</a></li>
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
+							href="${pageContext.request.contextPath}/zy/query"> <i
 							class="fa fa-circle-o"></i> 查询专业
 					</a></li>
-					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
-							class="fa fa-circle-o"></i> 删除专业
-					</a></li>
+
 
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>

@@ -1,109 +1,87 @@
 package com.qst.examsystem.controller;
 
+
 import com.qst.examsystem.entity.Zy;
 import com.qst.examsystem.service.IZyService;
 import com.qst.examsystem.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * 专业 控制层
  */
 @Controller
-@RequestMapping("zhuanye")
+@RequestMapping("zy")
 public class ZyController {
-
     @Autowired
     @Qualifier("zyService")
     private IZyService zyService;
 
     /**
-     * 分页查询所有专业信息
-     * @param model
+     * 添加课程
      * @param zy
-     * @param page
-     * @param rows
      * @return
      */
-    @RequestMapping("/tozy.action")
-    public String toZy(Model model, Zy zy, @RequestParam(defaultValue="1")Integer page,
-                        @RequestParam(defaultValue="3")Integer rows) {
-        String forword="admin/Zy";
-        System.out.println(zy);
-        Page<Zy> zys=zyService.findZyPage(page,rows, zy);
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public String addZy(Zy zy) {
+        int rows = zyService.insertZy(zy);
+        return "redirect:/zy/zy-addresult.jsp?rows="+rows;
+    }
 
-        model.addAttribute("page",  zys);
-        model.addAttribute("username",  zy.getZyname());
-        return forword;
+
+    /**
+     * 删除课程
+     */
+    @RequestMapping("delete")
+    public String deleteZy( int zyid){
+        int rows = zyService.deleteZy(zyid);
+        return "redirect:/zy/zy-deleteresult.jsp?rows="+rows;
     }
 
     /**
-     * 添加监考员信息
+     * 查询所有信息
+     *
      * @param model
-     * @param zy
-     * @param session
      * @return
      */
-    @RequestMapping("/addZy.action")
-    public String addZy(Model model, Zy zy, HttpSession session) {
-        System.out.print("添加信息");
-        String forword="admin/Zy";
-        int zys=zyService.addZy(zy);
-        if(zys>0){
-            session.setAttribute("zy",zys);
-        }
-
-        return forword;
+    @RequestMapping("query")
+    public String queryZy( Model model) {
+        List<Zy> zyList = zyService.queryZy();
+        model.addAttribute("zyList", zyList);
+        return "/zy/zy-list.jsp";
     }
 
+
+
     /**
-     * 根据id查询需要修改的监考员信息
+     * 加载信息
      * @param zyid
-     * @param model
-     * @param sesson
      * @return
      */
-    @RequestMapping("/toeditzy.action")
-    public String editZy(Integer zyid,Model model,HttpSession sesson) {
-
-        Zy zy =zyService.findZyById(zyid);
-        System.out.println(zy);
-        model.addAttribute("zy", zy);
-        //返回客户信息展示页面
-        return "admin/editzy";
-    }
-
-    /**
-     * 调用updataZy方法修改监考员信息
-     * @param zy
-     * @param model
-     * @param sesson
-     * @return
-     */
+    @RequestMapping(value = "load_one", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    @RequestMapping("/editzy.action")
-    public Integer editZy(@RequestBody Zy zy, Model model, HttpSession sesson) {
-        return zyService.updataZy(zy);
+    public Zy loadZyData( int zyid) {
+        Zy zy = zyService.selectOneZy(zyid);
+        return zy;
     }
 
     /**
-     * 根据id删除专业
-     * @param zyid
-     * @param model
+     * 修改信息
+     * @param zy
      * @return
      */
-    @RequestMapping("/deletezy.action")
-    public String deleteZy(Integer zyid,Model model) {
-        zyService.deleteZy(zyid);
-        System.out.print("删除");
-        return "redirect:tozy.action";
+    @RequestMapping("update")
+    public  String updateCourse(Zy zy){
+        int rows = zyService.updateZy(zy);
+        return "redirect:/zy/zy-updateresult.jsp?rows="+rows;
+
     }
 }

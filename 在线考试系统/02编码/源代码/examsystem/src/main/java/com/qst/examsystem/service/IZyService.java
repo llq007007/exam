@@ -3,42 +3,45 @@ package com.qst.examsystem.service;
 import com.qst.examsystem.entity.Zy;
 import com.qst.examsystem.util.Page;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
 /**
  * 专业业务层接口
  */
 public interface IZyService {
 
+        /**
+         * 查询专业
+         * @return
+         */
+        List<Zy> queryZy();
 
         /**
-         * 增加专业
+         * 插入专业
          * @param zy
          * @return
          */
-        public Integer addZy(Zy zy);
+        int insertZy(Zy zy);
+
         /**
-         * 修改专业
-         * @param zy
+         * 查询一个专业
+         * @param zyid
          * @return
          */
-        public Integer updataZy(Zy zy);
+        Zy selectOneZy(int zyid);
+
         /**
          * 删除专业
          * @param zyid
          * @return
          */
-        public String deleteZy(@Param("zyid") Integer zyid);
+        int deleteZy(int zyid);
+
         /**
-         * 根据id查找专业
-         * @param zyid
-         * @return
-         */
-        public Zy findZyById(Integer zyid);
-        /**
-         * 查询所有专业
-         * @param page
-         * @param rows
+         * 更新 专业
          * @param zy
          * @return
          */
-        public Page<Zy> findZyPage(Integer page, Integer rows, Zy zy);
+        int updateZy(Zy zy);
 }

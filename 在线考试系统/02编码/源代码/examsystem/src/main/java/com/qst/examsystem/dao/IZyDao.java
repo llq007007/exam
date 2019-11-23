@@ -10,45 +10,36 @@ import java.util.List;
  */
 public interface IZyDao {
     /**
-     * 查询 count（*）
+     * 查询专业
+     * @return
+     */
+    List<Zy> queryZy();
+
+    /**
+     * 插入专业
      * @param zy
      * @return
      */
-    Integer findZyCount(Zy zy);
+    int insertZy(Zy zy);
 
     /**
-     * 查询所有
-     * @param rowBounds
-     * @param zy
-     * @return
-     */
-    List<Zy> findZyByCond(RowBounds rowBounds, Zy zy);
-
-    /**
-     * 根据id查询
+     * 查询一个专业
      * @param zyid
      * @return
      */
-    Zy findZyById(Integer zyid);
+    Zy selectOneZy(int zyid);
 
     /**
-     * 删除
+     * 删除专业
      * @param zyid
      * @return
      */
-    String deleteZy(Integer zyid);
+    int deleteZy(int zyid);
 
     /**
-     * 添加
+     * 更新 专业
      * @param zy
      * @return
      */
-    Integer addZy(Zy zy);
-
-    /**
-     * 修改
-     * @param zy
-     * @return
-     */
-    Integer updataZy(Zy zy);
+    int updateZy(Zy zy);
 }

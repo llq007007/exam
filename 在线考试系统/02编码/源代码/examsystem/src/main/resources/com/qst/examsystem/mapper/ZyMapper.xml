@@ -4,53 +4,29 @@
     <!--查询所有
      （zyid，专业名称 zyname ，专业代号 zyno ，添加时间 zyaddtime ，修改时间 zyupdatetime ，添加人 zyaddperson ，修改人 zyupdateperson ）
      -->
-    <select id="findZyByCond" parameterType="zy"
-            resultType="zy">
-        select zyname , zyno,zyaddtime,zyupdatetime,zyaddperson ,zyupdateperson from zy
-    </select>
+  <select id="queryZy" resultType="zy">
+      select zyid,zyname,zyno,zyaddtime,zyupdatetime,zyaddperson,zyupdateperson
+      from zy
+  </select>
 
-    <select id="findZyCount"  resultType="int"  parameterType="zy">
-        select count(*) from zy
-    </select>
+  <insert id="insertZy"  parameterType="zy">
+      insert into zy
+      (zyname,zyno,zyaddtime,zyaddperson)
+      values (#{zyname},#{zyno},#{zyaddtime},#{zyaddperson})
 
-    <insert	id="addZy" parameterType="zy" >
-		insert into zy(zyname , zyno,zyaddtime,zyupdatetime,zyaddperson ,zyupdateperson)
-			values(#{zyname},#{zyno},#{zyaddtime},#{zyupdatetime},#{zyaddperson},#{zyupdateperson})
-	</insert>
+  </insert>
+    
+    <delete id="deleteZy" parameterType="int">
+           delete from zy where zyid=#{zyid}
+    </delete>
 
-    <update id="findZyModify"  parameterType="zy">
-        update zy
-        <set>
-            <if test="zyname !=null and zyname!=''">
-                zyname=#{zyname},
-            </if>
-            <if test="zyno !=null and zyno !=''">
-                zyno=#{zyno},
-            </if>
-
-            <if test="zyaddtime !=null and zyaddtime !=''">
-                zyaddtime=#{zyaddtime},
-            </if>
-            <if test="zyupdatetime !=null and zyupdatetime !=''">
-                zyupdatetime=#{zyupdatetime},
-            </if>
-            <if test="zyaddperson !=null and zyaddperson !=''">
-                zyaddperson=#{zyaddperson},
-            </if>
-            <if test="zyupdateperson !=null and zyupdateperson !=''">
-                zyupdateperson=#{zyupdateperson},
-            </if>
-        </set>
-        where zyid=#{zyid}
+    <update id="updateZy" parameterType="zy">
+        update zy set
+         zyname=#{zyname},zyno=#{zyno},zyupdatetime=#{zyupdatetime},zyupdateperson=#{zyupdatetime}
+         where zyid=#{zyid}
     </update>
-
-    <select id="findZyById" parameterType="String"
-            resultType="zy">
-		select zyname , zyno,zyaddtime,zyupdatetime,zyaddperson ,zyupdateperson from zy where zyid =#{zyid}
-	</select>
-
-    <delete id="deleteZy" parameterType="Integer">
-		delete from zy where zyid=#{zyid}
-	</delete>
-
+    <select id="selectOneZy" parameterType="int" resultType="zy">
+      select zyid,zyname,zyno,zyaddtime,zyupdatetime,zyaddperson,zyupdateperson
+      from zy where zyid=#{zyid}
+    </select>
 </mapper>

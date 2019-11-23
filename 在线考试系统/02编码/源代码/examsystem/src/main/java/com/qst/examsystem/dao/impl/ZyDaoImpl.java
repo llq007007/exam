@@ -20,68 +20,33 @@ public class ZyDaoImpl implements IZyDao {
         @Qualifier("zyMapper")
         private ZyMapper zyMapper;//创建 ZyMapper 对象
 
-        /**
-         * 查找Zy count(*)
-         * @param zy
-         * @return
-         */
+
         @Override
-        public Integer findZyCount(Zy zy) {
-            return zyMapper.findZyCount(zy);
+        public List<Zy> queryZy() {
+                return zyMapper.queryZy();
         }
 
-        /**
-         * 分页查找所有
-         * @param rowBounds
-         * @param zy
-         * @return
-         */
         @Override
-        public List<Zy> findZyByCond(RowBounds rowBounds, Zy zy) {
-            return zyMapper.findZyByCond(rowBounds, zy);
+        public int insertZy(Zy zy) {
+
+                return zyMapper.insertZy(zy);
         }
 
-        /**
-         * 根据id查找
-         * @param zyid
-         * @return
-         */
         @Override
-        public Zy findZyById(Integer zyid) {
-            return zyMapper.findZyById(zyid);
+        public Zy selectOneZy(int zyid) {
+                return zyMapper.selectOneZy(zyid);
         }
 
-        /**
-         * 根据id删除
-         * @param zyid
-         * @return
-         */
         @Override
-        public String deleteZy(Integer zyid) {
-            return zyMapper.deleteZy(zyid);
+        public int deleteZy(int zyid) {
+                return zyMapper.deleteZy(zyid);
         }
 
-        /**
-         * 添加
-         * @param zy
-         * @return
-         */
         @Override
-        public Integer addZy(Zy zy) {
-            return zyMapper.addZy(zy);
+        public int updateZy(Zy zy) {
+
+                return zyMapper.updateZy(zy);
         }
-
-        /**
-         * 修改
-         * @param zy
-         * @return
-         */
-        @Override
-        public Integer updataZy(Zy zy) {
-            return zyMapper.findZyModify(zy);
-        }
-
-
 }
 
 
