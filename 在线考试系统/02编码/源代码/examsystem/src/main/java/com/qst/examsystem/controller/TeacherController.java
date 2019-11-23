@@ -34,66 +34,53 @@ public class TeacherController {
      * @param rows
      * @return
      */
-    @RequestMapping("/toteacher.action")
+    @RequestMapping("toteacher.action")
     public String toTeacher(Model model, Teacher teacher, @RequestParam(defaultValue="1")Integer page,
                             @RequestParam(defaultValue="3")Integer rows) {
-        String forword="admin/Teacher";
         System.out.println(teacher);
         Page<Teacher> teachers=teacherService.findTeacherPage(page,rows, teacher);
 
         model.addAttribute("page",  teachers);
         model.addAttribute("username",  teacher.getTname());
-        return forword;
+        return "/admin/teacherquery.jsp";
     }
 
     /**
      * 添加教师信息
-     * @param model
      * @param teacher
-     * @param session
      * @return
      */
-    @RequestMapping("/addTeacher.action")
-    public String addTeacher(Model model, Teacher teacher, HttpSession session) {
-        System.out.print("添加信息");
-        String forword="admin/Teacher";
-        int teachers=teacherService.addTeacher(teacher);
-        if(teachers>0){
-            session.setAttribute("teachers",teachers);
-        }
-
-        return forword;
+    @RequestMapping("add")
+    public String addTeacher( Teacher teacher) {
+      int rows=teacherService.addTeacher(teacher);
+        return "redirect:/admin/teacher-deleteresult.jsp?rows="+rows;
     }
 
     /**
      * 根据id查找需要修改的教师信息
      * @param tid
-     * @param model
-     * @param sesson
      * @return
      */
-    @RequestMapping("/toeditteacher.action")
-    public String editTeacher(Integer tid,Model model,HttpSession sesson) {
+    @RequestMapping("toeditteacher")
+    @ResponseBody
+    public Teacher editTeacher(@RequestParam("tid")Integer tid) {
 
         Teacher teacher =teacherService.findTeacherById(tid);
         System.out.println(teacher);
-        model.addAttribute("teacher", teacher);
         //返回客户信息展示页面
-        return "admin/editteacher";
+        return teacher;
     }
 
     /**
      * 调用updataTeacher方法修改教师信息
      * @param teacher
-     * @param model
-     * @param sesson
      * @return
      */
-    @ResponseBody
-    @RequestMapping("/editteacher.action")
-    public Integer editTeacher(@RequestBody Teacher teacher, Model model, HttpSession sesson) {
 
-        return teacherService.updataTeacher(teacher);
+    @RequestMapping("editteacher")
+    public String editTeacher( Teacher teacher) {
+        int rows=teacherService.updataTeacher(teacher);
+        return "redirect:/admin/teacher-updateresult.jsp?rows="+rows;
     }
 
     /**
@@ -102,11 +89,11 @@ public class TeacherController {
      * @param model
      * @return
      */
-    @RequestMapping("/deleteteacher.action")
+    @RequestMapping("deleteteacher")
     public String deleteTeacher(Integer tid,Model model) {
-        teacherService.deleteTeacher(tid);
-        System.out.print("删除");
-        return "redirect:toteacher.action";
+       int rows= teacherService.deleteTeacher(tid);
+       // System.out.print("删除");
+        return "redirect:/admin/teacher-deleteresult.jsp?rows="+rows;
     }
 
     /**

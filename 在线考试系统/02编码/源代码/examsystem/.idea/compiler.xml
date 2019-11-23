@@ -9,8 +9,5 @@
         <module name="examsystem" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="examsystem" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
