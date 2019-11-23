@@ -95,7 +95,7 @@ public class ZyController {
     }
 
     /**
-     * 根据id删除监考员信息
+     * 根据id删除专业
      * @param zyid
      * @param model
      * @return

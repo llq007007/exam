@@ -37,7 +37,7 @@ public class StudentController {
         System.out.println(student);
         Page<Student> students=studentService.findStudentPage(page,rows, student);
         model.addAttribute("page",  students);
-        model.addAttribute("username",  student.getSname());
+        model.addAttribute("sname",  student.getSname());
         return forword;
     }
 

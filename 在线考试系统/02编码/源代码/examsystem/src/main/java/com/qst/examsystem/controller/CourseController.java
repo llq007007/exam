@@ -62,8 +62,19 @@ public class CourseController {
         return "/course/querycourse.jsp";
     }
 
+
     /**
-     * 根据id加载信息
+     * 查询所有信息
+     * @return
+     */
+    @RequestMapping(value="load_data",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public List<Course> loadCourseData() {
+        List<Course> courseList = courseService.queryCourse();
+        return courseList;
+    }
+    /**
+     * 加载信息
      * @param cid
      * @return
      */

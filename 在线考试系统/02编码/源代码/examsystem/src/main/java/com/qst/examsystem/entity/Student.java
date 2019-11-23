@@ -11,16 +11,16 @@ import java.util.Date;
  */
 @Alias("student")
 public class Student {
-    Integer khid;
-    Integer zyid;
-    String sname;
-    String ssex;
-    String spw;
-    Date saddtime;
-    Date supdatetime;
-    String saddperson;
-    String supdateperson;
-    String scomments;
+    private Integer khid;
+    private Integer zyid;
+    private String sname;
+    private String ssex;
+    private String spw;
+    private Date saddtime;
+    private Date supdatetime;
+    private String saddperson;
+    private String supdateperson;
+    private String scomments;
 
     public Student() {
     }

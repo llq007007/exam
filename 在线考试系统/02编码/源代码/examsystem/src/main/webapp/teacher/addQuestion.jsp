@@ -128,6 +128,38 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
 
+    <script  src="/js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            //利用jQuery AJAX加载部门数据
+            $.ajax({
+                url:'/course/load_data',//请求URL
+                type:'POST',//请求方式
+                dataType:'json', //将从服务器获取的数据处理成JSON格式
+                success:function(data){
+                    //请求成功,data表示从服务获取的数据
+                    console.info(data)
+                    var length=data.length;
+                    if(0==length){
+                        alert("未加载到课程数据");
+                        return ;
+                    }
+                    var courses=data;
+                    for(var index=0;index<length;index++){
+                        var course=courses[index];
+                        var cid=course.cid;
+                        var cname=course.cname;
+                        var optionHTML='<option value="'+cid+'">'+cname+'</option>';
+                        $("#cid-select").append(optionHTML);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    // 请求失败
+                    console.error(errorThrown);
+                }
+            });
+        });
+    </script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -192,8 +224,8 @@
 
                         <div class="col-md-2 title">所属课程</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="cid"
-                                   placeholder="所属课程" value="">
+                            <select type="text" class="form-control" name="cid" id="cid-select"
+                                    placeholder="所属课程" ></select>
                         </div>
                         </div>
 

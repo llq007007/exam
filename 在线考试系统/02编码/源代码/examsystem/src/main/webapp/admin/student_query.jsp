@@ -99,64 +99,102 @@
 						<div class="col-md-1 title">姓名</div>
                         <div class="col-md-1 title">性别</div>
                         <div class="col-md-1 title">密码</div>
-						<div class="col-md-2 title">添加时间</div>
-						<div class="col-md-2 title">修改时间</div>
 						<div class="col-md-1 title">添加人</div>
 						<div class="col-md-1 title">修改人</div>
-						<div class="col-md-1 title">备注</div>
+						<div class="col-md-2 title">操作</div>
 					</div>
 				</div>
-				<!--套题信息/--> <!--工具栏-->
-				<div class="row data-type" align="center">
-					<c:choose>
-						<c:when test="${ empty requestScope.model}">
-							<tr>
-								<td colspan="8" align="center"><span style="color: #0000FF">未查询到数据</span></td>
-							</tr>
-						</c:when>
-						<c:otherwise>
-							<c:forEach items="${requestScope.model}" var="student">
-								<tr>
-									<div class="col-lg-2 data">
-										<td>${student.khid}</td>
-									</div>
-                                    <div class="col-lg-2 data">
-                                        <td>${student.zyid}</td>
-                                    </div>
-                                    <div class="col-lg-2 data">
-                                        <td>${student.sname}</td>
-                                    </div>
-                                    <div class="col-lg-2 data">
-                                        <td>${student.ssex}</td>
-                                    </div>
-                                    <div class="col-lg-2 data">
-                                        <td>${student.spw}</td>
-                                    </div>
-									<!-- 利用格式化标签输出日期-->
-                                    <div class="col-lg-2 data">
-                                        <td><fmt:formatDate value="${student.saddtime}" pattern="yyyy-MM-dd"/></td>
-                                    </div>
-                                    <div class="col-lg-2 data"	>
-                                        <td><fmt:formatDate value="${student.supdatetime}" pattern="yyyy-MM-dd"/></td>
-                                    </div>
-                                    <div class="col-lg-2 data">
-                                        <td>${student.saddperson}</td>
-                                    </div>
-                                    <div class="col-lg-1 data">
-                                        <td>${student.supdateperson}</td>
-                                    </div>
-                                    <%--<div class="col-lg-2 data" >--%>
-                                        <%--<td>--%>
-                                            <%--<a href="#" onclick="deleteTaoti(${taoti.ttid})">删除</a>--%>
-                                            <%--<a href=/course/course-update.jsp?cid=${course.cid}" target="_blank">查看试题</a>--%>
-                                        <%--</td>--%>
-                                    <%--</div>--%>
-								</tr>
-							</c:forEach>
-						</c:otherwise>
-					</c:choose>
+				<!--学生信息/--> <!--工具栏-->
 
-				</div>
+						<c:choose>
+							<c:when test="${ empty requestScope.page.rows}">
+
+					<div class="col-md-12 data"><span style="color: #0000FF">未查询到数据</span></div>
+
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${requestScope.page.rows}" var="student">
+					              <div class="row data-type">
+										<div class="col-md-1 data">
+											${student.khid}
+										</div>
+										<div class="col-md-1 data">
+											${student.zyid}
+										</div>
+										<div class="col-md-1 data">
+											${student.sname}
+										</div>
+										<div class="col-md-1 data">
+											${student.ssex}
+										</div>
+										<div class="col-md-1 data">
+											${student.spw}
+										</div>
+										<div class="col-md-1 data">
+											${student.saddperson}
+										</div>
+										<div class="col-md-1 data">
+											${student.supdateperson}
+										</div>
+										<div class="col-md-2 data" >
+											<td>
+												<a href="#" onclick="deleteCourse(${student.khid})">删除</a>
+												<a href="/course/course-update.jsp?cid=${student.khid}">修改</a>
+											</td>
+										</div>
+								  </div>
+								</c:forEach>
+
+					<ul class="pagination">
+						<c:choose>
+							<c:when test="${1==requestScope.page.page}">
+								<li class="disabled"><a   href="#">&laquo;</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a   href="#" onclick="gotoPage(${requestScope.page.page-1})">&laquo;</a></li>
+							</c:otherwise>
+						</c:choose>
+
+						<c:forEach begin="${requestScope.page.min}" step="1" end="${requestScope.page.max}" var="pageNo">
+                              <c:choose>
+
+								  <c:when test="${pageNo==requestScope.page.page}">
+									  <!-- 当前页高亮显示-->
+									  <li class="active"><a href="#" onclick="gotoPage(${pageNo})">${pageNo}</a></li>
+								  </c:when>
+								  <c:when test="${pageNo>requestScope.page.pageCount}">
+									  <!-- pageNo超出当前最大页数-->
+									  <li class="disabled"><a   href="#">${pageNo}</a></li>
+								  </c:when>
+								  <c:otherwise>
+									  <li ><a href="#" onclick="gotoPage(${requestScope.page.page+1})">${pageNo}</a></li>
+								  </c:otherwise>
+
+							  </c:choose>
+						</c:forEach>
+						<c:choose>
+							<c:when test="${requestScope.page.pageCount==requestScope.page.page}">
+								<li class="disabled"><a   href="#">&raquo;</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a   href="#" onclick="gotoPage(${requestScope.page.page+1})">&raquo;</a></li>
+							</c:otherwise>
+						</c:choose>
+					</ul>
+					<script >
+						function  gotoPage(page){
+							window.location.href='/student/tostudent.action?page='+page;
+						}
+					</script>
+							</c:otherwise>
+
+
+
+						</c:choose>
+
+					</div>
+
+
 				<!--工具栏/-->
                 </section>
 				<%--<script>--%>
