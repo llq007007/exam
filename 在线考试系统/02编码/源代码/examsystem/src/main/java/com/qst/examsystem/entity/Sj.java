@@ -84,11 +84,11 @@ public class Sj {
         this.rjrno = rjrno;
     }
 
-    public Date getCjrq() {
+    public String getCjrq() {
         return cjrq;
     }
 
-    public void setCjrq(Date cjrq) {
+    public void setCjrq(String cjrq) {
         this.cjrq = cjrq;
     }
 
@@ -140,14 +140,6 @@ public class Sj {
         this.sjupdateperson = sjupdateperson;
     }
 
-    public Integer getStid() {
-        return stid;
-    }
-
-    public void setStid(Integer stid) {
-        this.stid = stid;
-    }
-
     @Override
     public String toString() {
         return "Sj{" +
@@ -155,14 +147,13 @@ public class Sj {
                 ", sjname='" + sjname + '\'' +
                 ", kstime=" + kstime +
                 ", rjrno='" + rjrno + '\'' +
-                ", cjrq=" + cjrq +
+                ", cjrq='" + cjrq + '\'' +
                 ", delay='" + delay + '\'' +
                 ", delaypw='" + delaypw + '\'' +
                 ", sjaddtime=" + sjaddtime +
                 ", sjupdatetime=" + sjupdatetime +
                 ", sjaddperson='" + sjaddperson + '\'' +
                 ", sjupdateperson='" + sjupdateperson + '\'' +
-                ", stid=" + stid +
                 '}';
     }
 }

@@ -1,5 +1,6 @@
 package com.qst.examsystem.test;
 
+import com.qst.examsystem.controller.TeacherController;
 import com.qst.examsystem.entity.Teacher;
 import com.qst.examsystem.service.ITeacherService;
 import com.qst.examsystem.util.Page;
@@ -165,5 +166,13 @@ public class TeacherTest {
         Map<String,Object> map=new HashMap<>();
         map.put("sjname","物理期末考试");
         System.out.println(teacherService.selectAllDegreeBySJName(map));
+    }
+
+    @Test
+    public void testQueryAllScore(){
+        AbstractXmlApplicationContext context = new ClassPathXmlApplicationContext("db.xml");
+        TeacherController teacherController = (TeacherController) context.getBean("teacherController");
+        Map<String,Object> map=new HashMap<>();
+        map.put("sjname","物理期末考试");
     }
 }

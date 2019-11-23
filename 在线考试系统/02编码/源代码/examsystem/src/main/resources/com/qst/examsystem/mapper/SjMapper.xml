@@ -7,19 +7,18 @@
         <![CDATA[
 SELECT
 	stid,
-	cid,
-	type,
-	contain,
-	answer,
-	degree,
-	tid
+-- 	cid,
+	contain
+-- 	type1,
+-- 	degree,
+-- 	tid
 FROM
 	(
 	SELECT
 		RAND( ) AS rowId,
 		stid,
 		cid,
-		type,
+		type1,
 		contain,
 		answer,
 		degree,
@@ -32,7 +31,8 @@ FROM
 ORDER BY
 	rowId
 	LIMIT 0,
-	30
+	20
+
 ]]>
     </select>
 </mapper>
