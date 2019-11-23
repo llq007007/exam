@@ -99,7 +99,7 @@
 ]]>
     </select>
 
-    <!--根据试卷名查询所有成绩-->
+    <!--根据试卷名查询所有学生成绩-->
     <select id="selectAllDegreeBySJName" resultType="java.util.Map" parameterType="java.util.Map">
         <![CDATA[
             SELECT

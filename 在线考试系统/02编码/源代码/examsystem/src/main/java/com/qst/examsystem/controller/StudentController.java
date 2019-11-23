@@ -67,13 +67,12 @@ public class StudentController {
      * @return
      */
     @RequestMapping("/toeditstudent.action")
-    public String editStudent(Integer sid,Model model,HttpSession sesson) {
-
+    public Student editStudent(Integer sid,Model model,HttpSession sesson) {
         Student student =studentService.findStudentById(sid);
         System.out.println(student);
-        model.addAttribute("student", student);
+       model.addAttribute("student", student);
         //返回客户信息展示页面
-        return "admin/editstudent";
+        return student;
     }
 
     /**
@@ -85,9 +84,9 @@ public class StudentController {
      */
     @ResponseBody
     @RequestMapping("/editstudent.action")
-    public Integer editStudent(@RequestBody Student student, Model model, HttpSession sesson) {
-
-        return studentService.updataStudent(student);
+    public String editStudent(@RequestBody Student student, Model model, HttpSession sesson) {
+        int rows=studentService.updataStudent(student);
+        return "redirect:/admin/student_updateresult?rows="+rows;
     }
 
     /**

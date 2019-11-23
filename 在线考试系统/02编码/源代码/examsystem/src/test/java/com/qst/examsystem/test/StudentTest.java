@@ -21,7 +21,7 @@ public class StudentTest {
     
 
     /**
-     * 删除测试
+     * 删除学生测试
      */
     @Test
     public void testdeleteStudent(){
@@ -38,7 +38,7 @@ public class StudentTest {
         }
     }
     /**
-     * 增加管理员
+     * 增加学生信息
      */
     @Test
     public void testaddStudent(){
@@ -65,7 +65,7 @@ public class StudentTest {
     }
 
     /**
-     * 修改管理员
+     * 修改学生
      */
     @Test
     public void testupdataStudent(){
@@ -92,7 +92,7 @@ public class StudentTest {
     }
 
     /**
-     * 根据查询管理员
+     * 根据学生ID查询学生
      */
     @Test
     public void testfindStudentbyid(){
@@ -109,7 +109,7 @@ public class StudentTest {
 
     }
     /**
-     * 查询所有管理员
+     * 查询所有学生
      */
     @Test
     public void testfindAllStudent(){
@@ -126,12 +126,18 @@ public class StudentTest {
         }
 
     }
+
+    /**
+     * 查询学生个人成绩
+     */
     @Test
     public void testQueryDegree(){
         AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");
         IStudentService studentService=(IStudentService)context.getBean("studentService");
         System.out.println(studentService.queryStudentDegree("lisi"));
     }
+
+
     @Test
     public void testGetStudent(){
         AbstractXmlApplicationContext context=new ClassPathXmlApplicationContext("db.xml");

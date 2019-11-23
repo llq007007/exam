@@ -4,6 +4,7 @@ import com.qst.examsystem.entity.Teacher;
 import com.qst.examsystem.service.ITeacherService;
 import com.qst.examsystem.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,9 @@ import java.util.Map;
 @Controller
 @RequestMapping("Teacher")
 public class TeacherController {
+
     @Autowired
+    @Qualifier("teacherService")
     private ITeacherService teacherService;
 
     /**
@@ -106,6 +109,13 @@ public class TeacherController {
         return "redirect:toteacher.action";
     }
 
+    /**
+     * 教师登录
+     * @param session
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping("teacherlogin")
     public String adminlogin(HttpSession session,Model model,HttpServletRequest request){
         String tname=request.getParameter("tname");
@@ -150,6 +160,21 @@ public class TeacherController {
         List<Map<String,Object>> scoreList=teacherService.selectAllDegreeBySJName(map);
         model.addAttribute("scoreList", scoreList);
         return "/teacher/select_all_score_result.jsp";
+    }
+
+    /**
+     * 根据试卷名查询所有成绩
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("query_all_score")
+    public String queryAllScore(String sjname,HttpServletRequest request, Model model) {
+        Map<String,Object> map=new HashMap<>();
+        map.put("sjname",sjname);
+        List<Map<String,Object>> scoreList=teacherService.selectAllDegreeBySJName(map);
+        model.addAttribute("scoreList", scoreList);
+        return "/teacher/select_all_score.jsp";
     }
 
 }

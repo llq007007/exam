@@ -50,6 +50,7 @@ public interface ITeacherService {
      * @return
      */
     Map<String,Integer>countDegree(Integer khid);
+
     /**
      * 添加成绩
      * @param map （分数，khid）
@@ -69,6 +70,7 @@ public interface ITeacherService {
      * @return
      */
     List<Map<String, Object>>selectAllDegreeBySJName(Map map);
+
     /**
      * 教师登陆
      * @param password

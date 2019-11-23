@@ -96,12 +96,12 @@
 					<div class="row data-type">
 						<div class="col-md-2 title">套题ID</div>
 						<div class="col-md-2 title">试卷ID</div>
-						<div class="col-md-2 title">题目ID</div>
+						<%--<div class="col-md-2 title">题目ID</div>--%>
 						<div class="col-md-2 title">添加时间</div>
 						<%--<div class="col-md-2 title">修改时间</div>--%>
-						<div class="col-md-2 title">添加人</div>
+						<div class="col-md-3 title">添加人</div>
 						<%--<div class="col-md-1 title">修改人</div>--%>
-						<div class="col-md-2 title">操作</div>
+						<div class="col-md-3 title">操作</div>
 					</div>
 				</div>
 				<!--套题信息/--> <!--工具栏-->
@@ -121,9 +121,9 @@
 								  <div class="col-lg-2 data">
 									<td>${taoti.sjid}</td>
 								  </div>
-								<div class="col-lg-2 data">
-									<td>${taoti.stid}</td>
-								</div>
+								<%--<div class="col-lg-2 data">--%>
+									<%--<td>${taoti.stid}</td>--%>
+								<%--</div>--%>
 									<!-- 利用格式化标签输出日期-->
 								<div class="col-lg-2 data">
 									<td><fmt:formatDate value="${taoti.ttaddtime}" pattern="yyyy-MM-dd"/></td>
@@ -131,15 +131,16 @@
 								<%--<div class="col-lg-2 data"	>--%>
 									<%--<td><fmt:formatDate value="${taoti.ttupdatetime}" pattern="yyyy-MM-dd"/></td>--%>
 								<%--</div>--%>
-								<div class="col-lg-2 data">
+								<div class="col-lg-3 data">
 									<td>${taoti.ttaddperson}</td>
 								</div>
 								<%--<div class="col-lg-1 data">--%>
 									<%--<td>${taoti.ttupdateperson}</td>--%>
 								<%--</div>--%>
-								<div class="col-lg-2 data" >
-									<td>
+								<div class="col-lg-3 data" >
+									<td >
                                         <a href="#" onclick="deleteTaoti(${taoti.ttid})">删除</a>
+                                        &nbsp;&nbsp;
 										<a href=/course/course-update.jsp?cid=${course.cid}" target="_blank">查看试题</a>
 									</td>
 								</div>

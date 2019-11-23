@@ -118,11 +118,11 @@
 								   placeholder="姓名" value="">
 						</div>
 
-                        <div class="col-md-2 title">性别</div>
-                        <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="ssex"
-                                   placeholder="性别" value="">
-                        </div>
+                        <%--<div class="col-md-2 title">性别</div>--%>
+                        <%--<div class="col-md-4 data">--%>
+                            <%--<input type="text" class="form-control" name="ssex"--%>
+                                   <%--placeholder="性别" value="">--%>
+                        <%--</div>--%>
 
                         <div class="col-md-2 title">密码</div>
                         <div class="col-md-4 data">
@@ -141,16 +141,16 @@
 							</div>
 						</div>
 
-						<div class="col-md-2 title">修改时间</div>
-						<div class="col-md-4 data">
-							<div class="input-group date">
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-								<input type="date" class="form-control pull-right"
-									   id="修改时间" name="supdatetime">
-							</div>
-						</div>
+						<%--<div class="col-md-2 title">修改时间</div>--%>
+						<%--<div class="col-md-4 data">--%>
+							<%--<div class="input-group date">--%>
+								<%--<div class="input-group-addon">--%>
+									<%--<i class="fa fa-calendar"></i>--%>
+								<%--</div>--%>
+								<%--<input type="date" class="form-control pull-right"--%>
+									   <%--id="修改时间" name="supdatetime">--%>
+							<%--</div>--%>
+						<%--</div>--%>
 
 						<div class="col-md-2 title">添加人</div>
 						<div class="col-md-4 data">
@@ -158,11 +158,11 @@
 								placeholder="添加人" value="">
 						</div>
 
-						<div class="col-md-2 title">修改人</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="supdateperson"
-								   placeholder="修改人" value="">
-						</div>
+						<%--<div class="col-md-2 title">修改人</div>--%>
+						<%--<div class="col-md-4 data">--%>
+							<%--<input type="text" class="form-control" name="supdateperson"--%>
+								   <%--placeholder="修改人" value="">--%>
+						<%--</div>--%>
 
                         <div class="col-md-2 title">备注</div>
                         <div class="col-md-4 data">

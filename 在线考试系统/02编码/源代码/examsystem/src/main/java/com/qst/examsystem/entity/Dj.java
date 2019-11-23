@@ -33,7 +33,7 @@ public class Dj {
     /**
      * 得分
      */
-    private int score;
+    private  int score;
 
     /**
      * 是否已批卷

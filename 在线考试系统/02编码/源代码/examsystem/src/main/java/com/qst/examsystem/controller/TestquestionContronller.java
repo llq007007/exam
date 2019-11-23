@@ -19,6 +19,7 @@ import java.util.List;
 @Controller
 @RequestMapping("testquestion")
 public class TestquestionContronller {
+
     @Autowired
     @Qualifier("testquestionService")
     private ITestquestionService testquestionService;

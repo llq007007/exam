@@ -164,7 +164,7 @@ public class TeacherTest {
         AbstractXmlApplicationContext context = new ClassPathXmlApplicationContext("db.xml");
         ITeacherService teacherService = (ITeacherService) context.getBean("teacherService");
         Map<String,Object> map=new HashMap<>();
-        map.put("sjname","物理期末考试");
+        map.put("sjname","java");
         System.out.println(teacherService.selectAllDegreeBySJName(map));
     }
 

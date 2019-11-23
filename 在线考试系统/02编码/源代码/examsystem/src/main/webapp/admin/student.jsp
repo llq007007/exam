@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>在线考试系统</title>
+    <title>在线考试系统-学生管理</title>
     <meta name="description" content="AdminLTE2定制版">
     <meta name="keywords" content="AdminLTE2定制版">
 
@@ -148,15 +148,14 @@
 
         </section>
         <!-- 内容头部 /-->
-        <div align="center">
+         <div>
             <ul style="font-size: 20px;width: 100%;height: 100%;">
                 <li class="col-md-2 title"><a href="student_add.jsp">添加学生信息</a></li>
                 <li class="col-md-2 title"><a href="/student/tostudent.action">查找学生信息</a></li>
-                <li class="col-md-2 title"><a href="#">修改学生信息</a></li>
+                <li class="col-md-2 title"><a href="/student/toeditstudent.action">修改学生信息</a></li>
                 <li class="col-md-2 title"><a href="#">删除学生信息</a></li>
             </ul>
-        </div>
-
+         </div>
 
     </div>
     <!-- 内容区域 /-->

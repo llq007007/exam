@@ -93,11 +93,11 @@
 					<div class="panel-heading">添加套题信息</div>
 					<div class="row data-type">
 
-						<div class="col-md-2 title">套题ID</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="ttid"
-								placeholder="套题ID" value="">
-						</div>
+						<%--<div class="col-md-2 title">套题ID</div>--%>
+						<%--<div class="col-md-4 data">--%>
+							<%--<input type="text" class="form-control" name="ttid"--%>
+								<%--placeholder="套题ID" value="">--%>
+						<%--</div>--%>
 
 						<div class="col-md-2 title">试卷ID</div>
 						<div class="col-md-4 data">
@@ -105,11 +105,11 @@
 								placeholder="试卷ID" value="">
 						</div>
 
-						<div class="col-md-2 title">题目ID</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="stid"
-								   placeholder="题目ID" value="">
-						</div>
+						<%--<div class="col-md-2 title">题目ID</div>--%>
+						<%--<div class="col-md-4 data">--%>
+							<%--<input type="text" class="form-control" name="stid"--%>
+								   <%--placeholder="题目ID" value="">--%>
+						<%--</div>--%>
 
 						<div class="col-md-2 title">添加时间</div>
 						<div class="col-md-4 data">
