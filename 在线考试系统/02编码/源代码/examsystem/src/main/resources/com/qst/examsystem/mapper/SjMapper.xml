@@ -35,4 +35,8 @@ ORDER BY
 
 ]]>
     </select>
+    <select id="selectAllShiJuan" resultType="shijuan">
+--         select sjid,sjname from sj
+      select * from sj
+    </select>
 </mapper>

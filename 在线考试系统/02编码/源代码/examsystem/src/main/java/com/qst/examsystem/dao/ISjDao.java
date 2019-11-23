@@ -1,5 +1,7 @@
 package com.qst.examsystem.dao;
 
+import com.qst.examsystem.entity.Sj;
+
 import java.util.List;
 import java.util.Map;
 
@@ -13,4 +15,9 @@ public interface ISjDao {
      * @return
      */
     List<Map<String,Object>>chouSj(Map map);
+    /**
+     * 查询所有试卷
+     * @return
+     */
+    List<Sj> selectAllShiJuan();
 }

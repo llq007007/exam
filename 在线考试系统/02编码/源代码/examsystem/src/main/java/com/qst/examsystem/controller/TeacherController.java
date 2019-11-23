@@ -171,7 +171,22 @@ public class TeacherController {
         model.addAttribute("scoreList", scoreList);
         return "/teacher/select_all_score.jsp";
     }
-
+    @RequestMapping("query_avg_score")
+    public String queryAVGScore(String sjname,Model model){
+        Map<String,Object> map=new HashMap<>();
+        map.put("sjname",sjname);
+        List<Map<String,Object>> scoreList=teacherService.selectAVGDegree(map);
+        model.addAttribute("scoreList", scoreList);
+        return "/teacher/select_analysis_degree.jsp";
+    }
+    @RequestMapping("")
+    public String queryShiJuan(String sjname,Model model){
+        Map<String,Object> map=new HashMap<>();
+        map.put("sjname",sjname);
+        List<Map<String,Object>> scoreList=teacherService.selectAVGDegree(map);
+        model.addAttribute("scoreList", scoreList);
+        return "/teacher/";
+    }
 }
 
 

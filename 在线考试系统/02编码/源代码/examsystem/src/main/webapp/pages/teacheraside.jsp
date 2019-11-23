@@ -64,7 +64,7 @@
             </a>
                 <ul class="treeview-menu">
                     <li id="system-setting">
-                        <a href="${pageContext.request.contextPath}/course/course-add.jsp">
+                        <a href="${pageContext.request.contextPath}/teacher/select_shijuan.jsp">
                             <i class="fa fa-circle-o"></i> 查看试卷
                         </a></li>
                     <li id="system-setting"><a
@@ -103,7 +103,7 @@
                             class="fa fa-circle-o"></i> 查看考生成绩
                     </a></li>
                     <li id="system-setting"><a
-                            href="${pageContext.request.contextPath}/role/findAll.do"> <i
+                            href="${pageContext.request.contextPath}/teacher/select_analysis_degree.jsp"> <i
                             class="fa fa-circle-o"></i> 成绩分析
                     </a></li>
                 </ul></li>

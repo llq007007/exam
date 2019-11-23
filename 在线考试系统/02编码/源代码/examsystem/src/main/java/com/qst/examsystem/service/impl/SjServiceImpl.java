@@ -2,6 +2,7 @@ package com.qst.examsystem.service.impl;
 
 import com.qst.examsystem.dao.IJkyDao;
 import com.qst.examsystem.dao.ISjDao;
+import com.qst.examsystem.entity.Sj;
 import com.qst.examsystem.service.IJkyService;
 import com.qst.examsystem.service.ISjService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,10 @@ public class SjServiceImpl implements ISjService {
     @Override
     public List<Map<String, Object>> chouSj(Map map) {
         return sjDao.chouSj(map);
+    }
+
+    @Override
+    public List<Sj> selectAllShiJuan() {
+        return sjDao.selectAllShiJuan();
     }
 }

@@ -1,6 +1,7 @@
 package com.qst.examsystem.dao.impl;
 
 import com.qst.examsystem.dao.ISjDao;
+import com.qst.examsystem.entity.Sj;
 import com.qst.examsystem.mapper.SjMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,5 +18,10 @@ public class SjDaoImpl implements ISjDao {
     @Override
     public List<Map<String, Object>> chouSj(Map map) {
         return sjMapper.chouSj(map);
+    }
+
+    @Override
+    public List<Sj> selectAllShiJuan() {
+        return sjMapper.selectAllShiJuan();
     }
 }

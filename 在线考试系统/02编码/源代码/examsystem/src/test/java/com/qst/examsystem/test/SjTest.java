@@ -18,4 +18,10 @@ public class SjTest {
         map.put("cid","1");
         System.out.println(iSjService.chouSj(map));
     }
+    @Test
+    public void testSelectAllSj(){
+        AbstractXmlApplicationContext context = new ClassPathXmlApplicationContext("db.xml");
+        ISjService iSjService = (ISjService) context.getBean("iSjService");
+        System.out.println(iSjService.selectAllShiJuan());
+    }
 }

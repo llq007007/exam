@@ -48,7 +48,7 @@
     <!--* 计算学生成绩-->
     <select id="countDegree" resultType="java.util.Map">
     SELECT
-        count( degree ) * 2 as score
+        count( degree ) * 5 as score
     FROM
         ksda k
         LEFT JOIN testquestion tq ON tq.stid = k.stid
@@ -102,9 +102,28 @@
             LEFT JOIN dj ON sj.sjid = dj.sjid
             LEFT JOIN students s ON dj.khid = s.khid
             LEFT JOIN zy ON zy.zyid = s.zyid
-             where sjname=#{sjname}
+             where sjname like #{sjname}
             ORDER BY score
         ]]>
+    </select>
+    <select id="">
+        SELECT
+        zyname,
+        sname,
+        sjname,
+        score
+        FROM
+        sj
+        LEFT JOIN dj ON sj.sjid = dj.sjid
+        LEFT JOIN students s ON dj.khid = s.khid
+        LEFT JOIN zy ON zy.zyid = s.zyid
+        <where>
+            <if test="">
+                where sjname like #{sjname}
+            </if>
+
+        </where>
+        ORDER BY score
     </select>
     <!--教师登录-->
     <select id="teacherlogin" parameterType="String" resultType="teacher">

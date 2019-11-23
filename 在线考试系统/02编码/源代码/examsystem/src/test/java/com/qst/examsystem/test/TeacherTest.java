@@ -152,7 +152,7 @@ public class TeacherTest {
         AbstractXmlApplicationContext context = new ClassPathXmlApplicationContext("db.xml");
         ITeacherService teacherService = (ITeacherService) context.getBean("teacherService");
         Map<String,Object> map=new HashMap<>();
-        map.put("sjname","物理期末考试");
+        map.put("sjname","JAVA考试");
         System.out.println(teacherService.selectAVGDegree(map));
     }
 
@@ -164,15 +164,9 @@ public class TeacherTest {
         AbstractXmlApplicationContext context = new ClassPathXmlApplicationContext("db.xml");
         ITeacherService teacherService = (ITeacherService) context.getBean("teacherService");
         Map<String,Object> map=new HashMap<>();
-        map.put("sjname","java");
+        map.put("sjname","JAVA考试");
         System.out.println(teacherService.selectAllDegreeBySJName(map));
     }
 
-    @Test
-    public void testQueryAllScore(){
-        AbstractXmlApplicationContext context = new ClassPathXmlApplicationContext("db.xml");
-        TeacherController teacherController = (TeacherController) context.getBean("teacherController");
-        Map<String,Object> map=new HashMap<>();
-        map.put("sjname","物理期末考试");
-    }
+
 }
