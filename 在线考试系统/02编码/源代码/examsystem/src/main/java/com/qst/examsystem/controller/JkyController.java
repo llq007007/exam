@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
  * 监考员控制层
  */
 @Controller
+@RequestMapping("jky")
 public class JkyController {
     @Autowired
     private IJkyService jkyService;
@@ -48,16 +49,11 @@ public class JkyController {
      * @param session
      * @return
      */
-    @RequestMapping("/addJky.action")
+    @RequestMapping("addJky.action")
     public String addJky(Model model, Jky jky, HttpSession session) {
-        System.out.print("添加信息");
-        String forword="admin/Jky";
-        int jkys=jkyService.addJky(jky);
-        if(jkys>0){
-            session.setAttribute("jky",jkys);
-        }
-
-        return forword;
+        int rows=jkyService.addJky(jky);
+        model.addAttribute("rows",rows);
+        return "/admin/addJKYresult.jsp";
     }
 
     /**

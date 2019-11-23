@@ -139,4 +139,12 @@ public class TeacherDaoImpl implements ITeacherDao {
     public int updateTpw(Teacher teacher) {
         return teacherMapper.updateTpw(teacher);
     }
+    /**
+     * 加载教师
+     * @return
+     */
+    @Override
+    public List<Teacher> loadTeacher() {
+        return teacherMapper.loadTeacher();
+    }
 }

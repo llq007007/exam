@@ -66,7 +66,7 @@ public class StudentController {
      * @param sesson
      * @return
      */
-    @RequestMapping("/toeditstudent.action")
+    @RequestMapping("toeditstudent.action")
     public Student editStudent(Integer sid,Model model,HttpSession sesson) {
         Student student =studentService.findStudentById(sid);
         System.out.println(student);
@@ -75,6 +75,22 @@ public class StudentController {
         return student;
     }
 
+    /**
+     * 查看学生个人信息
+     * @param model
+     * @param sesson
+     * @return
+     */
+    @RequestMapping("getstudentInfo")
+    public String getStudent(Model model,HttpSession sesson) {
+       Student student=(Student) sesson.getAttribute("student");
+       int sid=student.getKhid();
+        Student student1 =studentService.findStudentById(sid);
+        System.out.println(student);
+        model.addAttribute("student", student1);
+        //返回客户信息展示页面
+        return "/student/SeestudentInfo.jsp";
+    }
     /**
      * 修改学生信息
      * @param student

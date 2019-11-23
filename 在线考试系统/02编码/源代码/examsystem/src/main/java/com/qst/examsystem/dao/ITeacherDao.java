@@ -93,4 +93,9 @@ public interface ITeacherDao {
      * @return
      */
     int updateTpw(Teacher teacher);
+    /**
+     * 加载教师
+     * @return
+     */
+    List<Teacher> loadTeacher();
 }

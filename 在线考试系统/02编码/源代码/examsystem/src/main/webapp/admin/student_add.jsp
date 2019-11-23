@@ -100,11 +100,6 @@
 					<div class="panel-heading">添加学生信息</div>
 					<div class="row data-type">
 
-						<div class="col-md-2 title">考号ID</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="khid"
-								placeholder="考号ID" value="">
-						</div>
 
 						<div class="col-md-2 title">专业ID</div>
 						<div class="col-md-4 data">

@@ -33,16 +33,8 @@
                 <ul class="treeview-menu">
 
                     <li id="system-setting"><a
-                            href="${pageContext.request.contextPath}/user/findAll.do"> <i
-                            class="fa fa-circle-o"></i> 填写个人信息
-                    </a></li>
-                    <li id="system-setting"><a
-                            href="${pageContext.request.contextPath}/role/findAll.do"> <i
+                            href="${pageContext.request.contextPath}/student/getstudentInfo"> <i
                             class="fa fa-circle-o"></i> 查看个人信息
-                    </a></li>
-                    <li id="system-setting"><a
-                            href="${pageContext.request.contextPath}/permission/findAll.do">
-                        <i class="fa fa-circle-o"></i> 修改个人信息
                     </a></li>
                     <li id="system-setting"><a
                             href="${pageContext.request.contextPath}/student/updateSpw.jsp">

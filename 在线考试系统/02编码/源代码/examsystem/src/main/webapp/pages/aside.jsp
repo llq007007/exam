@@ -78,7 +78,7 @@
 							class="fa fa-circle-o"></i>学生管理
 					</a></li>
 					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/permission/findAll.do">
+						href="${pageContext.request.contextPath}/admin/jky.jsp">
 							<i class="fa fa-circle-o"></i> 监考员管理
 					</a></li>
 				</ul></li>

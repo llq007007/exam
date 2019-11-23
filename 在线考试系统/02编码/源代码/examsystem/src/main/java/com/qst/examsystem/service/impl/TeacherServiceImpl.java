@@ -120,4 +120,12 @@ public class TeacherServiceImpl implements ITeacherService {
     public int updateTpw(Teacher teacher) {
         return teacherDao.updateTpw(teacher);
     }
+    /**
+     * 加载教师
+     * @return
+     */
+    @Override
+    public List<Teacher> loadTeacher() {
+        return teacherDao.loadTeacher();
+    }
 }

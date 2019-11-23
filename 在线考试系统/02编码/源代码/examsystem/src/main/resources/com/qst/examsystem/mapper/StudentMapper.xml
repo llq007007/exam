@@ -52,7 +52,7 @@
 
     <select id="findStudentById" parameterType="Integer"
             resultType="student">
-		select zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments from students where khid =#{sid}
+		select khid,zyid,sname,ssex,spw,saddtime, supdatetime, saddperson, supdateperson,scomments from students where khid =#{sid}
 	</select>
 
     <delete id="deleteStudent" parameterType="Integer">
@@ -93,7 +93,7 @@ WHERE  s.sname like '${name}'
 <!--学生登陆-->
     <select id="studentlogin" parameterType="String" resultType="student">
         <![CDATA[
-        select sname,spw from students where sname =#{sname}
+        select khid,sname,spw from students where sname =#{sname}
 ]]>
     </select>
     <!--修改密码-->

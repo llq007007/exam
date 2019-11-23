@@ -33,7 +33,12 @@
 
     <select id="findTeacherById" parameterType="Integer"
             resultType="teacher">
-		select tname, tno, tpw, taddtime, tupdatetime, taddperson, tupdateperson  from teachers where tid =#{tid}
+		select tid, tname, tno, tpw, taddtime, tupdatetime, taddperson, tupdateperson  from teachers where tid =#{tid}
+	</select>
+
+    <select id="loadTeacher" parameterType="Integer"
+            resultType="teacher">
+		select tid, tname from teachers
 	</select>
 
     <delete id="deleteTeacher" parameterType="Integer">
@@ -104,7 +109,7 @@
     <!--教师登录-->
     <select id="teacherlogin" parameterType="String" resultType="teacher">
         <![CDATA[
-        select tname,tpw from teachers where tname =#{tname}
+        select tid,tname,tpw from teachers where tname =#{tname}
 ]]>
     </select>
     <!--修改密码-->

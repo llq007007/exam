@@ -5,6 +5,7 @@ import com.qst.examsystem.service.ITeacherService;
 import com.qst.examsystem.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -45,6 +46,12 @@ public class TeacherController {
         return "/admin/teacherquery.jsp";
     }
 
+    @RequestMapping(value="load_data",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public List<Teacher> loadteacherData() {
+        List<Teacher> teacherList = teacherService.loadTeacher();
+        return teacherList;
+    }
     /**
      * 添加教师信息
      * @param teacher
@@ -71,6 +78,15 @@ public class TeacherController {
         return teacher;
     }
 
+    @RequestMapping("getteacherInfo")
+    public String getteacherInfo(Model model,HttpSession sesson) {
+        Teacher teacher=(Teacher) sesson.getAttribute("teacher");
+        int tid=teacher.getTid();
+        Teacher teacher1 =teacherService.findTeacherById(tid);
+        model.addAttribute("teacher", teacher1);
+        //返回客户信息展示页面
+        return "/teacher/SeeteacherInfo.jsp";
+    }
     /**
      * 调用updataTeacher方法修改教师信息
      * @param teacher
