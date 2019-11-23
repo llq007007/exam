@@ -6,43 +6,28 @@
    <!-- （tid，姓名 tname，工号 tno，密码 tpw，添加时间 taddtime，修改时间 tupdatetime，添加人 taddperson，修改人 tupdateperson）-->
     <select id="findTeacherByCond" parameterType="teacher"
             resultType="teacher">
-        select tname, tno, tpw, taddtime, tupdatetime, taddperson, tupdateperson from teachers
+        select tid,tname, tno, tpw, taddtime, tupdatetime, taddperson, tupdateperson from teachers
     </select>
 
     <select id="findTeacherCount"  resultType="int"  parameterType="teacher">
         select count(*) from teachers
     </select>
 
-    <insert	id="addTeacher" parameterType="teacher" >
-		insert into teachers(tname, tno, tpw, taddtime, tupdatetime, taddperson, tupdateperson)
-			values(#{tname},#{tno},#{tpw},#{taddtime},#{tupdatetime},#{taddperson},#{tupdateperson})
+    <insert	id="addTeacher" parameterType="teacher">
+		insert into teachers(tname, tno, tpw, taddtime,taddperson)
+			values(#{tname},#{tno},#{tpw},#{taddtime},#{taddperson})
 	</insert>
 
-    <update id="findTeacherModify"  parameterType="teacher">
+    <update id="findTeacherModify"  parameterType="teacher" >
         update teachers
-        <set>
-            <if test="tname !=null and tname!=''">
+          set
                 tname=#{tname},
-            </if>
-            <if test="tno !=null and tno !=''">
                 tno=#{tno},
-            </if>
-            <if test="tpw !=null and tpw !=''">
                 tpw=#{tpw},
-            </if>
-
                 taddtime=#{taddtime},
-
                 tupdatetime=#{tupdatetime},
-
-            <if test="taddperson !=null and taddperson !=''">
                 taddperson=#{taddperson},
-            </if>
-            <if test="tupdateperson !=null and tupdateperson !=''">
-                tupdateperson=#{tupdateperson},
-            </if>
-
-        </set>
+                tupdateperson=#{tupdateperson}
         where tid=#{tid}
     </update>
 

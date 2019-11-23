@@ -2,6 +2,7 @@ package com.qst.examsystem.mapper;
 
         import com.qst.examsystem.entity.Teacher;
         import org.apache.ibatis.session.RowBounds;
+        import org.apache.ibatis.type.Alias;
 
         import java.util.List;
         import java.util.Map;
@@ -9,6 +10,7 @@ package com.qst.examsystem.mapper;
 /**
  * 教师mapper接口
  */
+@Alias("teacher")
 public interface TeacherMapper {
     /**
      * 增加

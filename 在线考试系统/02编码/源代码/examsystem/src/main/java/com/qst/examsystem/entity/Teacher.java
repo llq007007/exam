@@ -10,14 +10,14 @@ import java.util.Date;
  */
 @Alias("teacher")
 public class Teacher {
-    Integer tid;
-    String tname;
-    String tno;
-    String tpw;
-    Date taddtime;
-    Date tupdatetime;
-    String taddperson;
-    String tupdateperson;
+    private Integer tid;
+    private String tname;
+    private String tno;
+    private String tpw;
+    private Date taddtime;
+    private Date tupdatetime;
+    private String taddperson;
+    private String tupdateperson;
 
     public Teacher() {
     }

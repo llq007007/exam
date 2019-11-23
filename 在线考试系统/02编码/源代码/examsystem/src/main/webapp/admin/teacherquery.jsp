@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,8 +8,7 @@
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<title>课程修改结果页面</title>
+<title>课程查询页面</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -16,72 +16,7 @@
 <meta
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 	name="viewport">
-<!-- Bootstrap 3.3.6 -->
-<!-- Font Awesome -->
-<!-- Ionicons -->
-<!-- iCheck -->
-<!-- Morris chart -->
-<!-- jvectormap -->
-<!-- Date Picker -->
-<!-- Daterange picker -->
-<!-- Bootstrap time Picker -->
-<!--<link rel="stylesheet" href="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.css">-->
-<!-- bootstrap wysihtml5 - text editor -->
-<!--数据表格-->
-<!-- 表格树 -->
-<!-- select2 -->
-<!-- Bootstrap Color Picker -->
-<!-- bootstrap wysihtml5 - text editor -->
-<!--bootstrap-markdown-->
-<!-- Theme style -->
-<!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-<!-- Ion Slider -->
-<!-- ion slider Nice -->
-<!-- bootstrap slider -->
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 
-<!-- jQuery 2.2.3 -->
-<!-- jQuery UI 1.11.4 -->
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!-- Bootstrap 3.3.6 -->
-<!-- Morris.js charts -->
-<!-- Sparkline -->
-<!-- jvectormap -->
-<!-- jQuery Knob Chart -->
-<!-- daterangepicker -->
-<!-- datepicker -->
-<!-- Bootstrap WYSIHTML5 -->
-<!-- Slimscroll -->
-<!-- FastClick -->
-<!-- iCheck -->
-<!-- AdminLTE App -->
-<!-- 表格树 -->
-<!-- select2 -->
-<!-- bootstrap color picker -->
-<!-- bootstrap time picker -->
-<!--<script src="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.js"></script>-->
-<!-- Bootstrap WYSIHTML5 -->
-<!--bootstrap-markdown-->
-<!-- CK Editor -->
-<!-- InputMask -->
-<!-- DataTables -->
-<!-- ChartJS 1.0.1 -->
-<!-- FLOT CHARTS -->
-<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
-<!-- jQuery Knob -->
-<!-- Sparkline -->
-<!-- Morris.js charts -->
-<!-- Ion Slider -->
-<!-- Bootstrap slider -->
-<!-- 页面meta /-->
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
@@ -125,16 +60,17 @@
 	href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 
 	<div class="wrapper">
 
 		<!-- 页面头部 -->
 		<jsp:include page="${pageContext.request.contextPath}/pages/header.jsp"></jsp:include>
-			<!-- 页面头部 /-->
-
+		<!-- 页面头部 /-->
 		<!-- 导航侧栏 -->
 		<jsp:include page="${pageContext.request.contextPath}/pages/aside.jsp"></jsp:include>
 		<!-- 导航侧栏 /-->
@@ -142,20 +78,99 @@
 		<!-- 内容区域 -->
 		<div class="content-wrapper">
 
-			<c:choose>
-				<c:when test="${1==param.rows}">
-					<span style="color:rgb(0,0,255)">修改成功</span>
-				</c:when>
-				<c:when test="${-1==param.rows}">
-					<span style="color:rgb(255,0,0)">修改失败,服务器异常</span>
-				</c:when>
-				<c:otherwise>
-					<span style="color:rgb(219,99,48)">修改课程,服务器返回未知的状态</span>
-				</c:otherwise>
-			</c:choose>
-			<a href="/Teacher/">返回查询</a>
-			<a href="/admin/AdminLogin.jsp">返回主页面</a>
+			<!-- 内容头部 -->
+			<section class="content-header">
+			<h1>
+				教师管理 <small>教师查看表单</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
+						class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a
+					href="${pageContext.request.contextPath}/product/findAll.do">教师管理</a></li>
+				<li class="active">课程表单</li>
+			</ol>
+			</section>
+			<!-- 内容头部 /-->
 
+			<form action="#"
+				method="post">
+				<!-- 正文区域 -->
+				<section class="content"> <!--添加课程信息-->
+
+				<div class="panel panel-default">
+					<div class="panel-heading">查看教师信息</div>
+					<div class="row data-type">
+						<div class="col-md-1 title">姓名</div>
+						<div class="col-md-2 title">工号</div>
+						<div class="col-md-1 title">密码</div>
+						<div class="col-md-2 title">添加时间</div>
+						<div class="col-md-2 title">修改时间</div>
+						<div class="col-md-1 title">添加人</div>
+						<div class="col-md-1 title">修改人</div>
+						<div class="col-md-2 title">操作</div>
+					</div>
+				</div>
+				<!--订单信息/--> <!--工具栏-->
+				<div class="row data-type">
+					<c:choose>
+						<c:when test="${ empty requestScope.page.rows}">
+							<tr>
+								<td colspan="7" align="center"><span style="color: #0000FF">未查询到数据</span></td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${requestScope.page.rows}" var="teacher">
+								<tr>
+									<div class="col-md-1 data">
+										<td>${teacher.tname}</td>
+									</div>
+								<div class="col-md-2 data">
+									<td>${teacher.tno}</td>
+								</div>
+								<div class="col-lg-1 data">
+									<td>${teacher.tpw}</td>
+								</div>
+									<!-- 利用格式化标签输出出生日期-->
+								<div class="col-lg-2 data">
+									<td><fmt:formatDate value="${teacher.taddtime}" pattern="yyyy-MM-dd"/></td>
+								</div>
+								<div class="col-lg-2 data"	>
+									<td><fmt:formatDate value="${teacher.tupdatetime}" pattern="yyyy-MM-dd"/></td>
+								</div>
+								<div class="col-lg-1 data">
+									<td>${teacher.taddperson}</td>
+								</div>
+								<div class="col-lg-1 data">
+									<td>${teacher.tupdateperson}</td>
+								</div>
+								<div class="col-lg-2 data" >
+									<td>
+										<a href="#" onclick="deleteTeacher(${teacher.tid})">删除</a>
+										<a href="/admin/teacher-update.jsp?tid=${teacher.tid}">修改</a>
+									</td>
+								</div>
+								</tr>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+
+				</div>
+				<!--工具栏/--> </section>
+				<script>
+					/**
+					 * 根据ID删除信息
+					 * @param
+					 */
+					function deleteTeacher(tid) {
+						if (window.confirm('确定要删除吗?')) {
+							window.location.href = '/Teacher/deleteteacher?tid='+ tid;
+						}
+					}
+
+				</script>
+				<!-- 正文区域 /-->
+			</form>
 		</div>
 		<!-- 内容区域 /-->
 
@@ -170,6 +185,7 @@
 		<!-- 底部导航 /-->
 
 	</div>
+
 
 	<script
 		src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -254,6 +270,9 @@
 		src="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+
 	<script>
 		$(document).ready(function() {
 			// 选择框
@@ -275,10 +294,26 @@
 		}
 
 		$(document).ready(function() {
+			$('#datepicker-a3').datetimepicker({
+				format : "yyyy-mm-dd hh:ii",
+				autoclose : true,
+				todayBtn : true,
+				language : "zh-CN"
+			});
+		});
+
+		$(document).ready(function() {
 			// 激活导航位置
-			setSidebarActive("admin-index");
+			setSidebarActive("order-manage");
+			$("#datepicker-a3").datetimepicker({
+				format : "yyyy-mm-dd hh:ii",
+
+			});
+
 		});
 	</script>
+
+
 </body>
 
 </html>

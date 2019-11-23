@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>课程修改结果页面</title>
+<title>教师添加结果页面</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -144,17 +144,16 @@
 
 			<c:choose>
 				<c:when test="${1==param.rows}">
-					<span style="color:rgb(0,0,255)">修改成功</span>
+					<span style="color:rgb(0,0,255)">添加成功</span>
 				</c:when>
 				<c:when test="${-1==param.rows}">
-					<span style="color:rgb(255,0,0)">修改失败,服务器异常</span>
+					<span style="color:rgb(255,0,0)">添加失败,服务器异常</span>
 				</c:when>
 				<c:otherwise>
-					<span style="color:rgb(219,99,48)">修改课程,服务器返回未知的状态</span>
+					<span style="color:rgb(219,99,48)">添加员工,服务器返回未知的状态</span>
 				</c:otherwise>
 			</c:choose>
-			<a href="/Teacher/">返回查询</a>
-			<a href="/admin/AdminLogin.jsp">返回主页面</a>
+			<a href="/admin/teacher-add.jsp">继续添加</a>
 
 		</div>
 		<!-- 内容区域 /-->

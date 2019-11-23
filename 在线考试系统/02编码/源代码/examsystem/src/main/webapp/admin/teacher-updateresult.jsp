@@ -150,10 +150,10 @@
 					<span style="color:rgb(255,0,0)">修改失败,服务器异常</span>
 				</c:when>
 				<c:otherwise>
-					<span style="color:rgb(219,99,48)">修改课程,服务器返回未知的状态</span>
+					<span style="color:rgb(219,99,48)">修改教师,服务器返回未知的状态</span>
 				</c:otherwise>
 			</c:choose>
-			<a href="/Teacher/">返回查询</a>
+			<a href="/Teacher/toteacher.action">返回查询</a>
 			<a href="/admin/AdminLogin.jsp">返回主页面</a>
 
 		</div>

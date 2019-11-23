@@ -142,10 +142,10 @@
     <div class="content-wrapper">
 
         <ul style="align:center;font-size: 20px;width: 100%;height: 100%">
-            <li><a href="#">添加老师信息</a></li>
-            <li><a href="#">查找老师信息</a></li>
-            <li><a href="#">修改老师信息</a></li>
-            <li><a href="#">删除老师信息</a></li>
+            <li><a href="/admin/teacher-add.jsp">添加老师信息</a></li>
+            <li><a href="/Teacher/toteacher.action">查找老师信息</a></li>
+            <li><a href="/Teacher/toteacher.action">修改老师信息</a></li>
+            <li><a href="/Teacher/toteacher.action">删除老师信息</a></li>
         </ul>
 
     </div>

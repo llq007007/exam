@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>课程修改结果页面</title>
+<title>课程删除页面</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -144,17 +144,19 @@
 
 			<c:choose>
 				<c:when test="${1==param.rows}">
-					<span style="color:rgb(0,0,255)">修改成功</span>
+					<span style="color:rgb(0,0,255)">删除成功</span>
+				</c:when>
+				<c:when test="${0==param.rows}">
+					<span style="color:rgb(5,27,63)">课程不存在或已被删除</span>
 				</c:when>
 				<c:when test="${-1==param.rows}">
-					<span style="color:rgb(255,0,0)">修改失败,服务器异常</span>
+					<span style="color:rgb(255,0,0)">服务器异常</span>
 				</c:when>
 				<c:otherwise>
-					<span style="color:rgb(219,99,48)">修改课程,服务器返回未知的状态</span>
+					<span style="color:rgb(193,193,193)">服务器返回未知状态</span>
 				</c:otherwise>
 			</c:choose>
-			<a href="/Teacher/">返回查询</a>
-			<a href="/admin/AdminLogin.jsp">返回主页面</a>
+			<a href="/Teacher/toteacher.action">返回查询页面</a>
 
 		</div>
 		<!-- 内容区域 /-->
