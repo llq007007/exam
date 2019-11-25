@@ -46,9 +46,6 @@ public class StudentController {
 
     /**
      * 添加学生信息
-     * @param model
-     * @param student
-     * @param session
      * @return
      */
     @RequestMapping("addStudent")
@@ -65,7 +62,7 @@ public class StudentController {
      */
     @RequestMapping(value = "toeditstudent",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public Student editStudent(@RequestParam("khid") Integer khid) {
+    public Student editStudent(@RequestParam("khid") Integer khid,Model model) {
         Student student =studentService.findStudentById(khid);
         System.out.println(student);
        model.addAttribute("student", student);
@@ -92,8 +89,6 @@ public class StudentController {
     /**
      * 修改学生信息
      * @param student
-     * @param model
-     * @param sesson
      * @return
      */
 
