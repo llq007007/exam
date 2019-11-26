@@ -194,26 +194,30 @@
                         <span>未查询到数据</span>
                     </c:when>
                     <c:otherwise>
-                        <table width="600" border="1" cellspacing="0" align="center">
-                            <tr>
-                                <th>试题ID</th>
-                                <th>题目</th>
-                                <th>操作</th>
-                            </tr>
-                            <c:forEach items="${requestScope.shiTiList}" var="test">
+                        <form action="/shijuan/zuzhi_shijuan">
+                            <table width="600" border="1" cellspacing="0" align="center">
                                 <tr>
-                                    <td>${test.stid}</td>
-                                    <td>${test.contain}</td>
-                                    <td align="center">
-                                        <a href="#" target="_parent">刷新题库</a>
-                                    </td>
+                                    <th hidden="">试题ID</th>
+                                    <th>题目</th>
+                                    <th>操作</th>
                                 </tr>
-                            </c:forEach>
-                        </table>
-                    </c:otherwise>
-                </c:choose>
-                共查询到:<span style="color: #1f33ff">${fn:length(requestScope.shiTiList)}</span>条记录
-            </c:if>
+                                <c:forEach items="${requestScope.shiTiList}" var="test">
+                                    <tr>
+                                        <input hidden="" value="${test.stid}">
+                                        <td>${test.contain}</td>
+                                        <td align="center">
+                                            <a href="#" target="_parent">刷新题库</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+                            </c:otherwise>
+                            </c:choose>
+                            共查询到:<span style="color: #1f33ff">${fn:length(requestScope.shiTiList)}</span>条记录
+                            </c:if>
+                            <input type="submit" value="生成试卷">
+                        </form>
+
     <!-- 内容区域 /-->
 
     <!-- 底部导航 -->
