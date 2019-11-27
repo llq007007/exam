@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.examsystem.mapper.SjstMapper">
+    <insert id="addsjst" parameterType="sjst">
+        insert into tt_testquestion(stid,sjid) values(#{stid},#{sjid})
+    </insert>
+    <select id="querySJST" parameterType="int" resultType="testquestion">
+        SELECT
+			*
+		FROM
+			testquestion
+		WHERE
+		stid IN ( SELECT stid FROM tt_testquestion WHERE sjid = #{sjid} )
+    </select>
+</mapper>

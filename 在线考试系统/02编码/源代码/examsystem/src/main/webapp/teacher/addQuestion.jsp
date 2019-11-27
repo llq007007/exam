@@ -201,8 +201,8 @@
 
                         <div class="col-md-2 title">试题内容</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="contain"
-                                   placeholder="试题内容" value="">
+                            <textarea type="" class="form-control" name="contain"
+                                      placeholder="试题内容" value=""></textarea>
                         </div>
 
                         <div class="col-md-2 title">试题答案</div>

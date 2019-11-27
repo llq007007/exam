@@ -49,7 +49,7 @@
                 <ul class="treeview-menu">
 
                     <li id="system-setting">
-                        <a href="${pageContext.request.contextPath}/course/course-add.jsp">
+                        <a href="${pageContext.request.contextPath}/student/daicanjia.jsp">
                             <i class="fa fa-circle-o"></i> 待参加考试
                         </a></li>
                     <li id="system-setting"><a

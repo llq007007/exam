@@ -58,7 +58,16 @@ public class ZyController {
         model.addAttribute("zyList", zyList);
         return "/zy/zy-list.jsp";
     }
-
+    /**
+     * 查询所有信息
+     * @return
+     */
+    @RequestMapping(value="load_data",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public List<Zy> loadzyData() {
+        List<Zy> zyList = zyService.queryZy();
+        return zyList;
+    }
 
 
     /**

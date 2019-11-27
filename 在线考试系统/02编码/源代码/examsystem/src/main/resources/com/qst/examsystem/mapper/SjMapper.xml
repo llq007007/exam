@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.examsystem.mapper.SjMapper">
-    <select id="chouSj" parameterType="java.util.Map" resultType="java.util.Map">
+    <select id="chouSj" parameterType="int" resultType="testquestion">
         <![CDATA[
 SELECT
 	stid,
@@ -36,7 +36,14 @@ ORDER BY
 ]]>
     </select>
     <select id="selectAllShiJuan" resultType="shijuan">
+         select sjid,sjname from sj
+     -- select * from sj
+    </select>
+    <insert id="addSJ" parameterType="shijuan">
+        insert sj(sjname) value (#{sjname})
+    </insert>
+    <select id="selectShiJuan" resultType="shijuan">
 --         select sjid,sjname from sj
-      select * from sj
+      select sjid,sjname from sj where sjname=#{sjname}
     </select>
 </mapper>

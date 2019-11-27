@@ -1,7 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -126,12 +127,12 @@
           href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
 
 <div class="wrapper">
-
     <!-- 页面头部 -->
     <jsp:include page="../pages/userheader.jsp"></jsp:include>
     <!-- 页面头部 /-->
@@ -141,45 +142,27 @@
     <!-- 导航侧栏 /-->
 
     <!-- 内容区域 -->
-    <div class="content-wrapper">
-        <div align="center">
-            <c:if test="${requestScope.sjlist!=null}">
-                <c:choose>
-                    <c:when test="${requestScope.sjlist=='sjlist'}">
-                        <span>服务器异常</span>
-                    </c:when>
-                    <c:when test="${empty requestScope.sjlist}">
-                        <span>未查询到数据</span>
-                    </c:when>
-                    <c:otherwise>
-                        <table width="600" border="1" cellspacing="0" align="center">
-                            <tr>
-                                <th>试卷名称</th>
-                                <th>操作</th>
-                            </tr>
-                            <c:forEach items="${requestScope.sjlist}" var="test">
-                                <tr>
-                                    <td>${test.sjname}</td>
-                                                             <td align="center">
-                                                                 <a href="/shijuan/getSTInfo?sjid=${test.sjid}" target="_parent">详情</a>
-                                                             </td>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                    </c:otherwise>
-                </c:choose>
-                共查询到:<span style="color: #1f33ff">${fn:length(requestScope.sjlist)}</span>条记录
-            </c:if>
-            <%--<script type="text/javascript">
-                function shanchu(stid) {
-                    if (window.confirm("确定要删除该试题么")){
-                        window.location.href="/testquestion/delete?stid="+stid;
-                    }
-                }
-            </script>--%>
-        </div>
-
-
+    <div class="content-wrapper" style="height: 1850px">
+    <c:choose>
+        <c:when test="${1==param.rows}">
+            <script type="text/javascript">
+                alert("添加试卷名成功");
+                window.location.href="/teacher/Zuzhishijuan.jsp";
+            </script>
+        </c:when>
+        <c:when test="${-1==param.rows}">
+            <script type="text/javascript">
+                alert("添加试卷名失败,服务器异常");
+                window.location.href="/teacher/ShengchengSJname.jsp";
+            </script>
+        </c:when>
+        <c:otherwise>
+            <script type="text/javascript">
+                alert("添加试卷名信息,服务器返回未知的状态");
+                window.location.href="/teacher/ShengchengSJname.jsp";
+            </script>
+        </c:otherwise>
+    </c:choose>
     </div>
     <!-- 内容区域 /-->
 

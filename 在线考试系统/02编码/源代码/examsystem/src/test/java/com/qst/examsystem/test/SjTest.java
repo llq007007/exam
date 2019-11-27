@@ -16,7 +16,6 @@ public class SjTest {
         ISjService iSjService = (ISjService) context.getBean("iSjService");
         Map<String,Object> map=new HashMap<>();
         map.put("cid","1");
-        System.out.println(iSjService.chouSj(map));
     }
     @Test
     public void testSelectAllSj(){

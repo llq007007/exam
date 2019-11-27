@@ -1,7 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -126,12 +127,12 @@
           href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
 
 <div class="wrapper">
-
     <!-- 页面头部 -->
     <jsp:include page="../pages/userheader.jsp"></jsp:include>
     <!-- 页面头部 /-->
@@ -142,43 +143,41 @@
 
     <!-- 内容区域 -->
     <div class="content-wrapper">
-        <div align="center">
-            <c:if test="${requestScope.sjlist!=null}">
-                <c:choose>
-                    <c:when test="${requestScope.sjlist=='sjlist'}">
-                        <span>服务器异常</span>
-                    </c:when>
-                    <c:when test="${empty requestScope.sjlist}">
-                        <span>未查询到数据</span>
-                    </c:when>
-                    <c:otherwise>
-                        <table width="600" border="1" cellspacing="0" align="center">
-                            <tr>
-                                <th>试卷名称</th>
-                                <th>操作</th>
-                            </tr>
-                            <c:forEach items="${requestScope.sjlist}" var="test">
-                                <tr>
-                                    <td>${test.sjname}</td>
-                                                             <td align="center">
-                                                                 <a href="/shijuan/getSTInfo?sjid=${test.sjid}" target="_parent">详情</a>
-                                                             </td>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                    </c:otherwise>
-                </c:choose>
-                共查询到:<span style="color: #1f33ff">${fn:length(requestScope.sjlist)}</span>条记录
-            </c:if>
-            <%--<script type="text/javascript">
-                function shanchu(stid) {
-                    if (window.confirm("确定要删除该试题么")){
-                        window.location.href="/testquestion/delete?stid="+stid;
-                    }
-                }
-            </script>--%>
-        </div>
 
+        <!-- 内容头部 -->
+        <section class="content-header">
+            <h1>
+                试卷管理 <small>试卷添加表单</small>
+            </h1>
+        </section>
+        <!-- 内容头部 /-->
+
+        <form action="${pageContext.request.contextPath}/shijuan/addSJ" method="post">
+            <!-- 正文区域 -->
+            <section class="content">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">添加试卷信息</div>
+                    <div class="row data-type">
+
+                        <div class="col-md-2 title">试卷名称</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="sjname"
+                                   placeholder="试卷名称" value="">
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--订单信息/--> <!--工具栏-->
+                <div class="box-tools text-center">
+                    <button type="submit" class="btn bg-maroon">确定</button>
+                    <button type="button" class="btn bg-default"
+                            onclick="history.back(-1);">返回</button>
+                </div>
+                <!--工具栏/--> </section>
+            <!-- 正文区域 /-->
+        </form>
 
     </div>
     <!-- 内容区域 /-->

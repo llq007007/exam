@@ -60,6 +60,38 @@
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+	<script  src="/js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			//利用jQuery AJAX加载数据
+			$.ajax({
+				url:'/zy/load_data',//请求URL
+				type:'POST',//请求方式
+				dataType:'json', //将从服务器获取的数据处理成JSON格式
+				success:function(data){
+					//请求成功,data表示从服务获取的数据
+					console.info(data)
+					var length=data.length;
+					if(0==length){
+						alert("未加载到专业数据");
+						return ;
+					}
+					var zys=data;
+					for(var index=0;index<length;index++){
+						var zy=zys[index];
+						var zyid=zy.zyid;
+						var zyname=zy.zyname;
+						var optionHTML='<option value="'+zyid+'">'+zyname+'</option>';
+						$("#zyid-select2").append(optionHTML);
+					}
+				},
+				error: function (XMLHttpRequest, textStatus, errorThrown) {
+					// 请求失败
+					console.error(errorThrown);
+				}
+			});
+		});
+	</script>
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -101,10 +133,10 @@
 					<div class="row data-type">
 
 
-						<div class="col-md-2 title">专业ID</div>
+						<div class="col-md-2 title">专业</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="zyid"
-								placeholder="专业ID" value="">
+							<select type="text" class="form-control" name="zyid"
+                                    placeholder="专业" value="" id="zyid-select2"></select>
 						</div>
 
 						<div class="col-md-2 title">姓名</div>
@@ -122,19 +154,8 @@
                         <div class="col-md-2 title">密码</div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="spw"
-                                   placeholder="密码" value="">
+                                   placeholder="密码" value="111111">
                         </div>
-
-						<div class="col-md-2 title">添加时间</div>
-						<div class="col-md-4 data">
-							<div class="input-group date">
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-								<input type="date" class="form-control pull-right"
-									id="添加时间" name="saddtime">
-							</div>
-						</div>
 
 						<%--<div class="col-md-2 title">修改时间</div>--%>
 						<%--<div class="col-md-4 data">--%>

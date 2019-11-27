@@ -3,6 +3,7 @@ package com.qst.examsystem.service.impl;
 import com.qst.examsystem.dao.IJkyDao;
 import com.qst.examsystem.dao.ISjDao;
 import com.qst.examsystem.entity.Sj;
+import com.qst.examsystem.entity.Testquestion;
 import com.qst.examsystem.service.IJkyService;
 import com.qst.examsystem.service.ISjService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,22 @@ public class SjServiceImpl implements ISjService {
     private ISjDao sjDao;
 
     @Override
-    public List<Map<String, Object>> chouSj(Map map) {
-        return sjDao.chouSj(map);
+    public List<Testquestion> chouSj(int cid) {
+        return sjDao.chouSj(cid);
     }
 
     @Override
     public List<Sj> selectAllShiJuan() {
         return sjDao.selectAllShiJuan();
+    }
+
+    @Override
+    public int addSJ(Sj sj) {
+        return sjDao.addSJ(sj);
+    }
+
+    @Override
+    public Sj selectShiJuan(String sjname) {
+        return sjDao.selectShiJuan(sjname);
     }
 }

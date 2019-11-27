@@ -64,16 +64,12 @@
             </a>
                 <ul class="treeview-menu">
                     <li id="system-setting">
-                        <a href="${pageContext.request.contextPath}/teacher/select_shijuan.jsp">
+                        <a href="${pageContext.request.contextPath}/shijuan/query">
                             <i class="fa fa-circle-o"></i> 查看试卷
                         </a></li>
                     <li id="system-setting"><a
-                            href="${pageContext.request.contextPath}../teacher/Zuzhishijuan.jsp"> <i
+                            href="${pageContext.request.contextPath}../teacher/ShengchengSJname.jsp"> <i
                             class="fa fa-circle-o"></i> 组织试卷
-                    </a></li>
-                    <li id="system-setting"><a
-                            href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
-                            class="fa fa-circle-o"></i> 试卷分析
                     </a></li>
                 </ul></li>
             <li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
@@ -83,7 +79,7 @@
             </a>
                 <ul class="treeview-menu">
                     <li id="system-setting"><a
-                            href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
+                            href="${pageContext.request.contextPath}/teacher/fabukaoshi.jsp"> <i
                             class="fa fa-circle-o"></i> 发布考试
                     </a></li>
                     <li id="system-setting">
