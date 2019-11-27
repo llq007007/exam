@@ -127,7 +127,38 @@
           href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
-
+    <script  src="/js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            //利用jQuery AJAX加载部门数据
+            $.ajax({
+                url:'/kcxx/load_data',//请求URL
+                type:'POST',//请求方式
+                dataType:'json', //将从服务器获取的数据处理成JSON格式
+                success:function(data){
+                    //请求成功,data表示从服务获取的数据
+                    console.info(data)
+                    var length=data.length;
+                    if(0==length){
+                        alert("未加载到课程数据");
+                        return ;
+                    }
+                    var kcxxs=data;
+                    for(var index=0;index<length;index++){
+                        var kcxx=kcxxs[index];
+                        var kcid=kcxx.kcid;
+                        var kcname=kcxx.kcname;
+                        var optionHTML='<option value="'+kcid+'">'+kcname+'</option>';
+                        $("#kcid-select").append(optionHTML);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    // 请求失败
+                    console.error(errorThrown);
+                }
+            });
+        });
+    </script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -152,7 +183,7 @@
         </section>
         <!-- 内容头部 /-->
 
-        <form action="${pageContext.request.contextPath}/kcxx/addKcxx" method="post">
+        <form action="${pageContext.request.contextPath}/kcxx/addKCXX" method="post">
             <!-- 正文区域 -->
             <section class="content">
 
@@ -162,8 +193,8 @@
 
                         <div class="col-md-2 title">考场名称</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="kcname"
-                                   placeholder="考场名称" value="">
+                            <select type="text" class="form-control" name="kcid"
+                                    placeholder="考场名称" value="" id="kcid-select"></select>
                         </div>
 
                         <div class="col-md-2 title">总人数</div>

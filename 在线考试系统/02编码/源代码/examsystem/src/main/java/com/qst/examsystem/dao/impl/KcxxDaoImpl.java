@@ -30,11 +30,16 @@ public class KcxxDaoImpl implements IKcxxDao {
 
     /**
      * 模糊查询考场信息
-     * @param key
+     * @param
      * @return
      */
     @Override
-    public List<Kcxx> selectKcxxInfo(String key) {
-        return kcxxMapper.selectKcxxInfo(key);
+    public List<Kcxx> selectKcxxInfo() {
+        return kcxxMapper.selectKcxxInfo();
+    }
+
+    @Override
+    public int addKCXX(Kcxx kcxx) {
+        return kcxxMapper.addKCXX(kcxx);
     }
 }

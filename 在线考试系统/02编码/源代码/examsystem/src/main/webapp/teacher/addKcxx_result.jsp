@@ -132,11 +132,11 @@
 	<div class="wrapper">
 
 		<!-- 页面头部 -->
-		<jsp:include page="${pageContext.request.contextPath}/pages/header.jsp"></jsp:include>
+		<jsp:include page="${pageContext.request.contextPath}/pages/userheader.jsp"></jsp:include>
 			<!-- 页面头部 /-->
 
 		<!-- 导航侧栏 -->
-		<jsp:include page="${pageContext.request.contextPath}/pages/aside.jsp"></jsp:include>
+		<jsp:include page="${pageContext.request.contextPath}/pages/teacheraside.jsp"></jsp:include>
 		<!-- 导航侧栏 /-->
 
 		<!-- 内容区域 -->
@@ -154,7 +154,7 @@
 				</c:otherwise>
 			</c:choose>
 			<a href="/teacher/addKcxx.jsp">继续添加</a>
-
+			<a href="/teacher/teachermain.jsp">返回</a>
 		</div>
 		<!-- 内容区域 /-->
 

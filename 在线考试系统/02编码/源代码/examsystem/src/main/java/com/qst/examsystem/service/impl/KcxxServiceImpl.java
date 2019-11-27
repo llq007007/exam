@@ -30,11 +30,16 @@ public class KcxxServiceImpl implements IKcxxService {
 
     /**
      * 模糊查询考场信息
-     * @param key
+     * @param
      * @return
      */
     @Override
-    public List<Kcxx> selectKcxxInfo(String key) {
-        return kcxxDao.selectKcxxInfo(key);
+    public List<Kcxx> selectKcxxInfo() {
+        return kcxxDao.selectKcxxInfo();
+    }
+
+    @Override
+    public int addKCXX(Kcxx kcxx) {
+        return kcxxDao.addKCXX(kcxx);
     }
 }

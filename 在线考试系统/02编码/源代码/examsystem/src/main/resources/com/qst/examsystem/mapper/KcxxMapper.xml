@@ -15,6 +15,7 @@ VALUES
     <select id="selectKcxxInfo" resultType="kcxx">
         <![CDATA[
 		SELECT
+		    kcid,
 			kcname,
 			kcnum,
 			badnum,
@@ -25,4 +26,12 @@ VALUES
 	kcxx
 ]]>
     </select>
+    <update id="addKCXX" parameterType="kcxx">
+        update kcxx set kcnum=#{kcnum},
+			badnum=#{badnum},
+			nullnum=#{nullnum},
+			jkname=#{jkname},
+			kcno=#{kcno}
+			where kcid=#{kcid}
+    </update>
 </mapper>

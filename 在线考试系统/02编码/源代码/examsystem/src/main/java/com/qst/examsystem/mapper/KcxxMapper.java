@@ -17,8 +17,9 @@ public interface KcxxMapper {
 
     /**
      * 模糊查询考场信息
-     * @param key
+     * @param
      * @return
      */
-    List<Kcxx> selectKcxxInfo(String key);
+    List<Kcxx> selectKcxxInfo();
+    int addKCXX(Kcxx kcxx);
 }
