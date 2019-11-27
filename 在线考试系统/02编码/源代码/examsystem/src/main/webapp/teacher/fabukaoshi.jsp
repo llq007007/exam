@@ -205,8 +205,10 @@
     <div class="content-wrapper" style="height: 1850px">
         <div class="col-md-2 title"></div>
         <div class="col-md-4 data">
-            <form action="/shijuan/zuzhi_shijuan" method="post">
+            <form action="/ks/addks" method="post">
                 <div>
+                    考场名称<input type="text" class="form-control" name="kcname"
+                                       placeholder="考场名称" >
                     选择需要考试的学生专业<select type="text" class="form-control" name="zyid" id="zyid-select1"
                                 placeholder="选择需要考试的学生专业" ></select>
                     选择试卷<select type="text" class="form-control" name="sjid" id="sjid-select1"
