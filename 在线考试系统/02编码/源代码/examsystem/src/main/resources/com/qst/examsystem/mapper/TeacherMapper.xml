@@ -31,9 +31,10 @@
         where tid=#{tid}
     </update>
 
+    <!--教师查询个人信息-->
     <select id="findTeacherById" parameterType="Integer"
             resultType="teacher">
-		select tid, tname, tno, tpw, taddtime, tupdatetime, taddperson, tupdateperson  from teachers where tid =#{tid}
+		select tid, tname, tno, tpw, tupdatetime, taddperson, tupdateperson  from teachers where tid =#{tid}
 	</select>
 
     <select id="loadTeacher" parameterType="Integer"

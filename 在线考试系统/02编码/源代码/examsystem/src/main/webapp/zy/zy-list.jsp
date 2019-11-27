@@ -14,7 +14,7 @@
 
 
 
-<title>数据 - AdminLTE2定制版</title>
+<title>查询专业</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -253,21 +253,47 @@
 											</td>
 										</tr>
 									</c:forEach>
+
 								</tbody>
-								<!--
-                            <tfoot>
-                            <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
-                            </tr>
-                            </tfoot>-->
+
 							</table>
 							<!--数据列表/-->
+                            <ul class="pagination">
+                                <c:choose>
+                                    <c:when test="${1==requestScope.page.page}">
+                                        <li class="disabled"><a   href="#">&laquo;</a></li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li><a   href="#" onclick="gotoPage(${requestScope.page.page-1})">&laquo;</a></li>
+                                    </c:otherwise>
+                                </c:choose>
 
+                                <c:forEach begin="${requestScope.page.min}" step="1" end="${requestScope.page.max}" var="pageNo">
+                                    <c:choose>
 
+                                        <c:when test="${pageNo==requestScope.page.page}">
+                                            <!-- 当前页高亮显示-->
+                                            <li class="active"><a href="#" onclick="gotoPage(${pageNo})">${pageNo}</a></li>
+                                        </c:when>
+                                        <c:when test="${pageNo>requestScope.page.pageCount}">
+                                            <!-- pageNo超出当前最大页数-->
+                                            <li class="disabled"><a   href="#">${pageNo}</a></li>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <li ><a href="#" onclick="gotoPage(${requestScope.page.page+1})">${pageNo}</a></li>
+                                        </c:otherwise>
+
+                                    </c:choose>
+                                </c:forEach>
+                                <c:choose>
+                                    <c:when test="${requestScope.page.pageCount==requestScope.page.page}">
+                                        <li class="disabled"><a   href="#">&raquo;</a></li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li><a   href="#" onclick="gotoPage(${requestScope.page.page+1})">&raquo;</a></li>
+                                    </c:otherwise>
+                                </c:choose>
+                            </ul>
 
 						</div>
 						<!-- 数据表格 /-->
@@ -276,32 +302,8 @@
 					</div>
 					<!-- /.box-body -->
 
-					<!-- .box-footer-->
-					<div class="box-footer">
-						<div class="pull-left">
-							<div class="form-group form-inline">
-								总共2 页，共14 条数据。 每页 <select class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select> 条
-							</div>
-						</div>
+						<div >
 
-						<div class="box-tools pull-right">
-							<ul class="pagination">
-								<li><a href="#" aria-label="Previous">首页</a></li>
-								<li><a href="#">上一页</a></li>
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">下一页</a></li>
-								<li><a href="#" aria-label="Next">尾页</a></li>
-							</ul>
 						</div>
 
 					</div>
@@ -309,7 +311,7 @@
 
 
 
-				</div>
+				<%--</div>--%>
 
 			</section>
 			<!-- 正文区域 /-->
@@ -331,14 +333,13 @@
 
 		</script>
 		<!-- 底部导航 -->
-		<footer class="main-footer">
-			<div class="pull-right hidden-xs">
-				<b>Version</b> 1.0.8
-			</div>
-			<strong>Copyright &copy; 2014-2017 <a
-				href="http://www.itcast.cn">研究院研发部</a>.
-			</strong> All rights reserved.
-		</footer>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; 2019 <a>java4班第二小分队</a>
+            </strong> All rights reserved.
+        </footer>
 		<!-- 底部导航 /-->
 
 	</div>

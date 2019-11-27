@@ -218,47 +218,18 @@
                     <input type="submit" value="发布考试">
                 </div>
             </form>
-            <%--  </br>
-              <c:if test="${requestScope.shiTiList!=null}">
-              <c:choose>
-              <c:when test="${empty requestScope.shiTiList}">
-                  <span>未查询到数据</span>
-              </c:when>
-              <c:otherwise>
-              <form action="/shijuan/zuzhi_shijuan">
 
-                  <table width="600" border="1" cellspacing="0" align="center">
-                      <tr>
-                          <th hidden="">试题ID</th>
-                          <th>题目</th>
-                          <th>操作</th>
-                      </tr>
-                      <c:forEach items="${requestScope.shiTiList}" var="test">
-                          <tr>
-                              <input hidden="" value="${test.stid}" name="">
-                              <td>${test.contain}</td>
-                              <td align="center">
-                                  <a href="#" target="_parent">刷新题库</a>
-                              </td>
-                          </tr>
-                      </c:forEach>
-                  </table>
-                  </c:otherwise>
-                  </c:choose>
-                  共查询到:<span style="color: #1f33ff">${fn:length(requestScope.shiTiList)}</span>条记录
-                  </c:if>
-              </form>--%>
 
             <!-- 内容区域 /-->
 
             <!-- 底部导航 -->
             <%--<footer class="main-footer">--%>
-            <%--<div class="pull-right hidden-xs">--%>
-            <%--<b>Version</b> 1.0.8--%>
-            <%--</div>--%>
-            <%--<strong>Copyright &copy; 2014-2017 <a--%>
-            <%--href="http://www.itcast.cn">研究院研发部</a>.--%>
-            <%--</strong> All rights reserved. </footer>--%>
+                <%--<div class="pull-right hidden-xs">--%>
+                    <%--<b>Version</b> 1.0.0--%>
+                <%--</div>--%>
+                <%--<strong>Copyright &copy; 2019 <a>java4班第二小分队</a>--%>
+                <%--</strong> All rights reserved.--%>
+            <%--</footer>--%>
             <!-- 底部导航 /-->
         </div>
     </div>

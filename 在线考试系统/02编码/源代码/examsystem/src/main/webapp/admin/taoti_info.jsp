@@ -142,65 +142,54 @@
 
     <!-- 内容区域 -->
     <div class="content-wrapper">
-        <div >
-            <c:if test="${requestScope.list!=null}">
+        <div align="center">
+            <c:if test="${requestScope.sjstList!=null}">
                 <c:choose>
-                    <c:when test="${requestScope.list=='exp'}">
+                    <c:when test="${requestScope.sjstList=='exp'}">
                         <span>服务器异常</span>
                     </c:when>
-                    <c:when test="${empty requestScope.list}">
+                    <c:when test="${empty requestScope.sjstList}">
                         <span>未查询到数据</span>
                     </c:when>
                     <c:otherwise>
-
-                        <div>
-                            <c:forEach items="${requestScope.list}" var="test">
-                                    <%--试卷名称--%>
-                             <h1 align="center">${test.stid}</h1>
-                               <table width="600" border="1" cellspacing="0" align="center">
-                                  <tr>
-                                    <th>试题ID</th>
-                                    <th>所属课程ID</th>
-                                    <th>题目类型</th>
-                                    <th>题目</th>
-                                    <th>答案</th>
-                                    <th>分值</th>
-                                    <th>操作</th>
-                                    </tr>
-
-                                    <tr>
-                                        <td>${test.stid}</td>
-                                        <td>${test.cid}</td>
-                                        <td>${test.type1}</td>
-                                        <td>${test.contain}</td>
-                                        <td>${test.answer}</td>
-                                        <td>${test.degree}</td>
-                                        <td align="center">
-                                            <a href="/testquestion/getQuestion?stid=${test.stid}" target="_parent">修改</a>
-                                            <a href="/testquestion/getInfo?stid=${test.stid}" target="_parent">详情</a>
-                                        </td>
+                        <table width="600" border="1" cellspacing="0" align="center">
+                            <tr>
+                                <th>试题ID</th>
+                                <th>所属课程ID</th>
+                                <th>题目类型</th>
+                                <th>题目</th>
+                                <th>答案</th>
+                                <th>分值</th>
+                            </tr>
+                            <c:forEach items="${requestScope.sjstList}" var="test">
+                                <tr>
+                                    <td>${test.stid}</td>
+                                    <td>${test.cid}</td>
+                                    <td>${test.type1}</td>
+                                    <td>${test.contain}</td>
+                                    <td>${test.answer}</td>
+                                    <td>${test.degree}</td>
                                 </tr>
                             </c:forEach>
-                          </table>
-                        </div>
+                        </table>
                     </c:otherwise>
                 </c:choose>
-                共查询到:<span style="color: #1f33ff">${fn:length(requestScope.list)}</span>条记录
+                共查询到:<span style="color: #1f33ff">${fn:length(requestScope.sjstList)}</span>条记录
             </c:if>
-
         </div>
 
     </div>
+
     <!-- 内容区域 /-->
 
     <!-- 底部导航 -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.8
+            <b>Version</b> 1.0.0
         </div>
-        <strong>Copyright &copy; 2014-2017 <a
-                href="http://www.itcast.cn">研究院研发部</a>.
-        </strong> All rights reserved. </footer>
+        <strong>Copyright &copy; 2019 <a>java4班第二小分队</a>
+        </strong> All rights reserved.
+    </footer>
     <!-- 底部导航 /-->
 
 </div>

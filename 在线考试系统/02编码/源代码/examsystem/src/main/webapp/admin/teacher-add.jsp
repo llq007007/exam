@@ -127,33 +127,12 @@
 									id="添加时间" name="taddtime">
 							</div>
 						</div>
-<%--
-						<div class="col-md-2 title">修改时间</div>
-						<div class="col-md-4 data">
-							<div class="input-group date">
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-								<input type="date" class="form-control pull-right"
-									   id="修改时间" name="cupdatetime">
-							</div>
-						</div>--%>
-
 
 						<div class="col-md-2 title">添加人</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="taddperson"
 								placeholder="添加人" value="">
 						</div>
-
-
-
-
-					<%--	<div class="col-md-2 title">修改人</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="cupdateperson"
-								   placeholder="修改人" value="">
-						</div>--%>
 
 					</div>
 				</div>
@@ -170,13 +149,13 @@
 		<!-- 内容区域 /-->
 
 		<!-- 底部导航 -->
-		<footer class="main-footer">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 1.0.8
-		</div>
-		<strong>Copyright &copy; 2014-2017 <a
-			href="http://www.itcast.cn">研究院研发部</a>.
-		</strong> All rights reserved. </footer>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; 2019 <a>java4班第二小分队</a>
+            </strong> All rights reserved.
+        </footer>
 		<!-- 底部导航 /-->
 
 	</div>

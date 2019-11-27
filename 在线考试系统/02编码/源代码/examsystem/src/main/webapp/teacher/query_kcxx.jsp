@@ -171,11 +171,6 @@
                                     <td>${test.nullnum}</td>
                                     <td>${test.jkname}</td>
                                     <td>${test.kcno}</td>
-               <%--                     <td align="center">
-                                        <a href="/testquestion/getQuestion?stid=${test.stid}" target="_parent">修改</a>
-                                        <a href="/testquestion/getInfo?stid=${test.stid}" target="_parent">详情</a>
-                                        <a href="#" target="_parent" onclick="shanchu(${test.stid})">删除</a>
-                                    </td>--%>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -183,13 +178,6 @@
                 </c:choose>
                 共查询到:<span style="color: #1f33ff">${fn:length(requestScope.kcxxList)}</span>条记录
             </c:if>
-<%--<script type="text/javascript">
-    function shanchu(stid) {
-        if (window.confirm("确定要删除该试题么")){
-            window.location.href="/testquestion/delete?stid="+stid;
-        }
-    }
-</script>--%>
         </div>
 
     </div>
@@ -198,11 +186,11 @@
     <!-- 底部导航 -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.8
+            <b>Version</b> 1.0.0
         </div>
-        <strong>Copyright &copy; 2014-2017 <a
-                href="http://www.itcast.cn">研究院研发部</a>.
-        </strong> All rights reserved. </footer>
+        <strong>Copyright &copy; 2019 <a>java4班第二小分队</a>
+        </strong> All rights reserved.
+    </footer>
     <!-- 底部导航 /-->
 
 </div>

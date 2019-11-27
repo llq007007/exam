@@ -203,31 +203,19 @@
 
 				<!--工具栏/-->
                 </section>
-				<%--<script>--%>
-                    <%--/**--%>
-                     <%--* 根据套题ID删除信息--%>
-                     <%--* @param--%>
-                     <%--*/--%>
-                    <%--function deleteTaoti(ttid) {--%>
-                        <%--if (window.confirm('确定要删除吗?')) {--%>
-                            <%--window.location.href = '/Tt/delete?ttid='+ ttid;--%>
-                        <%--}--%>
-                    <%--}--%>
 
-				<%--</script>--%>
 				<!-- 正文区域 /-->
 			</form>
 		</div>
 		<!-- 内容区域 /-->
 
 		<!-- 底部导航 -->
-		<footer class="main-footer">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 1.0.8
-		</div>
-		<strong>Copyright &copy; 2014-2017 <a
-			href="http://www.itcast.cn">研究院研发部</a>.
-		</strong> All rights reserved. </footer>
+        <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0.0
+        </div>
+        <strong>Copyright &copy; 2019 <a>java4班第二小分队</a>
+        </strong> All rights reserved. </footer>
 		<!-- 底部导航 /-->
 
 	</div>

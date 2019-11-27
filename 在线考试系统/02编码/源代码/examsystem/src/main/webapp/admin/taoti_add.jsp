@@ -60,6 +60,39 @@
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+
+    <script  src="/js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            //利用jQuery AJAX加载试卷数据
+            $.ajax({
+                url:'/shijuan/load_data',//请求URL
+                type:'POST',//请求方式
+                dataType:'json', //将从服务器获取的数据处理成JSON格式
+                success:function(data){
+                    //请求成功,data表示从服务获取的数据
+                    console.info(data)
+                    var length=data.length;
+                    if(0==length){
+                        alert("未加载到试卷数据");
+                        return ;
+                    }
+                    var shijuans=data;
+                    for(var index=0;index<length;index++){
+                        var shijuan=shijuans[index];
+                        var sjid=shijuan.sjid;
+                        var sjname=shijuan.sjname;
+                        var optionHTML='<option value="'+sjid+'">'+sjname+'</option>';
+                        $("#sjid-select").append(optionHTML);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    // 请求失败
+                    console.error(errorThrown);
+                }
+            });
+        });
+    </script>
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -93,23 +126,11 @@
 					<div class="panel-heading">添加套题信息</div>
 					<div class="row data-type">
 
-						<%--<div class="col-md-2 title">套题ID</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<input type="text" class="form-control" name="ttid"--%>
-								<%--placeholder="套题ID" value="">--%>
-						<%--</div>--%>
-
 						<div class="col-md-2 title">试卷ID</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="sjid"
-								placeholder="试卷ID" value="">
+							<select type="text" class="form-control" name="sjid" id="sjid-select"
+                                    placeholder="试卷ID" value=""></select>
 						</div>
-
-						<%--<div class="col-md-2 title">题目ID</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<input type="text" class="form-control" name="stid"--%>
-								   <%--placeholder="题目ID" value="">--%>
-						<%--</div>--%>
 
 						<div class="col-md-2 title">添加时间</div>
 						<div class="col-md-4 data">
@@ -122,32 +143,12 @@
 							</div>
 						</div>
 
-						<%--<div class="col-md-2 title">修改时间</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<div class="input-group date">--%>
-								<%--<div class="input-group-addon">--%>
-									<%--<i class="fa fa-calendar"></i>--%>
-								<%--</div>--%>
-								<%--<input type="date" class="form-control pull-right"--%>
-									   <%--id="修改时间" name="cupdatetime">--%>
-							<%--</div>--%>
-						<%--</div>--%>
-
-
 						<div class="col-md-2 title">添加人</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="ttaddperson"
 								placeholder="添加人" value="">
 						</div>
 
-
-
-
-						<%--<div class="col-md-2 title">修改人</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<input type="text" class="form-control" name="cupdateperson"--%>
-								   <%--placeholder="修改人" value="">--%>
-						<%--</div>--%>
 
 					</div>
 				</div>
@@ -164,13 +165,13 @@
 		<!-- 内容区域 /-->
 
 		<!-- 底部导航 -->
-		<footer class="main-footer">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 1.0.8
-		</div>
-		<strong>Copyright &copy; 2014-2017 <a
-			href="http://www.itcast.cn">研究院研发部</a>.
-		</strong> All rights reserved. </footer>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; 2019 <a>java4班第二小分队</a>
+            </strong> All rights reserved.
+        </footer>
 		<!-- 底部导航 /-->
 
 	</div>

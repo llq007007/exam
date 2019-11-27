@@ -132,11 +132,6 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">考号ID:${param.khid}</div>
 					<div class="row data-type">
-<%--
-						<div class="col-md-2 title" readonly="khid">考号ID:${param.khid}</div>
-						<div class="col-md-4 data">
-
-						</div>--%>
 
 
 						<div class="col-md-2 title">姓名</div>
@@ -157,16 +152,7 @@
                             >
                         </div>
 
-						<%--<div class="col-md-2 title">添加时间</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<div class="input-group date">--%>
-								<%--<div class="input-group-addon">--%>
-									<%--<i class="fa fa-calendar"></i>--%>
-								<%--</div>--%>
-								<%--<input type="date" class="form-control pull-right"--%>
-									 <%--name="caddtime">--%>
-							<%--</div>--%>
-						<%--</div>--%>
+
 
 						<div class="col-md-2 title">修改时间</div>
 						<div class="col-md-4 data">
@@ -178,12 +164,6 @@
 									    name="supdatetime" required>
 							</div>
 						</div>
-
-						<%--<div class="col-md-2 title">添加人</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<input type="text" class="form-control" name="caddperson"--%>
-								 <%-->--%>
-						<%--</div>--%>
 
 
 						<div class="col-md-2 title">修改人</div>
@@ -211,13 +191,12 @@
 		<!-- 内容区域 /-->
 
 		<!-- 底部导航 -->
-		<footer class="main-footer">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 1.0.8
-		</div>
-		<strong>Copyright &copy; 2014-2017 <a
-			href="http://www.itcast.cn">研究院研发部</a>.
-		</strong> All rights reserved. </footer>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; 2019 <a>java4班第二小分队</a>
+            </strong> All rights reserved. </footer>
 		<!-- 底部导航 /-->
 
 	</div>

@@ -75,4 +75,13 @@ public class SjController {
         model.addAttribute("sjstList",sjstList);
         return "/teacher/ShiJuanInfo.jsp";
     }
+
+    @RequestMapping(value="getSTdaInfo")
+    public String querySJSTdaData(Model model,HttpServletRequest request) {
+        int sjid=Integer.parseInt(request.getParameter("sjid"));
+        List<Testquestion> sjstList = sjstService.querySJST(sjid);
+        model.addAttribute("sjstList",sjstList);
+        return "/admin/taoti_info.jsp";
+    }
+
 }

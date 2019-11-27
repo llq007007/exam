@@ -78,6 +78,12 @@ public class TeacherController {
         return teacher;
     }
 
+    /**
+     * 教师个人信息查询
+     * @param model
+     * @param sesson
+     * @return
+     */
     @RequestMapping("getteacherInfo")
     public String getteacherInfo(Model model,HttpSession sesson) {
         Teacher teacher=(Teacher) sesson.getAttribute("teacher");

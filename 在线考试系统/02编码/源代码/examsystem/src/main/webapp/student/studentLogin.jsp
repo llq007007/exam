@@ -27,13 +27,13 @@
     <span>欢迎使用在线考试系统</span>
     <ul>
         <li>
-            <a href="#">联系我们</a>
+            <a href="/pages/contact.jsp">联系我们</a>
         </li>
         <li>
-            <a href="#">帮助</a>
+            <a href="/pages/help.jsp">帮助</a>
         </li>
         <li>
-            <a href="#">关于在线考试系统</a>
+            <a href="/pages/aboutus.jsp">关于在线考试系统</a>
         </li>
     </ul>
 </div>

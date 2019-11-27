@@ -134,12 +134,6 @@
                                             <td>${cj.score}</td>
                                         </div>
 
-                                    <%--<div class="col-lg-2 data" >--%>
-                                        <%--<td>--%>
-                                            <%--<a href="#" onclick="deleteTaoti(${taoti.ttid})">删除</a>--%>
-                                            <%--<a href=/course/course-update.jsp?cid=${course.cid}" target="_blank">查看试题</a>--%>
-                                        <%--</td>--%>
-                                    <%--</div>--%>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>
@@ -155,13 +149,13 @@
 		<!-- 内容区域 /-->
 
 		<!-- 底部导航 -->
-		<footer class="main-footer">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 1.0.8
-		</div>
-		<strong>Copyright &copy; 2014-2017 <a
-			href="http://www.itcast.cn">研究院研发部</a>.
-		</strong> All rights reserved. </footer>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; 2019 <a>java4班第二小分队</a>
+            </strong> All rights reserved.
+        </footer>
 		<!-- 底部导航 /-->
 
 	</div>

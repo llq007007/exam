@@ -5,36 +5,37 @@
 <mapper namespace="com.qst.examsystem.mapper.SjMapper">
     <select id="chouSj" parameterType="int" resultType="testquestion">
         <![CDATA[
-SELECT
-	stid,
--- 	cid,
-	contain
--- 	type1,
--- 	degree,
--- 	tid
-FROM
-	(
-	SELECT
-		RAND( ) AS rowId,
-		stid,
-		cid,
-		type1,
-		contain,
-		answer,
-		degree,
-		tid
-	FROM
-		testquestion
-	WHERE
-		cid = #{cid}
-	) t
-ORDER BY
-	rowId
-	LIMIT 0,
-	20
+                SELECT
+                    stid,
+                -- 	cid,
+                    contain
+                -- 	type1,
+                -- 	degree,
+                -- 	tid
+                FROM
+                    (
+                    SELECT
+                        RAND( ) AS rowId,
+                        stid,
+                        cid,
+                        type1,
+                        contain,
+                        answer,
+                        degree,
+                        tid
+                    FROM
+                        testquestion
+                    WHERE
+                        cid = #{cid}
+                    ) t
+                ORDER BY
+                    rowId
+                    LIMIT 0,
+                    20
 
-]]>
+                ]]>
     </select>
+
     <select id="selectAllShiJuan" resultType="shijuan">
          select sjid,sjname from sj
      -- select * from sj
