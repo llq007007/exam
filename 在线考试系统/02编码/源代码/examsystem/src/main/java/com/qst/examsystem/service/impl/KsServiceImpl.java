@@ -17,4 +17,14 @@ public class KsServiceImpl implements IKsService {
     public int addks(Ks ks) {
         return ksDao.addks(ks);
     }
+
+    @Override
+    public Ks selectKS() {
+        return ksDao.selectKS();
+    }
+
+    @Override
+    public Ks selectKSsjid(int sjid) {
+        return ksDao.selectKSsjid(sjid);
+    }
 }

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -124,6 +126,67 @@
           href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
+    <script  src="/js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            //利用jQuery AJAX加载部门数据
+            $.ajax({
+                url:'/zy/load_data',//请求URL
+                type:'POST',//请求方式
+                dataType:'json', //将从服务器获取的数据处理成JSON格式
+                success:function(data){
+                    //请求成功,data表示从服务获取的数据
+                    console.info(data)
+                    var length=data.length;
+                    if(0==length){
+                        alert("未加载到课程数据");
+                        return ;
+                    }
+                    var zylists=data;
+                    for(var index=0;index<length;index++){
+                        var zylist=zylists[index];
+                        var zyid=zylist.zyid;
+                        var zyname=zylist.zyname;
+                        var optionHTML='<option value="'+zyid+'">'+zyname+'</option>';
+                        $("#zyid-select1").append(optionHTML);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    // 请求失败
+                    console.error(errorThrown);
+                }
+            });
+        });
+        $(function(){
+            //利用jQuery AJAX加载部门数据
+            $.ajax({
+                url:'/shijuan/load_data',//请求URL
+                type:'POST',//请求方式
+                dataType:'json', //将从服务器获取的数据处理成JSON格式
+                success:function(data){
+                    //请求成功,data表示从服务获取的数据
+                    console.info(data)
+                    var length=data.length;
+                    if(0==length){
+                        alert("未加载到试卷数据");
+                        return ;
+                    }
+                    var shijuans=data;
+                    for(var index=0;index<length;index++){
+                        var shijuan=shijuans[index];
+                        var sjid=shijuan.sjid;
+                        var sjname=shijuan.sjname;
+                        var optionHTML='<option value="'+sjid+'">'+sjname+'</option>';
+                        $("#sjid-select1").append(optionHTML);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    // 请求失败
+                    console.error(errorThrown);
+                }
+            });
+        });
+    </script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -139,134 +202,172 @@
     <!-- 导航侧栏 /-->
 
     <!-- 内容区域 -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="height: 1850px">
+        <div class="col-md-2 title"></div>
+        <div class="col-md-4 data">
+            <form action="/shijuan/jiazaishijuan" method="post">
+                <div>
+                    选择试卷<select type="text" class="form-control" name="sjid" id="sjid-select1"
+                                placeholder="选择试卷" ></select>
+                </div>
+                <div style="margin-top: 10px">
+                    <input type="submit" onclick="" value="进入考试">
+                    <%--<a href="/shijuan/select_shijuan?sjid="${sjid}>进入考试</a>--%>
+                </div>
+            </form>
+            <%--  </br>
+              <c:if test="${requestScope.shiTiList!=null}">
+              <c:choose>
+              <c:when test="${empty requestScope.shiTiList}">
+                  <span>未查询到数据</span>
+              </c:when>
+              <c:otherwise>
+              <form action="/shijuan/zuzhi_shijuan">
 
-        <img src="${pageContext.request.contextPath}/img/center.jpg"
-             width="100%" height="100%" />
+                  <table width="600" border="1" cellspacing="0" align="center">
+                      <tr>
+                          <th hidden="">试题ID</th>
+                          <th>题目</th>
+                          <th>操作</th>
+                      </tr>
+                      <c:forEach items="${requestScope.shiTiList}" var="test">
+                          <tr>
+                              <input hidden="" value="${test.stid}" name="">
+                              <td>${test.contain}</td>
+                              <td align="center">
+                                  <a href="#" target="_parent">刷新题库</a>
+                              </td>
+                          </tr>
+                      </c:forEach>
+                  </table>
+                  </c:otherwise>
+                  </c:choose>
+                  共查询到:<span style="color: #1f33ff">${fn:length(requestScope.shiTiList)}</span>条记录
+                  </c:if>
+              </form>--%>
 
-    </div>
-    <!-- 内容区域 /-->
+            <!-- 内容区域 /-->
 
-    <!-- 底部导航 -->
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.8
+            <!-- 底部导航 -->
+            <%--<footer class="main-footer">--%>
+            <%--<div class="pull-right hidden-xs">--%>
+            <%--<b>Version</b> 1.0.8--%>
+            <%--</div>--%>
+            <%--<strong>Copyright &copy; 2014-2017 <a--%>
+            <%--href="http://www.itcast.cn">研究院研发部</a>.--%>
+            <%--</strong> All rights reserved. </footer>--%>
+            <!-- 底部导航 /-->
         </div>
-        <strong>Copyright &copy; 2014-2017 <a
-                href="http://www.itcast.cn">研究院研发部</a>.
-        </strong> All rights reserved. </footer>
-    <!-- 底部导航 /-->
+    </div>
 
-</div>
+    <script
+            src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/jQueryUI/jquery-ui.min.js"></script>
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/raphael/raphael-min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/morris/morris.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/knob/jquery.knob.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/daterangepicker/moment.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.zh-CN.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/fastclick/fastclick.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/iCheck/icheck.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/adminLTE/js/app.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/select2/select2.full.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.zh-CN.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/locale/bootstrap-markdown.zh.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/markdown.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/to-markdown.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/ckeditor/ckeditor.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/chartjs/Chart.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.pie.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.categories.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 选择框
+            $(".select2").select2();
 
-<script
-        src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/jQueryUI/jquery-ui.min.js"></script>
-<script>
-    $.widget.bridge('uibutton', $.ui.button);
-</script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/raphael/raphael-min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/morris/morris.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/sparkline/jquery.sparkline.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/knob/jquery.knob.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/daterangepicker/moment.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.zh-CN.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/datepicker/bootstrap-datepicker.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/fastclick/fastclick.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/iCheck/icheck.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/adminLTE/js/app.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/select2/select2.full.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.zh-CN.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/bootstrap-markdown.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/locale/bootstrap-markdown.zh.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/markdown.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/to-markdown.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/ckeditor/ckeditor.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/datatables/jquery.dataTables.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/chartjs/Chart.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.resize.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.pie.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.categories.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
-<script>
-    $(document).ready(function() {
-        // 选择框
-        $(".select2").select2();
-
-        // WYSIHTML5编辑器
-        $(".textarea").wysihtml5({
-            locale : 'zh-CN'
+            // WYSIHTML5编辑器
+            $(".textarea").wysihtml5({
+                locale : 'zh-CN'
+            });
         });
-    });
 
-    // 设置激活菜单
-    function setSidebarActive(tagUri) {
-        var liObj = $("#" + tagUri);
-        if (liObj.length > 0) {
-            liObj.parent().parent().addClass("active");
-            liObj.addClass("active");
+        // 设置激活菜单
+        function setSidebarActive(tagUri) {
+            var liObj = $("#" + tagUri);
+            if (liObj.length > 0) {
+                liObj.parent().parent().addClass("active");
+                liObj.addClass("active");
+            }
         }
-    }
 
-    $(document).ready(function() {
-        // 激活导航位置
-        setSidebarActive("admin-index");
-    });
-</script>
+        $(document).ready(function() {
+            // 激活导航位置
+            setSidebarActive("admin-index");
+        });
+    </script>
 </body>
 
 </html>

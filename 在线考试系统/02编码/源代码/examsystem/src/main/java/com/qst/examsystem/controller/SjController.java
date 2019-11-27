@@ -1,10 +1,8 @@
 package com.qst.examsystem.controller;
 
 import com.qst.examsystem.dao.ISjDao;
-import com.qst.examsystem.entity.Course;
-import com.qst.examsystem.entity.Sj;
-import com.qst.examsystem.entity.Sjst;
-import com.qst.examsystem.entity.Testquestion;
+import com.qst.examsystem.entity.*;
+import com.qst.examsystem.service.IKsService;
 import com.qst.examsystem.service.ISjService;
 import com.qst.examsystem.service.ISjstService;
 import com.qst.examsystem.service.ITeacherService;
@@ -31,6 +29,8 @@ public class SjController {
     private ISjService sjService;
     @Autowired
      ISjstService sjstService;
+    @Autowired
+    IKsService ksService;
     /**
      * 生成试卷
      * @param cid 课程id
@@ -74,5 +74,18 @@ public class SjController {
         List<Testquestion> sjstList = sjstService.querySJST(sjid);
         model.addAttribute("sjstList",sjstList);
         return "/teacher/ShiJuanInfo.jsp";
+    }
+    @RequestMapping(value="jiazaishijuan")
+    public String jiazaishijuan(int sjid,Model model,HttpSession session) {
+        Student student=(Student) session.getAttribute("student");
+        int zyid=student.getZyid();
+        int zyid1=ksService.selectKSsjid(sjid).getZyid();
+        if (zyid==zyid1){
+            List<Testquestion> sjstList = sjstService.querySJST(sjid);
+            model.addAttribute("sjstList",sjstList);
+            return "/student/ShiJuan.jsp";
+        }else {
+            return "/student/jiazaishijuanresult.jsp";
+        }
     }
 }
