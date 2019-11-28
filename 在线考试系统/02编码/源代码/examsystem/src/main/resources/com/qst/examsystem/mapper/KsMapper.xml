@@ -6,4 +6,10 @@
     <insert id="addks" parameterType="ks">
         insert into ks(kcname,sjid,zyid) values(#{kcname},#{sjid},#{zyid})
     </insert>
+    <select id="selectKS" resultType="ks">
+        select * from ks
+    </select>
+    <select id="selectKSsjid" resultType="ks">
+        select zyid,sjid from ks where sjid=#{sjid}
+    </select>
 </mapper>

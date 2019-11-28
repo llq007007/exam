@@ -6,7 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="/OnlineExamSystem/image/main_logo.ico" rel="shortcut icon">
     <title>在线考试系统-正在考试</title>
-
     <script type="text/javascript">
         $(function(){
             show_time(2*60);

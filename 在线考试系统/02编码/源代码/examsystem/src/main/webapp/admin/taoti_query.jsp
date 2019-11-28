@@ -126,10 +126,11 @@
 									<td>${taoti.ttaddperson}</td>
 								</div>
 								<div class="col-lg-3 data" >
-									<td>
+									<td >
                                         <a href="#" onclick="deleteTaoti(${taoti.ttid})">删除</a>
                                         &nbsp;&nbsp;
 										<a href="/shijuan/getSTdaInfo?sjid=${taoti.sjid}" target="_parent">查看套题</a>
+										<a href="/shijuan/getSTInfo2?sjid=${taoti.sjid}" >查看试题</a>
 									</td>
 								</div>
 								</tr>

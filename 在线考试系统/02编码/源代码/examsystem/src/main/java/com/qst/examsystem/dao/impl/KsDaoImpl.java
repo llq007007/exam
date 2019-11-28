@@ -16,4 +16,14 @@ public class KsDaoImpl implements IKsDao {
     public int addks(Ks ks) {
         return ksMapper.addks(ks);
     }
+
+    @Override
+    public Ks selectKS() {
+        return ksMapper.selectKS();
+    }
+
+    @Override
+    public Ks selectKSsjid(int sjid) {
+        return ksMapper.selectKSsjid(sjid);
+    }
 }

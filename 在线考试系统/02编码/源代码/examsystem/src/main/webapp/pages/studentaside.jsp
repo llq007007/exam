@@ -52,11 +52,6 @@
                         <a href="${pageContext.request.contextPath}/student/daicanjia.jsp">
                             <i class="fa fa-circle-o"></i> 待参加考试
                         </a></li>
-                    <li id="system-setting"><a
-                            href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
-                            class="fa fa-circle-o"></i> 已结束考试
-                    </a></li>
-
                 </ul></li>
 
         </ul>

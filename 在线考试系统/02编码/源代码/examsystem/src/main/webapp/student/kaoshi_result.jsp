@@ -140,66 +140,24 @@
 
     <!-- 内容区域 -->
     <div class="content-wrapper">
-        <!-- 正文区域 -->
-        <section class="content"> <!--添加学生信息-->
+        <div align="center">
+            ${sessionScope.student.sname}同学:你获得的成绩为<b style="color: red">${param.sum}</b>分！
+        </div>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">学生信息</div>
-                <div class="row data-type">
-
-
-                    <div class="col-md-2 title">考号ID</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" name="khid"
-                               placeholder="考号ID" value="${requestScope.student.khid}" readonly>
-                    </div>
-
-                    <div class="col-md-2 title">专业</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" name="zyid"
-                               placeholder="专业ID" value="${requestScope.student.zyid}" readonly>
-                    </div>
-
-                    <div class="col-md-2 title">姓名</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" name="sname"
-                               placeholder="姓名" value="${requestScope.student.sname}" readonly>
-                    </div>
-
-                    <div class="col-md-2 title">性别</div>
-                    <div class="col-md-4 data">
-                    <input type="text" class="form-control" name="ssex"
-                    placeholder="性别" value="${requestScope.student.ssex}" readonly>
-                    </div>
-
-
-                    <div class="col-md-2 title">备注</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" name="scomments"
-                               placeholder="备注" value="${requestScope.student.scomments}" readonly>
-                    </div>
-
-                </div>
-            </div>
-            <!--订单信息/--> <!--工具栏-->
-            <div class="box-tools text-center">
-                <button type="button" class="btn bg-default"
-                        onclick="history.back(-1);">返回</button>
-            </div>
-            <!--工具栏/--> </section>
-        <!-- 正文区域 /-->
-    </form>
-</div>
+    </div>
     <!-- 内容区域 /-->
+
+
+
 
     <!-- 底部导航 -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.0
+            <b>Version</b> 1.0.8
         </div>
-        <strong>Copyright &copy; 2019 <a>java4班第二小分队</a>
-        </strong> All rights reserved.
-    </footer>
+        <strong>Copyright &copy; 2014-2017 <a
+                href="http://www.itcast.cn">研究院研发部</a>.
+        </strong> All rights reserved. </footer>
     <!-- 底部导航 /-->
 
 </div>

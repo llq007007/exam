@@ -1,5 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>在线考试系统</title>
+    <title>在线考试系统-正在考试</title>
     <meta name="description" content="AdminLTE2定制版">
     <meta name="keywords" content="AdminLTE2定制版">
 
@@ -124,6 +125,53 @@
           href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
+    <script type="text/javascript">
+        $(function () {
+            show_time(2 * 60);
+            $("#submi").click(function () {
+                var b = checkIfselected();
+                if (b == false) {
+                    return false;
+                }
+                var flag = confirm("确定要交卷吗？");
+                if (flag) {
+                    return true;
+                } else {
+                    return false;
+                }
+            })
+        })
+
+        function show_time(totalTime) {
+            if (totalTime == 0) {
+                alert("考试时间结束！系统将会自动提交试卷！");
+                $("form").submit(function () {
+                    checkIfselected();
+                });
+                return false;
+            }
+            var remainTime = totalTime - 1;
+            var min = remainTime / 60;
+            min = parseInt(min);
+            var s = remainTime % 60;
+            if (s < 10) {
+                s = "0" + s;
+            }
+            var str = "0" + min + ":" + s;
+            $("#sp4").text(str);
+            setTimeout("show_time(" + remainTime + ")", 1000);
+        }
+
+        function checkIfselected() {
+            var size = $("input:checkbox:checked").size();
+            var size2 = $("input:radio:checked").size();
+            if (size < 1 && size2 < 1) {
+                alert("请至少做一道吧，同学！");
+                return false;
+            }
+        }
+
+    </script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -140,64 +188,62 @@
 
     <!-- 内容区域 -->
     <div class="content-wrapper">
-        <!-- 正文区域 -->
-        <section class="content"> <!--添加学生信息-->
+        <div data-options="region:'north'" style="line-height:60px;height:80px;background-size:cover">
+            <font id="ft1" size="3px" style="margin-left:5%">当 前 考 生：<span id="sp1">${sessionScope.student.sname}</span></font>
+            <font id="ft3" size="3px" style="margin-left:2%">考 试 限 时：<span id="sp3">2分钟</span></font>
+            <font id="ft4" size="3px" style="margin-left:2%">剩 余 时 间：<span id="sp4"></span></font>
+        </div>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">学生信息</div>
-                <div class="row data-type">
-
-
-                    <div class="col-md-2 title">考号ID</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" name="khid"
-                               placeholder="考号ID" value="${requestScope.student.khid}" readonly>
-                    </div>
-
-                    <div class="col-md-2 title">专业</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" name="zyid"
-                               placeholder="专业ID" value="${requestScope.student.zyid}" readonly>
-                    </div>
-
-                    <div class="col-md-2 title">姓名</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" name="sname"
-                               placeholder="姓名" value="${requestScope.student.sname}" readonly>
-                    </div>
-
-                    <div class="col-md-2 title">性别</div>
-                    <div class="col-md-4 data">
-                    <input type="text" class="form-control" name="ssex"
-                    placeholder="性别" value="${requestScope.student.ssex}" readonly>
-                    </div>
-
-
-                    <div class="col-md-2 title">备注</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" name="scomments"
-                               placeholder="备注" value="${requestScope.student.scomments}" readonly>
-                    </div>
-
-                </div>
+        <div data-options="region:'center'">
+            <br>
+            <div style="margin-top:2%;font-size:15px">
+                <form action="/shijuan/chengji" method="post">
+                    <table cellpadding="20px">
+                        <input style="display: none" type="text" name="sjid" value="${sjid}">
+                        <c:forEach items="${requestScope.sjstList}" var="st">
+                            <c:if test="${st.type1=='选择'}">
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;${st.contain}<br><br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"
+                                                                                               name="${st.stid}"
+                                                                                               value="A">A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="${st.stid}" value="B">B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="${st.stid}" value="C">C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="${st.stid}" value="D">D
+                                    </td>
+                                </tr>
+                            </c:if>
+                            <c:if test="${st.type1!='选择'}">
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;${st.contain}<br><br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"
+                                                                                               name="${st.stid}" value="是">是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="${st.stid}" value="否">否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                            </c:if>
+                        </c:forEach>
+                        <tr>
+                            <td align="center"><input id="" type="submit" style="background:yellow" value="提交试卷"></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <br>
+                </form>
             </div>
-            <!--订单信息/--> <!--工具栏-->
-            <div class="box-tools text-center">
-                <button type="button" class="btn bg-default"
-                        onclick="history.back(-1);">返回</button>
-            </div>
-            <!--工具栏/--> </section>
-        <!-- 正文区域 /-->
-    </form>
-</div>
+        </div>
+
+
+    </div>
     <!-- 内容区域 /-->
 
     <!-- 底部导航 -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.0
+            <b>Version</b> 1.0.8
         </div>
-        <strong>Copyright &copy; 2019 <a>java4班第二小分队</a>
+        <strong>Copyright &copy; 2014-2017 <a
+                href="http://www.itcast.cn">研究院研发部</a>.
         </strong> All rights reserved.
     </footer>
     <!-- 底部导航 /-->
@@ -288,13 +334,13 @@
 <script
         src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // 选择框
         $(".select2").select2();
 
         // WYSIHTML5编辑器
         $(".textarea").wysihtml5({
-            locale : 'zh-CN'
+            locale: 'zh-CN'
         });
     });
 
@@ -307,7 +353,7 @@
         }
     }
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         // 激活导航位置
         setSidebarActive("admin-index");
     });

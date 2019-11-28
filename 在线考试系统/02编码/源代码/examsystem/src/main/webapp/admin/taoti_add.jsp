@@ -60,39 +60,38 @@
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
-
-    <script  src="/js/jquery.min.js"></script>
-    <script>
-        $(function(){
-            //利用jQuery AJAX加载试卷数据
-            $.ajax({
-                url:'/shijuan/load_data',//请求URL
-                type:'POST',//请求方式
-                dataType:'json', //将从服务器获取的数据处理成JSON格式
-                success:function(data){
-                    //请求成功,data表示从服务获取的数据
-                    console.info(data)
-                    var length=data.length;
-                    if(0==length){
-                        alert("未加载到试卷数据");
-                        return ;
-                    }
-                    var shijuans=data;
-                    for(var index=0;index<length;index++){
-                        var shijuan=shijuans[index];
-                        var sjid=shijuan.sjid;
-                        var sjname=shijuan.sjname;
-                        var optionHTML='<option value="'+sjid+'">'+sjname+'</option>';
-                        $("#sjid-select").append(optionHTML);
-                    }
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    // 请求失败
-                    console.error(errorThrown);
-                }
-            });
-        });
-    </script>
+	<script  src="/js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			//利用jQuery AJAX加载试卷数据
+			$.ajax({
+				url:'/shijuan/load_data',//请求URL
+				type:'POST',//请求方式
+				dataType:'json', //将从服务器获取的数据处理成JSON格式
+				success:function(data){
+					//请求成功,data表示从服务获取的数据
+					console.info(data)
+					var length=data.length;
+					if(0==length){
+						alert("未加载到试卷数据");
+						return ;
+					}
+					var shijuans=data;
+					for(var index=0;index<length;index++){
+						var shijuan=shijuans[index];
+						var sjid=shijuan.sjid;
+						var sjname=shijuan.sjname;
+						var optionHTML='<option value="'+sjid+'">'+sjname+'</option>';
+						$("#sjidselect").append(optionHTML);
+					}
+				},
+				error: function (XMLHttpRequest, textStatus, errorThrown) {
+					// 请求失败
+					console.error(errorThrown);
+				}
+			});
+		});
+	</script>
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
