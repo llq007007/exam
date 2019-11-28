@@ -22,7 +22,7 @@
 
     <update id="updateZy" parameterType="zy">
         update zy set
-         zyname=#{zyname},zyno=#{zyno},zyupdatetime=#{zyupdatetime},zyupdateperson=#{zyupdatetime}
+            zyname=#{zyname},zyno=#{zyno},zyupdatetime=#{zyupdatetime},zyupdateperson=#{zyupdateperson}
          where zyid=#{zyid}
     </update>
     <select id="selectOneZy" parameterType="int" resultType="zy">

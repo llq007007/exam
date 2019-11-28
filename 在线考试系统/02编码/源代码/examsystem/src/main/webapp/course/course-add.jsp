@@ -60,6 +60,7 @@
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -81,13 +82,6 @@
 			<h1>
 				课程管理 <small>课程添加表单</small>
 			</h1>
-			<ol class="breadcrumb">
-				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
-						class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/product/findAll.do">课程管理</a></li>
-				<li class="active">课程表单</li>
-			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -118,16 +112,16 @@
 								   placeholder="任课老师" value="">
 						</div>
 
-						<div class="col-md-2 title">添加时间</div>
-						<div class="col-md-4 data">
-							<div class="input-group date">
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-								<input type="date" class="form-control pull-right"
-									id="添加时间" name="caddtime">
-							</div>
-						</div>
+                        <div class="col-md-2 title">添加时间</div>
+                        <div class="col-md-4 data">
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control"
+                                       id="datepicker-a3" name="caddtime" value="">
+                            </div>
+                        </div>
 
 						<div class="col-md-2 title">添加人</div>
 						<div class="col-md-4 data">

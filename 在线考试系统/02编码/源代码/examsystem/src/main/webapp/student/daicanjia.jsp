@@ -215,38 +215,9 @@
                     <%--<a href="/shijuan/select_shijuan?sjid="${sjid}>进入考试</a>--%>
                 </div>
             </form>
-            <%--  </br>
-              <c:if test="${requestScope.shiTiList!=null}">
-              <c:choose>
-              <c:when test="${empty requestScope.shiTiList}">
-                  <span>未查询到数据</span>
-              </c:when>
-              <c:otherwise>
-              <form action="/shijuan/zuzhi_shijuan">
-
-                  <table width="600" border="1" cellspacing="0" align="center">
-                      <tr>
-                          <th hidden="">试题ID</th>
-                          <th>题目</th>
-                          <th>操作</th>
-                      </tr>
-                      <c:forEach items="${requestScope.shiTiList}" var="test">
-                          <tr>
-                              <input hidden="" value="${test.stid}" name="">
-                              <td>${test.contain}</td>
-                              <td align="center">
-                                  <a href="#" target="_parent">刷新题库</a>
-                              </td>
-                          </tr>
-                      </c:forEach>
-                  </table>
-                  </c:otherwise>
-                  </c:choose>
-                  共查询到:<span style="color: #1f33ff">${fn:length(requestScope.shiTiList)}</span>条记录
-                  </c:if>
-              </form>--%>
-
             <!-- 内容区域 /-->
+        </div>
+    </div>
 
     <!-- 底部导航 -->
     <footer class="main-footer">
@@ -259,7 +230,7 @@
     <!-- 底部导航 /-->
 
 </div>
-    </div>
+
 
     <script
             src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>

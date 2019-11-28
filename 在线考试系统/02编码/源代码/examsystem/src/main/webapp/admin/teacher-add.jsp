@@ -81,13 +81,6 @@
 			<h1>
 				教师管理 <small>教师添加表单</small>
 			</h1>
-			<ol class="breadcrumb">
-				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
-						class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/product/findAll.do">教师管理</a></li>
-				<li class="active">教师表单</li>
-			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -123,8 +116,8 @@
 								<div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								</div>
-								<input type="date" class="form-control pull-right"
-									id="添加时间" name="taddtime">
+								<input type="text" class="form-control pull-right"
+									id="datepicker-a3" name="taddtime" value="">
 							</div>
 						</div>
 

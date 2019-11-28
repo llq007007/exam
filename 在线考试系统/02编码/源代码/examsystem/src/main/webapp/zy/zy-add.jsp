@@ -80,15 +80,8 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 			<h1>
-				专业管理 <small>专业表单</small>
+				专业管理 <small>专业添加表单</small>
 			</h1>
-			<ol class="breadcrumb">
-				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
-						class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/zy/query">专业管理</a></li>
-				<li class="active">专业表单</li>
-			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -99,8 +92,8 @@
 
 				<div class="panel panel-default">
 					<div class="panel-heading">专业管理</div>
-					<div class="row data-type">
 
+					<div class="row data-type">
 						<div class="col-md-2 title">专业代号</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="zyno"

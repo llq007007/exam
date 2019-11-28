@@ -7,7 +7,7 @@
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>数据 - AdminLTE2定制版</title>
+<title>修改专业信息</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -122,13 +122,6 @@
 			<h1>
 				专业管理 <small>专业修改表单</small>
 			</h1>
-			<ol class="breadcrumb">
-				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
-						class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/zy/query">专业管理</a></li>
-				<li class="active">专业表单</li>
-			</ol>
 			</section>
 			<!-- 内容头部 /-->
 

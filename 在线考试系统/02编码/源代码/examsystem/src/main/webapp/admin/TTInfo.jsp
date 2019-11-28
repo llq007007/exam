@@ -174,6 +174,7 @@
                         </table>
                     </c:otherwise>
                 </c:choose>
+                共查询到:<span style="color: #1f33ff">${fn:length(requestScope.sjstList)}</span>条记录
             </c:if>
         </div>
 
@@ -183,11 +184,11 @@
     <!-- 底部导航 -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.8
+            <b>Version</b> 1.0.0
         </div>
-        <strong>Copyright &copy; 2014-2017 <a
-                href="http://www.itcast.cn">研究院研发部</a>.
-        </strong> All rights reserved. </footer>
+        <strong>Copyright &copy; 2019 <a>java4班第二小分队</a>
+        </strong> All rights reserved.
+    </footer>
     <!-- 底部导航 /-->
 
 </div>

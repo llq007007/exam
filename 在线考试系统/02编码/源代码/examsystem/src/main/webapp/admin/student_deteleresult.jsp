@@ -154,7 +154,6 @@
 				</c:otherwise>
 			</c:choose>
 			<a href="/student/tostudent.action">返回查询</a>
-			<a href="/admin/AdminLogin.jsp">返回主页面</a>
 
 		</div>
 		<!-- 内容区域 /-->

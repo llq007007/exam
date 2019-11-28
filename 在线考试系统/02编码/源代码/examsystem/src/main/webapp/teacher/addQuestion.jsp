@@ -216,7 +216,7 @@
                             <input type="text" class="form-control" name="degree"
                                    placeholder="试题分值" value="5" readonly>
                             </div>
-                        <div class="col-md-2 title">出题老师</div>
+                        <div class="col-md-2 title">出题老师ID</div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="tid"
                                    placeholder="出题老师" value="">

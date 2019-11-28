@@ -83,13 +83,6 @@
 			<h1>
 				课程管理 <small>课程查看表单</small>
 			</h1>
-			<ol class="breadcrumb">
-				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
-						class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/product/findAll.do">课程管理</a></li>
-				<li class="active">课程表单</li>
-			</ol>
 			</section>
 			<!-- 内容头部 /-->
 

@@ -114,13 +114,6 @@
 			<h1>
 				学生管理 <small>学生添加表单</small>
 			</h1>
-			<ol class="breadcrumb">
-				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
-						class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/product/findAll.do">学生管理</a></li>
-				<li class="active">学生表单</li>
-			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -157,28 +150,11 @@
                                    placeholder="密码" value="111111">
                         </div>
 
-						<%--<div class="col-md-2 title">修改时间</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<div class="input-group date">--%>
-								<%--<div class="input-group-addon">--%>
-									<%--<i class="fa fa-calendar"></i>--%>
-								<%--</div>--%>
-								<%--<input type="date" class="form-control pull-right"--%>
-									   <%--id="修改时间" name="supdatetime">--%>
-							<%--</div>--%>
-						<%--</div>--%>
-
 						<div class="col-md-2 title">添加人</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="saddperson"
 								placeholder="添加人" value="">
 						</div>
-
-						<%--<div class="col-md-2 title">修改人</div>--%>
-						<%--<div class="col-md-4 data">--%>
-							<%--<input type="text" class="form-control" name="supdateperson"--%>
-								   <%--placeholder="修改人" value="">--%>
-						<%--</div>--%>
 
                         <div class="col-md-2 title">备注</div>
                         <div class="col-md-4 data">
@@ -191,8 +167,6 @@
 				<!--订单信息/--> <!--工具栏-->
 				<div class="box-tools text-center">
 					<button type="submit" class="btn bg-maroon">确认</button>
-					<%--<button type="button" class="btn bg-default"
-						onclick="history.back(-1);">返回</button>--%>
 				</div>
 				<!--工具栏/--> </section>
 				<!-- 正文区域 /-->

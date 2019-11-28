@@ -137,7 +137,7 @@
 								<div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								</div>
-								<input type="date" class="form-control pull-right"
+								<input type="text" class="form-control pull-right"
 									id="添加时间" name="ttaddtime">
 							</div>
 						</div>

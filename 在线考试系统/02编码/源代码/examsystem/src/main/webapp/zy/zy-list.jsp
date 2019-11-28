@@ -166,16 +166,11 @@
 		<div class="content-wrapper">
 
 			<!-- 内容头部 -->
-			<section class="content-header">
-				<h1>
-					数据管理 <small>数据列表</small>
-				</h1>
-				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">数据管理</a></li>
-					<li class="active">数据列表</li>
-				</ol>
-			</section>
+            <section class="content-header">
+                <h1>
+                    专业管理 <small>专业查询表单</small>
+                </h1>
+            </section>
 			<!-- 内容头部 /-->
 
 			<!-- 正文区域 -->
@@ -194,11 +189,11 @@
 
 
 							<div class="box-tools pull-right">
-								<div class="has-feedback">
-									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
-										class="glyphicon glyphicon-search form-control-feedback"></span>
-								</div>
+								<%--<div class="has-feedback">--%>
+									<%--<input type="text" class="form-control input-sm"--%>
+										<%--placeholder="搜索"> <span--%>
+										<%--class="glyphicon glyphicon-search form-control-feedback"></span>--%>
+								<%--</div>--%>
 							</div>
 							<!--工具栏/-->
 
@@ -258,42 +253,6 @@
 
 							</table>
 							<!--数据列表/-->
-                            <ul class="pagination">
-                                <c:choose>
-                                    <c:when test="${1==requestScope.page.page}">
-                                        <li class="disabled"><a   href="#">&laquo;</a></li>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <li><a   href="#" onclick="gotoPage(${requestScope.page.page-1})">&laquo;</a></li>
-                                    </c:otherwise>
-                                </c:choose>
-
-                                <c:forEach begin="${requestScope.page.min}" step="1" end="${requestScope.page.max}" var="pageNo">
-                                    <c:choose>
-
-                                        <c:when test="${pageNo==requestScope.page.page}">
-                                            <!-- 当前页高亮显示-->
-                                            <li class="active"><a href="#" onclick="gotoPage(${pageNo})">${pageNo}</a></li>
-                                        </c:when>
-                                        <c:when test="${pageNo>requestScope.page.pageCount}">
-                                            <!-- pageNo超出当前最大页数-->
-                                            <li class="disabled"><a   href="#">${pageNo}</a></li>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <li ><a href="#" onclick="gotoPage(${requestScope.page.page+1})">${pageNo}</a></li>
-                                        </c:otherwise>
-
-                                    </c:choose>
-                                </c:forEach>
-                                <c:choose>
-                                    <c:when test="${requestScope.page.pageCount==requestScope.page.page}">
-                                        <li class="disabled"><a   href="#">&raquo;</a></li>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <li><a   href="#" onclick="gotoPage(${requestScope.page.page+1})">&raquo;</a></li>
-                                    </c:otherwise>
-                                </c:choose>
-                            </ul>
 
 						</div>
 						<!-- 数据表格 /-->

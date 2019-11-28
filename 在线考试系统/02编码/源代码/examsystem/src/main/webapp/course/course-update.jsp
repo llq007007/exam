@@ -116,13 +116,6 @@
 			<h1>
 				课程管理 <small>课程修改表单</small>
 			</h1>
-			<ol class="breadcrumb">
-				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
-						class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/product/findAll.do">课程管理</a></li>
-				<li class="active">课程表单</li>
-			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -136,20 +129,17 @@
 
 						<div class="col-md-2 title">课程名称</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="cname"
-								>
+							<input type="text" class="form-control" name="cname">
 						</div>
 
 						<div class="col-md-2 title">专业名称</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="zyname"
-								   >
+							<input type="text" class="form-control" name="zyname">
 						</div>
 
 						<div class="col-md-2 title">任课老师</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="tname"
-								   >
+							<input type="text" class="form-control" name="tname">
 						</div>
 
 						<div class="col-md-2 title">添加时间</div>
@@ -163,25 +153,22 @@
 							</div>
 						</div>
 
-						<div class="col-md-2 title">修改时间</div>
-						<div class="col-md-4 data">
-							<div class="input-group date">
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-								<input type="date" class="form-control pull-right"
-									    name="cupdatetime" required>
-							</div>
-						</div>
-
+                        <div class="col-md-2 title">修改时间</div>
+                        <div class="col-md-4 data">
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right"
+                                       id="datepicker-a3" name="cupdatetime"  required >
+                            </div>
+                        </div>
 
 						<div class="col-md-2 title">添加人</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="caddperson"
 								 >
 						</div>
-
-
 
 						<div class="col-md-2 title">修改人</div>
 						<div class="col-md-4 data">
