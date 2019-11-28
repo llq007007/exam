@@ -234,13 +234,8 @@
 															onclick="location.href='${pageContext.request.contextPath}/zy/zy-add.jsp'">
 														<i class="fa fa-file-o"></i> 新建
 													</button>
-													<button type="button" class="btn btn-default" title="删除"
-															onclick="deleteZy(${zy.zyid},'${zy.zyname}')">
-														<i class="fa fa-trash-o"></i> 删除
-													</button>
 													<button type="button" class="btn btn-default" title="修改"
 															onclick="location.href='${pageContext.request.contextPath}/zy/zy-update.jsp?zyid=${zy.zyid}'">
-
 														<i class="fa fa-check"></i> 修改
 													</button>
 

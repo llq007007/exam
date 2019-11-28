@@ -127,7 +127,7 @@
 
 						<div class="col-md-2 title">试卷ID</div>
 						<div class="col-md-4 data">
-							<select type="text" class="form-control" name="sjid" id="sjid-select"
+							<select type="text" class="form-control" name="sjid" id="sjidselect"
                                     placeholder="试卷ID" value=""></select>
 						</div>
 

@@ -43,7 +43,7 @@
         <c:when test="${1==requestScope.rows}">
             <script>
                 alert("注册成功，返回登陆");
-                window.location.href="AdminLogin.jsp"
+                window.location.href="/admin/AdminLogin.jsp"
             </script>
         </c:when>
         <c:when test="${-1==requestScope.rows}">

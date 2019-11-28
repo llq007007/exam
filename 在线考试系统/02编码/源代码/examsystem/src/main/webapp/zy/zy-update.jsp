@@ -144,17 +144,6 @@
 							<input type="text" class="form-control" name="zyname">
 						</div>
 
-						<div class="col-md-2 title">修改时间</div>
-						<div class="col-md-4 data">
-							<div class="input-group date">
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-								<input type="text" class="form-control pull-right"
-									id="datepicker-a3" name="zyupdatetime"  required >
-							</div>
-						</div>
-
 
 						<div class="col-md-2 title">修改人</div>
 						<div class="col-md-4 data">
