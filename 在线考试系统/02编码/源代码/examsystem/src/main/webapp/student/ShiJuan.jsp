@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -126,45 +126,46 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
     <script type="text/javascript">
-        $(function(){
-            show_time(2*60);
-            $("#submi").click(function(){
+        $(function () {
+            show_time(2 * 60);
+            $("#submi").click(function () {
                 var b = checkIfselected();
-                if(b==false){
+                if (b == false) {
                     return false;
                 }
-                var flag=confirm("确定要交卷吗？");
-                if(flag){
+                var flag = confirm("确定要交卷吗？");
+                if (flag) {
                     return true;
-                }else{
+                } else {
                     return false;
                 }
             })
         })
-        function show_time(totalTime){
-            if(totalTime==0){
+
+        function show_time(totalTime) {
+            if (totalTime == 0) {
                 alert("考试时间结束！系统将会自动提交试卷！");
-                $("form").submit(function(){
+                $("form").submit(function () {
                     checkIfselected();
                 });
                 return false;
             }
-            var remainTime=totalTime-1;
-            var min = remainTime/60;
-            min=parseInt(min);
-            var s=remainTime%60;
-            if(s<10){
-                s="0"+s;
+            var remainTime = totalTime - 1;
+            var min = remainTime / 60;
+            min = parseInt(min);
+            var s = remainTime % 60;
+            if (s < 10) {
+                s = "0" + s;
             }
-            var str="0"+min+":"+s;
+            var str = "0" + min + ":" + s;
             $("#sp4").text(str);
-            setTimeout("show_time("+remainTime+")",1000);
+            setTimeout("show_time(" + remainTime + ")", 1000);
         }
 
-        function checkIfselected(){
+        function checkIfselected() {
             var size = $("input:checkbox:checked").size();
             var size2 = $("input:radio:checked").size();
-            if(size<1 && size2<1){
+            if (size < 1 && size2 < 1) {
                 alert("请至少做一道吧，同学！");
                 return false;
             }
@@ -196,25 +197,31 @@
         <div data-options="region:'center'">
             <br>
             <div style="margin-top:2%;font-size:15px">
-                <form action="#" method="post">
+                <form action="/shijuan/chengji" method="post">
                     <table cellpadding="20px">
+                        <input style="display: none" type="text" name="sjid" value="${sjid}">
                         <c:forEach items="${requestScope.sjstList}" var="st">
                             <c:if test="${st.type1=='选择'}">
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;${st.contain}<br><br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="answerMap[12]" value="A">A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="answerMap[12]" value="B">B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="answerMap[12]" value="C">C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="answerMap[12]" value="D">D
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"
+                                                                                               name="${st.stid}"
+                                                                                               value="A">A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="${st.stid}" value="B">B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="${st.stid}" value="C">C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="${st.stid}" value="D">D
                                     </td>
                                 </tr>
                             </c:if>
+                            <c:if test="${st.type1!='选择'}">
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;${st.contain}<br><br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="" value="是">是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="" value="否">否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"
+                                                                                               name="${st.stid}" value="是">是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="${st.stid}" value="否">否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </td>
                                 </tr>
+                            </c:if>
                         </c:forEach>
                         <tr>
                             <td align="center"><input id="" type="submit" style="background:yellow" value="提交试卷"></td>
@@ -237,7 +244,8 @@
         </div>
         <strong>Copyright &copy; 2014-2017 <a
                 href="http://www.itcast.cn">研究院研发部</a>.
-        </strong> All rights reserved. </footer>
+        </strong> All rights reserved.
+    </footer>
     <!-- 底部导航 /-->
 
 </div>
@@ -326,13 +334,13 @@
 <script
         src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // 选择框
         $(".select2").select2();
 
         // WYSIHTML5编辑器
         $(".textarea").wysihtml5({
-            locale : 'zh-CN'
+            locale: 'zh-CN'
         });
     });
 
@@ -345,7 +353,7 @@
         }
     }
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         // 激活导航位置
         setSidebarActive("admin-index");
     });

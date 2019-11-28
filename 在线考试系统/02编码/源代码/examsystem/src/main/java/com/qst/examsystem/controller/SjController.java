@@ -2,10 +2,7 @@ package com.qst.examsystem.controller;
 
 import com.qst.examsystem.dao.ISjDao;
 import com.qst.examsystem.entity.*;
-import com.qst.examsystem.service.IKsService;
-import com.qst.examsystem.service.ISjService;
-import com.qst.examsystem.service.ISjstService;
-import com.qst.examsystem.service.ITeacherService;
+import com.qst.examsystem.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -15,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +29,12 @@ public class SjController {
      ISjstService sjstService;
     @Autowired
     IKsService ksService;
+    @Autowired
+    IKsdaService ksdaService;
+    @Autowired
+    ITestquestionService testquestionService;
+    @Autowired
+    IDjService djService;
     /**
      * 生成试卷
      * @param cid 课程id
@@ -75,17 +79,62 @@ public class SjController {
         model.addAttribute("sjstList",sjstList);
         return "/teacher/ShiJuanInfo.jsp";
     }
+    @RequestMapping(value="getSTInfo2")
+    public String querySJSTData2(Model model,HttpServletRequest request) {
+        int sjid=Integer.parseInt(request.getParameter("sjid"));
+        List<Testquestion> sjstList = sjstService.querySJST(sjid);
+        model.addAttribute("sjstList",sjstList);
+        return "/admin/TTInfo.jsp";
+    }
     @RequestMapping(value="jiazaishijuan")
     public String jiazaishijuan(int sjid,Model model,HttpSession session) {
         Student student=(Student) session.getAttribute("student");
+        model.addAttribute("sjid",sjid);
         int zyid=student.getZyid();
         int zyid1=ksService.selectKSsjid(sjid).getZyid();
         if (zyid==zyid1){
             List<Testquestion> sjstList = sjstService.querySJST(sjid);
+            List list=new ArrayList<>();
+            for(int i=0;i<sjstList.size();i++){
+                int stid=sjstList.get(i).getStid();
+                list.add(stid);
+            }
+            session.setAttribute("stidList",list);
             model.addAttribute("sjstList",sjstList);
             return "/student/ShiJuan.jsp";
         }else {
             return "/student/jiazaishijuanresult.jsp";
         }
     }
+    @RequestMapping(value="chengji")
+    public String jisuanchengji(HttpServletRequest request,int sjid,Model model,HttpSession session) {
+        List<Testquestion> sjstList = sjstService.querySJST(sjid);
+        model.addAttribute("sjstList",sjstList);
+        Ksda ksda =new Ksda();
+//        计算分数
+        int sum=0;
+        List<Integer> list=new ArrayList<>();
+        list=(List<Integer>)session.getAttribute("stidList");
+        for(int i=0;i<list.size();i++){
+            String anwser=request.getParameter(""+list.get(i));
+            ksda.setDacontain(anwser);
+            ksda.setStid(list.get(i));
+            int khid=((Student)session.getAttribute("student")).getKhid();
+            ksda.setKhid(khid);
+            ksdaService.insetKsda(ksda);
+            String answer2=testquestionService.getQuestionInfo(list.get(i)).getAnswer();
+            if (answer2.equals(anwser)){
+                sum+=5;
+            }
+        }
+        int khid=((Student)session.getAttribute("student")).getKhid();
+        Dj dj=new Dj();
+        dj.setKhid(khid);
+        dj.setSjid(sjid);
+        dj.setScore(sum);
+        System.out.println(dj);
+        djService.insertDj(dj);
+        return "/student/kaoshi_result.jsp?sum="+sum;
+    }
+
 }

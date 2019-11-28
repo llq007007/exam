@@ -178,8 +178,8 @@
         <div class="col-md-4 data">
             <form action="/Teacher/query_avg_score" method="post">
                 <div>
-                    <select type="text" class="form-control" name="sjname" id="sjname-select"
-                            placeholder="试卷" ></select>
+                    <input type="text" class="form-control" name="sjname"
+                            placeholder="试卷" ></input>
                 </div>
                 <div>
                     <input type="submit" >
@@ -196,10 +196,7 @@
                     <c:otherwise>
                         <table width="600" border="1" cellspacing="0" align="center">
                             <tr>
-                                <th>专业名称</th>
-                                <th>姓名</th>
                                 <th>考试名称</th>
-                                <th>成绩</th>
                                 <th>平均成绩</th>
                             </tr>
                             <c:forEach items="${requestScope.scoreList}" var="test">

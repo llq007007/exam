@@ -141,7 +141,7 @@
 									<td >
                                         <a href="#" onclick="deleteTaoti(${taoti.ttid})">删除</a>
                                         &nbsp;&nbsp;
-										<a href=/course/course-update.jsp?cid=${course.cid}" target="_blank">查看试题</a>
+										<a href="/shijuan/getSTInfo2?sjid=${taoti.sjid}" >查看试题</a>
 									</td>
 								</div>
 								</tr>
